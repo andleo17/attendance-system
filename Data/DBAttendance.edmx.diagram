@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d9fabfe92375418ca109a0a95f6c23cd" Name="Diagram1">
+        <EntityTypeShape EntityType="DBAttendanceModel.Attendance" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.Contract" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.Employee" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.Justification" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.License" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.LicenseType" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.Permission" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.Schedule" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.ScheduleDetail" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAttendanceModel.User" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <AssociationConnector Association="DBAttendanceModel.FK__Attendanc__Emplo__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__Justifica__Atten__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__Contract__Employ__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__License__Employe__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__Permissio__Emplo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__Schedule__Employ__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__User__EmployeeCa__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__License__License__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAttendanceModel.FK__ScheduleD__Sched__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

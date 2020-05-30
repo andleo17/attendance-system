@@ -97,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="FrmEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,11 +109,18 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FrmEmployee.xaml.vb">
+      <DependentUpon>FrmEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.xaml.vb">
       <DependentUpon>FrmLogin.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="FrmMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,6 +147,9 @@
   <ItemGroup>
     <Compile Include="FrmMain.xaml.vb">
       <DependentUpon>FrmMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUser.xaml.vb">
+      <DependentUpon>FrmUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb">
       <SubType>Code</SubType>
@@ -189,6 +203,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fuerza_popular.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1ad41039d17f6dd346059c822dd76e4c1555353860_full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Genji-Ultimate-Icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,0 +1,68 @@
+﻿<Page x:Class="FrmUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FrmUser" Background="White" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Name="Form">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="DNI:"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Empleado:"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Código:"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Nombre:"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Contraseña:"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPassword"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:"/>
+            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Estado:"/>
+            <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="Registrar" Name="BtnSave"/>
+            <Button Grid.Row="1" Content="Modificar" Name="BtnUpdate"/>
+            <Button Grid.Row="2" Content="Eliminar" Name="BtnDelete"/>
+        </Grid>
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="UserList" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Contraseña" Width="1*" Binding="{Binding Path=Password}"/>
+                <DataGridTextColumn Header="DNI" Width="1*" Binding="{Binding Path=EmployeeCardId}"/>
+                <DataGridTextColumn Header="Vigencia" Width="1*" Binding="{Binding Path=State}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

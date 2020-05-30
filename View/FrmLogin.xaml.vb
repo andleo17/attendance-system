@@ -5,12 +5,11 @@ Class FrmLogin
 
     Private Sub BtnLogin_Click(sender As Object, e As RoutedEventArgs) Handles BtnLogin.Click
         Try
-            _User = New UserDA().Login(TxtUser.Text, TxtPassword.Password)
+            _User = UserDA.Login(TxtUser.Text, TxtPassword.Password)
             MessageBox.Show("Bienvenido " + _User.Employee.Name)
             Close()
         Catch ex As Exception
-            'MessageBox.Show("Credenciales incorrectas")
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Credenciales incorrectas")
         End Try
     End Sub
 

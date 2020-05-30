@@ -80,8 +80,6 @@
     <Compile Include="Attendance.vb">
       <DependentUpon>DBAttendance.tt</DependentUpon>
     </Compile>
-    <Compile Include="clsConectaBD.vb" />
-    <Compile Include="clsMantenimiento.vb" />
     <Compile Include="Contract.vb">
       <DependentUpon>DBAttendance.tt</DependentUpon>
     </Compile>

@@ -5,51 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MdiPrincipal" Height="450" Width="800" Loaded="Window_Loaded" WindowState="Maximized">
+        Title="MdiPrincipal" Height="450" Width="800" Loaded="Window_Loaded" WindowState="Maximized" Background="#FF36393F" Foreground="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="105*"/>
+            <RowDefinition Height="304*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.Column="0">
-            <MenuItem Header="Mantenimiento">
-                <MenuItem Header="Parámetros"/>
-                <MenuItem Header="Tipo de licencia"/>
-                <Separator/>
-                <MenuItem Name="MnuLogout" Header="Cerrar sesión"/>
-            </MenuItem>
-            <MenuItem Header="Empleado">
-                <MenuItem Header="Gestionar"/>
-                <MenuItem Header="Contratos"/>
-                <Separator/>
-                <MenuItem Header="Horarios"/>
-                <Separator/>
-                <MenuItem Header="Usuarios"/>
-            </MenuItem>
-            <MenuItem Header="Operaciones">
-                <MenuItem Header="Asistencias"/>
-                <Separator/>
-                <MenuItem Header="Justificaciones"/>
-                <MenuItem Header="Permisos"/>
-                <MenuItem Header="Licencias"/>
-            </MenuItem>
-            <MenuItem Header="Consultas y reportes">
-                <MenuItem Header="Consolidado de asistencia mensual"/>
-                <MenuItem Header="Reporte de faltas y tardanzas"/>
-                <MenuItem Header="Reporte de licencias"/>
-            </MenuItem>
-            <MenuItem Header="Ver"></MenuItem>
-            <MenuItem Header="Ventanas"></MenuItem>
-            <MenuItem Header="Ayuda"></MenuItem>
-        </Menu>
-        <Frame Grid.Row="1" Grid.Column="0">
-            
-        </Frame>
-        <Grid Grid.Row="2" Grid.Column="0">
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Menu Grid.Row="0" Grid.Column="0" Background="#FF2F3136" Foreground="#FF8E9297" FontSize="16">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem Header="Mantenimiento" Height="32">
+                    <MenuItem Header="Parámetros"/>
+                    <MenuItem Header="Tipo de licencia"/>
+                    <Separator/>
+                    <MenuItem Name="MnuLogout" Header="Cerrar sesión"/>
+                </MenuItem>
+                <MenuItem Header="Empleado" Height="32">
+                    <MenuItem Header="Gestionar" Name="BtnFrmEmployee"/>
+                    <MenuItem Header="Contratos"/>
+                    <Separator/>
+                    <MenuItem Header="Horarios"/>
+                    <Separator/>
+                    <MenuItem Header="Usuarios"/>
+                </MenuItem>
+                <MenuItem Header="Operaciones" Height="32" >
+                    <MenuItem Header="Asistencias"/>
+                    <Separator/>
+                    <MenuItem Header="Justificaciones"/>
+                    <MenuItem Header="Permisos"/>
+                    <MenuItem Header="Licencias"/>
+                </MenuItem>
+                <MenuItem Header="Consultas y reportes" Height="32" >
+                    <MenuItem Header="Consolidado de asistencia mensual"/>
+                    <MenuItem Header="Reporte de faltas y tardanzas"/>
+                    <MenuItem Header="Reporte de licencias"/>
+                </MenuItem>
+                <MenuItem Header="Ver" Height="32"></MenuItem>
+                <MenuItem Header="Ventanas" Height="32"></MenuItem>
+                <MenuItem Header="Ayuda" Height="32"></MenuItem>
+            </Menu>
+            <Border Grid.Row="1" Grid.Column="0" Padding="8,3" Background="#FF292B2F">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" Width="40" Height="40" CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Genji-Ultimate-Icon.jpg"/>
+                        </Border.Background>
+                    </Border>
+                    <Label Grid.Row="0" Grid.Column="1" Name="LblEmployee" VerticalAlignment="Center" Content="Nombre de usuario" Foreground="White" FontFamily="Segoe UI Semibold" FontSize="14"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <Frame Grid.Row="1" Grid.Column="1" Name="FrmContent" Grid.RowSpan="2"/>
+        <Grid Grid.Row="0" Grid.Column="1" Background="#FFC3C3C3">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -57,17 +87,6 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Empleado"/>
-                <Label Grid.Row="0" Grid.Column="1" Name="LblEmployee"/>
-            </Grid>
             <Label Grid.Row="0" Grid.Column="1" Name="LblTimer" HorizontalAlignment="Right"></Label>
         </Grid>
     </Grid>

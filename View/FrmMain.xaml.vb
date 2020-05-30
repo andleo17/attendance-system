@@ -21,7 +21,7 @@ Public Class MdiPrincipal
     End Sub
 
     Private Sub TickEvent(sender As Object, e As EventArgs) Handles Timer.Tick
-        LblTimer.Content = Date.Now.ToString("HH:mm:ss")
+        LblTimer.Content = Date.Now.ToString("dddd, dd \de MMMM \del yyyy HH:mm:ss")
     End Sub
 
     Private Sub ShowLoginForm()
@@ -48,12 +48,20 @@ Public Class MdiPrincipal
         ShowLoginForm()
     End Sub
 
+    Private Sub ShowFrame(Frame As Page)
+        FrmContent.Content = Frame
+    End Sub
+
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         InitClock()
-        ShowLoginForm()
+        'ShowLoginForm()
     End Sub
 
     Private Sub MnuLogout_Click(sender As Object, e As RoutedEventArgs) Handles MnuLogout.Click
         Logout()
+    End Sub
+
+    Private Sub BtnFrmEmployee_Click(sender As Object, e As RoutedEventArgs) Handles BtnFrmEmployee.Click
+        ShowFrame(New FrmEmployee())
     End Sub
 End Class

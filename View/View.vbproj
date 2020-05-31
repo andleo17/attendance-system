@@ -97,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="FrmConsultarAsistencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +113,9 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FrmConsultarAsistencia.xaml.vb">
+      <DependentUpon>FrmConsultarAsistencia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmEmployee.xaml.vb">
       <DependentUpon>FrmEmployee.xaml</DependentUpon>
     </Compile>
@@ -117,6 +124,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="FrmMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmPermisos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +158,9 @@
   <ItemGroup>
     <Compile Include="FrmMain.xaml.vb">
       <DependentUpon>FrmMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPermisos.xaml.vb">
+      <DependentUpon>FrmPermisos.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmUser.xaml.vb">
       <DependentUpon>FrmUser.xaml</DependentUpon>
@@ -212,6 +226,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Genji-Ultimate-Icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LUPA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

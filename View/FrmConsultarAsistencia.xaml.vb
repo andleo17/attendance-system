@@ -1,0 +1,3 @@
+﻿Class FrmConsultarAsistencia
+
+End Class

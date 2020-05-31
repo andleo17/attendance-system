@@ -64,4 +64,12 @@ Public Class MdiPrincipal
     Private Sub BtnFrmEmployee_Click(sender As Object, e As RoutedEventArgs) Handles BtnFrmEmployee.Click
         ShowFrame(New FrmEmployee())
     End Sub
+
+    Private Sub MenuItem_Click(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MenuItem_Click_1(sender As Object, e As RoutedEventArgs)
+
+    End Sub
 End Class

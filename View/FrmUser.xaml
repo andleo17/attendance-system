@@ -7,55 +7,56 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FrmUser" Background="White" Loaded="Page_Loaded">
-    <Grid>
+    <Grid Background="#FF2F3136">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Name="Form">
+        <Grid Grid.Row="1" Grid.Column="0" Name="Form" Margin="20,20,0,0.2" >
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="DNI:"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Empleado:"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Código:"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Nombre:"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="Contraseña:"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPassword"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:"/>
-            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="Estado:"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="DNI:" Foreground="White" Padding="5,5,5,6.5"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Empleado:" Foreground="White"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Código:" Foreground="White"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Nombre:" Foreground="White"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName" Margin="0,0,0,5"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Contraseña:" Foreground="White"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:" Foreground="White"/>
+            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Estado:" Foreground="White"/>
             <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState"/>
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="20,20,20,0.2" >
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Content="Registrar" Name="BtnSave"/>
-            <Button Grid.Row="1" Content="Modificar" Name="BtnUpdate"/>
-            <Button Grid.Row="2" Content="Eliminar" Name="BtnDelete"/>
+            <Button Grid.Row="0" Content="Registrar" Name="BtnSave" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>
+            <Button Grid.Row="1" Content="Modificar" Name="BtnUpdate" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>
+            <Button Grid.Row="2" Content="Eliminar" Name="BtnDelete" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>
         </Grid>
-        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="UserList" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Name="UserList" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}"/>
                 <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Path=Name}"/>
@@ -64,5 +65,6 @@
                 <DataGridTextColumn Header="Vigencia" Width="1*" Binding="{Binding Path=State}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="GESTIONAR USUARIO"  Grid.ColumnSpan="2" Background="#FF6BE54C" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
     </Grid>
 </Page>

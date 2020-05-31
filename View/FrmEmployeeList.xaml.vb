@@ -5,7 +5,6 @@ Class FrmEmployeeList
     Private Sub ShowEmployeesList()
         Try
             EmployeeList.ItemsSource = EmployeeDA.List()
-            Dim e = EmployeeList.SelectedItem
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

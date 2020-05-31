@@ -2,7 +2,8 @@
 Imports Server
 
 Class FrmEmployeeForm
-    Property SelectedEmployee As Employee
+    Public Property SelectedEmployee As Employee
+    Public Property Mode As Integer
 
     Private Function GetEmployeeData(Employee As Employee) As Employee
         Employee.CardId = TxtCardId.Text
@@ -30,11 +31,7 @@ Class FrmEmployeeForm
     End Sub
 
     Private Sub ShowEmployee()
-        Try
-            ShowEmployeeData(SelectedEmployee)
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        ShowEmployeeData(SelectedEmployee)
     End Sub
 
     Private Sub SaveEmployee()
@@ -57,16 +54,23 @@ Class FrmEmployeeForm
         End If
     End Sub
 
-    Private Sub DeleteEmployee()
-        If SelectedEmployee IsNot Nothing Then
-            EmployeeDA.Delete(SelectedEmployee)
-            MessageBox.Show("Empleado eliminado correctamente")
-        Else
-            MessageBox.Show("Por favor seleccione un empleado")
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles Button.Click
+        If Mode.Equals(0) Then
+            SaveEmployee()
+        ElseIf Mode.Equals(1) Then
+            UpdateEmployee()
         End If
     End Sub
 
-    Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles Button.Click
-        SaveEmployee()
+    Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+        If Mode.Equals(0) Then
+            Button.Content = "REGISTRAR"
+        ElseIf Mode.Equals(1) Then
+            Button.Content = "GUARDAR"
+            ShowEmployee()
+        ElseIf Mode.Equals(2) Then
+            Button.Content = "VOLVER"
+            ShowEmployee()
+        End If
     End Sub
 End Class

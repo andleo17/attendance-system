@@ -34,13 +34,24 @@ Public Class EmployeeDA
         End Using
     End Sub
 
+    Public Shared Sub Down(Employee As Employee)
+        Using DB = New DBAttendanceEntities()
+            Try
+                Employee = DB.Employee.Find(Employee.CardId)
+                Employee.State = False
+                DB.SaveChanges()
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+    End Sub
+
     Public Shared Sub Delete(Employee As Employee)
         Using DB = New DBAttendanceEntities()
             Try
                 Employee = DB.Employee.Find(Employee.CardId)
-                Dim LA = DB.Attendance.Where(Function(A) A.Employee.CardId.Equals(Employee.CardId))
-                Dim ListaAsistencia = From A In DB.Attendance Where A.Employee.CardId Is Employee.CardId Select A
-                If ListaAsistencia.Count > 0 Then
+                Dim AttendancesList = From A In DB.Attendance Where A.Employee.CardId Is Employee.CardId Select A
+                If AttendancesList.Count > 0 Then
                     Employee.State = False
                 Else
                     DB.Employee.Remove(Employee)

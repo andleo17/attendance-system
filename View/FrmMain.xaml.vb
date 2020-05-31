@@ -54,7 +54,7 @@ Public Class MdiPrincipal
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         InitClock()
-        'ShowLoginForm()
+        ShowLoginForm()
     End Sub
 
     Private Sub MnuLogout_Click(sender As Object, e As RoutedEventArgs) Handles MnuLogout.Click

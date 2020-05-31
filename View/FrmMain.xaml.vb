@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Threading
 
-Public Class MdiPrincipal
+Public Class FrmMain
     Private _User As Data.User
     Private WithEvents Timer As DispatcherTimer
 
@@ -45,7 +45,7 @@ Public Class MdiPrincipal
 
     Private Sub Logout()
         ClearUserData()
-        ShowLoginForm()
+        'ShowLoginForm()
     End Sub
 
     Private Sub ShowFrame(Frame As Page)

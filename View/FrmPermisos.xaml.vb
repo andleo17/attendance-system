@@ -1,0 +1,3 @@
+﻿Class FrmPermisos
+
+End Class

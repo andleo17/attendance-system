@@ -21,4 +21,8 @@ Class FrmLogin
             _User = value
         End Set
     End Property
+
+    Private Sub TxtUser_TextChanged(sender As Object, e As TextChangedEventArgs) Handles TxtUser.TextChanged
+
+    End Sub
 End Class

@@ -31,7 +31,6 @@ Partial Public Class DBAttendanceEntities
     Public Overridable Property Permission() As DbSet(Of Permission)
     Public Overridable Property Schedule() As DbSet(Of Schedule)
     Public Overridable Property ScheduleDetail() As DbSet(Of ScheduleDetail)
-    Public Overridable Property sysdiagrams() As DbSet(Of sysdiagrams)
     Public Overridable Property User() As DbSet(Of User)
 
 End Class

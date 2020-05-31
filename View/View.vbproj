@@ -97,7 +97,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EmployeeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmEmployeeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmEmployeeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmJustification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,8 +125,20 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EmployeeControl.xaml.vb">
+      <DependentUpon>EmployeeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmEmployee.xaml.vb">
       <DependentUpon>FrmEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployeeForm.xaml.vb">
+      <DependentUpon>FrmEmployeeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployeeList.xaml.vb">
+      <DependentUpon>FrmEmployeeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmJustification.xaml.vb">
+      <DependentUpon>FrmJustification.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.xaml.vb">
       <DependentUpon>FrmLogin.xaml</DependentUpon>

@@ -38,7 +38,13 @@ Public Class EmployeeDA
         Using DB = New DBAttendanceEntities()
             Try
                 Employee = DB.Employee.Find(Employee.CardId)
-                DB.Employee.Remove(Employee)
+                Dim LA = DB.Attendance.Where(Function(A) A.Employee.CardId.Equals(Employee.CardId))
+                Dim ListaAsistencia = From A In DB.Attendance Where A.Employee.CardId Is Employee.CardId Select A
+                If ListaAsistencia.Count > 0 Then
+                    Employee.State = False
+                Else
+                    DB.Employee.Remove(Employee)
+                End If
                 DB.SaveChanges()
             Catch ex As Exception
                 Throw ex

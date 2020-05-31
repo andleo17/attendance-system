@@ -61,7 +61,15 @@ Public Class MdiPrincipal
         Logout()
     End Sub
 
-    Private Sub BtnFrmEmployee_Click(sender As Object, e As RoutedEventArgs) Handles BtnFrmEmployee.Click
-        ShowFrame(New FrmEmployee())
+    Private Sub MnuEmployee_Click(sender As Object, e As RoutedEventArgs) Handles MnuEmployee.Click
+        ShowFrame(New FrmEmployee)
+    End Sub
+
+    Private Sub MnuUsers_Click(sender As Object, e As RoutedEventArgs) Handles MnuUsers.Click
+        ShowFrame(New FrmUser)
+    End Sub
+
+    Private Sub MnuJustification_Click(sender As Object, e As RoutedEventArgs) Handles MnuJustification.Click
+        ShowFrame(New FrmJustification)
     End Sub
 End Class

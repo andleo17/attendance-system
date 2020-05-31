@@ -5,7 +5,25 @@ Class FrmEmployeeForm
     Public Property SelectedEmployee As Employee
     Public Property Mode As Integer
 
-    Private Function GetEmployeeData(Employee As Employee) As Employee
+    Private Sub Back()
+        NavigationService.GetNavigationService(Me).GoBack()
+    End Sub
+
+    Private Sub DisableFields()
+        TxtCardId.IsEnabled = False
+        If Mode.Equals(2) Then
+            TxtAddress.IsEnabled = False
+            TxtCardId.IsEnabled = False
+            TxtEmail.IsEnabled = False
+            TxtLastname.IsEnabled = False
+            TxtName.IsEnabled = False
+            TxtPhone.IsEnabled = False
+            CboGenre.IsEnabled = False
+            ChkState.IsEnabled = False
+        End If
+    End Sub
+
+    Private Function SetEmployeeData(Employee As Employee) As Employee
         Employee.CardId = TxtCardId.Text
         Employee.Name = TxtName.Text
         Employee.Lastname = TxtLastname.Text
@@ -17,41 +35,34 @@ Class FrmEmployeeForm
         Return Employee
     End Function
 
-    Private Sub ShowEmployeeData(Employee As Employee)
-        If Employee IsNot Nothing Then
-            TxtAddress.Text = Employee.Address
-            TxtCardId.Text = Employee.CardId
-            TxtEmail.Text = Employee.Email
-            TxtLastname.Text = Employee.Lastname
-            TxtName.Text = Employee.Name
-            TxtPhone.Text = Employee.Phone
-            CboGenre.SelectedValue = Employee.Genre
-            ChkState.IsChecked = Employee.State
-        End If
-    End Sub
-
     Private Sub ShowEmployee()
-        ShowEmployeeData(SelectedEmployee)
+        TxtAddress.Text = SelectedEmployee.Address
+        TxtCardId.Text = SelectedEmployee.CardId
+        TxtEmail.Text = SelectedEmployee.Email
+        TxtLastname.Text = SelectedEmployee.Lastname
+        TxtName.Text = SelectedEmployee.Name
+        TxtPhone.Text = SelectedEmployee.Phone
+        CboGenre.SelectedValue = SelectedEmployee.Genre
+        ChkState.IsChecked = SelectedEmployee.State
+        DisableFields()
     End Sub
 
     Private Sub SaveEmployee()
         Try
-            Dim Employee = GetEmployeeData(New Employee)
+            Dim Employee = SetEmployeeData(New Employee)
             EmployeeDA.Save(Employee)
             MessageBox.Show("Empleado agregado correctamente")
+            Back()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
     Private Sub UpdateEmployee()
-        If SelectedEmployee IsNot Nothing Then
-            SelectedEmployee = GetEmployeeData(SelectedEmployee)
-            EmployeeDA.Update(SelectedEmployee)
-            MessageBox.Show("Datos actualizados correctamente")
-        Else
-            MessageBox.Show("Por favor seleccione un empleado")
-        End If
+        SelectedEmployee = SetEmployeeData(SelectedEmployee)
+        EmployeeDA.Update(SelectedEmployee)
+        MessageBox.Show("Datos actualizados correctamente")
+        Back()
     End Sub
 
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles Button.Click
@@ -59,6 +70,8 @@ Class FrmEmployeeForm
             SaveEmployee()
         ElseIf Mode.Equals(1) Then
             UpdateEmployee()
+        ElseIf Mode.Equals(2) Then
+            Back()
         End If
     End Sub
 

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FrmEmployee" Background="#FF36393F" Foreground="White" Loaded="Page_Loaded">
+      Title="FrmEmployee" Background="#FF36393F" Foreground="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

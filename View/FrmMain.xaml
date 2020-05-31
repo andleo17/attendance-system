@@ -1,11 +1,11 @@
-﻿<Window x:Class="MdiPrincipal"
+﻿<Window x:Class="FrmMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MdiPrincipal" Height="450" Width="800" Loaded="Window_Loaded" WindowState="Maximized" Background="#FF36393F" Foreground="White">
+        Title="MdiPrincipal" Height="450" Width="800" WindowState="Maximized" Background="#FF36393F" Foreground="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -35,13 +35,8 @@
                     <Separator/>
                     <MenuItem Name="MnuLogout" Header="Cerrar sesión"/>
                 </MenuItem>
-<<<<<<< HEAD
-                <MenuItem Header="Empleado" Height="32" Click="MenuItem_Click_1">
-                    <MenuItem Header="Gestionar" Name="BtnFrmEmployee"/>
-=======
                 <MenuItem Header="Empleado" Height="32">
                     <MenuItem Name="MnuEmployee" Header="Gestionar"/>
->>>>>>> 358483695476f8f32478f9f625fbcc9147058cfc
                     <MenuItem Header="Contratos"/>
                     <Separator/>
                     <MenuItem Header="Horarios"/>
@@ -61,7 +56,7 @@
                     <MenuItem Header="Reporte de licencias"/>
                 </MenuItem>
                 <MenuItem Header="Ver" Height="32"></MenuItem>
-                <MenuItem Header="Ventanas" Height="32" Click="MenuItem_Click"></MenuItem>
+                <MenuItem Header="Ventanas" Height="32"></MenuItem>
                 <MenuItem Header="Ayuda" Height="32"></MenuItem>
             </Menu>
             <Border Grid.Row="1" Grid.Column="0" Padding="8,3" Background="#FF292B2F">

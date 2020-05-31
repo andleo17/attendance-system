@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Threading
 
-Public Class MdiPrincipal
+Public Class FrmMain
     Private _User As Data.User
     Private WithEvents Timer As DispatcherTimer
 
@@ -71,13 +71,5 @@ Public Class MdiPrincipal
 
     Private Sub MnuJustification_Click(sender As Object, e As RoutedEventArgs) Handles MnuJustification.Click
         ShowFrame(New FrmJustification)
-    End Sub
-
-    Private Sub MenuItem_Click(sender As Object, e As RoutedEventArgs)
-
-    End Sub
-
-    Private Sub MenuItem_Click_1(sender As Object, e As RoutedEventArgs)
-
     End Sub
 End Class

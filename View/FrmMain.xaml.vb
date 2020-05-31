@@ -45,7 +45,7 @@ Public Class MdiPrincipal
 
     Private Sub Logout()
         ClearUserData()
-        ShowLoginForm()
+        'ShowLoginForm()
     End Sub
 
     Private Sub ShowFrame(Frame As Page)
@@ -54,15 +54,23 @@ Public Class MdiPrincipal
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         InitClock()
-        'ShowLoginForm()
+        ShowLoginForm()
     End Sub
 
     Private Sub MnuLogout_Click(sender As Object, e As RoutedEventArgs) Handles MnuLogout.Click
         Logout()
     End Sub
 
-    Private Sub BtnFrmEmployee_Click(sender As Object, e As RoutedEventArgs) Handles BtnFrmEmployee.Click
-        ShowFrame(New FrmEmployee())
+    Private Sub MnuEmployee_Click(sender As Object, e As RoutedEventArgs) Handles MnuEmployee.Click
+        ShowFrame(New FrmEmployee)
+    End Sub
+
+    Private Sub MnuUsers_Click(sender As Object, e As RoutedEventArgs) Handles MnuUsers.Click
+        ShowFrame(New FrmUser)
+    End Sub
+
+    Private Sub MnuJustification_Click(sender As Object, e As RoutedEventArgs) Handles MnuJustification.Click
+        ShowFrame(New FrmJustification)
     End Sub
 
     Private Sub MenuItem_Click(sender As Object, e As RoutedEventArgs)

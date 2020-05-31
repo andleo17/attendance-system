@@ -134,9 +134,6 @@
     <Compile Include="ScheduleDetail.vb">
       <DependentUpon>DBAttendance.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.vb">
-      <DependentUpon>DBAttendance.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.vb">
       <DependentUpon>DBAttendance.tt</DependentUpon>
     </Compile>
@@ -175,8 +172,8 @@
   <ItemGroup>
     <Content Include="DBAttendance.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DBAttendance.Context.vb</LastGenOutput>
       <DependentUpon>DBAttendance.edmx</DependentUpon>
+      <LastGenOutput>DBAttendance.Context.vb</LastGenOutput>
     </Content>
     <Content Include="DBAttendance.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

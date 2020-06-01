@@ -15,8 +15,18 @@ Public MustInherit Class UserDA
     Public Shared Function List() As List(Of User)
         Try
             Dim DB = New DBAttendanceEntities()
-            Dim Users = From U In DB.User Select U
+            Dim Users = From U In DB.User Where U.State = True Select U
             Return Users.ToList()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Shared Function List(EmployeeCardId As String) As List(Of User)
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Dim Users = From U In DB.User Where U.EmployeeCardId Is EmployeeCardId Order By U.State Select U
+            Return Users.ToList
         Catch ex As Exception
             Throw ex
         End Try
@@ -25,6 +35,10 @@ Public MustInherit Class UserDA
     Public Shared Sub Save(User As User)
         Using DB = New DBAttendanceEntities()
             Try
+                Dim OldUser = From U In DB.User Where U.EmployeeCardId Is User.EmployeeCardId And U.State = True
+                If OldUser.Count = 1 Then
+                    OldUser.Single().State = False
+                End If
                 DB.User.Add(User)
                 DB.SaveChanges()
             Catch ex As Exception
@@ -33,23 +47,11 @@ Public MustInherit Class UserDA
         End Using
     End Sub
 
-    Public Shared Sub Update(User As User)
-        Using DB = New DBAttendanceEntities()
-            Try
-                Dim OldUser = DB.User.Find(User.Id)
-                DB.Entry(OldUser).CurrentValues.SetValues(User)
-                DB.SaveChanges()
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Using
-    End Sub
-
-    Public Shared Sub Delete(User As User)
+    Public Shared Sub Down(User As User)
         Using DB = New DBAttendanceEntities()
             Try
                 User = DB.User.Find(User.Id)
-                DB.User.Remove(User)
+                User.State = False
                 DB.SaveChanges()
             Catch ex As Exception
                 Throw ex

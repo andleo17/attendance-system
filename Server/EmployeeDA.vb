@@ -11,6 +11,15 @@ Public Class EmployeeDA
         End Try
     End Function
 
+    Public Shared Function Search(Employee As Employee) As Employee
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Return DB.Employee.Find(Employee.CardId)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
     Public Shared Sub Save(Employee As Employee)
         Using DB = New DBAttendanceEntities()
             Try

@@ -2,6 +2,8 @@
 Imports Server
 
 Class FrmPermisos
+    Public Property SelectedPermission As Permission
+
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
         If txtCardID.Text IsNot "" Then
             SearchEmployee(New Employee)
@@ -43,5 +45,13 @@ Class FrmPermisos
 
     Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
         SavePermission()
+    End Sub
+
+    Private Sub UpdatePermission()
+        SelectedPermission = SetPermissionData(SelectedPermission)
+        PermissionDA.Update(SelectedPermission)
+        MessageBox.Show("Permiso actualizado")
+
+
     End Sub
 End Class

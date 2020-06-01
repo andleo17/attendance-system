@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FrmUser" Background="White" Loaded="Page_Loaded">
+      Title="FrmUser" Background="White" Initialized="Page_Initialized">
     <Grid Background="#FF2F3136">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -32,19 +32,19 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="DNI:" Foreground="White" Padding="5,5,5,6.5"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5" BorderBrush="White" CaretBrush="White" Foreground="White" Background="{x:Null}" SelectionBrush="#FF2F3136"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5" MaxLength="8"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Empleado:" Foreground="White"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Código:" Foreground="White"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5"/>
+            <!--<Label Grid.Row="2" Grid.Column="0" Content="Código:" Foreground="White"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5"/>-->
             <Label Grid.Row="3" Grid.Column="0" Content="Nombre:" Foreground="White"/>
             <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Contraseña:" Foreground="White"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
+            <PasswordBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:" Foreground="White"/>
-            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="Estado:" Foreground="White"/>
-            <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState" Foreground="White"/>
+            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5"/>
+            <!--<Label Grid.Row="6" Grid.Column="0" Content="Estado:" Foreground="White"/>
+            <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState" Foreground="White"/>-->
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Margin="20,20,20,0.2" >
             <Grid.RowDefinitions>
@@ -53,7 +53,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Grid.Row="0" Content="Registrar" Name="BtnSave" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>
-            <Button Grid.Row="1" Content="Modificar" Name="BtnUpdate" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>
+            <!--<Button Grid.Row="1" Content="Modificar" Name="BtnUpdate" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>-->
             <Button Grid.Row="2" Content="Eliminar" Name="BtnDelete" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>
         </Grid>
         <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Name="UserList" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">

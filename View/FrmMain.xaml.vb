@@ -45,7 +45,7 @@ Public Class FrmMain
 
     Private Sub Logout()
         ClearUserData()
-        'ShowLoginForm()
+        ShowLoginForm()
     End Sub
 
     Private Sub ShowFrame(Frame As Page)

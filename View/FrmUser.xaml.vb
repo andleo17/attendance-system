@@ -3,11 +3,27 @@ Imports Server
 
 Class FrmUser
     Private SelectedUser As User
+    Private UsersActiveList As List(Of User)
 
     Private Sub ShowUsersList()
         Try
-            UserList.ItemsSource = UserDA.List()
-            ClearInputs()
+            If UsersActiveList Is Nothing Then
+                UsersActiveList = UserDA.List()
+            End If
+            UserList.ItemsSource = UsersActiveList
+            CollectionViewSource.GetDefaultView(UserList.ItemsSource).Refresh()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ShowEmployeeUsersList(CardId As String)
+        Try
+            Dim UList = UserDA.List(CardId)
+            Dim UEmployee = UList.First.Employee
+            TxtEmployeeName.Text = UEmployee.Lastname & ", " & UEmployee.Name
+            UserList.ItemsSource = UList
+            CollectionViewSource.GetDefaultView(UserList.ItemsSource).Refresh()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -17,9 +33,8 @@ Class FrmUser
         If User IsNot Nothing Then
             TxtCardId.Text = User.EmployeeCardId
             TxtEmployeeName.Text = User.Employee.Name
-            TxtId.Text = User.Id
             TxtName.Text = User.Name
-            TxtPassword.Text = User.Password
+            TxtPassword.Password = User.Password
         End If
     End Sub
 
@@ -33,39 +48,38 @@ Class FrmUser
     End Sub
 
     Private Function GetUserData(User As User) As User
-        User.EmployeeCardId = TxtCardId.Text
-        User.Id = TxtId.Text
-        User.Name = TxtName.Text
-        User.Password = TxtPassword.Text
-        Return User
+        If TxtPassword.Password = TxtConfirm.Password Then
+            User.EmployeeCardId = TxtCardId.Text
+            User.Name = TxtName.Text
+            User.Password = TxtPassword.Password
+            User.State = True
+            Return User
+        Else
+            Return Nothing
+        End If
     End Function
 
     Private Sub SaveUser()
         Try
             Dim User = GetUserData(New User)
-            UserDA.Save(User)
-            MessageBox.Show("Usuario agregado correctamente")
-            ShowUsersList()
+            If User IsNot Nothing Then
+                UserDA.Save(User)
+                MessageBox.Show("Usuario agregado correctamente")
+                ClearInputs()
+                ShowUsersList()
+            Else
+                MessageBox.Show("Las contraseñas no coinciden")
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
-    Private Sub UpdateUser()
+    Private Sub DownUser()
         If SelectedUser IsNot Nothing Then
-            SelectedUser = GetUserData(SelectedUser)
-            UserDA.Update(SelectedUser)
-            MessageBox.Show("Datos actualizados correctamente")
-            ShowUsersList()
-        Else
-            MessageBox.Show("Por favor seleccione un empleado")
-        End If
-    End Sub
-
-    Private Sub DeleteUser()
-        If SelectedUser IsNot Nothing Then
-            UserDA.Delete(SelectedUser)
-            MessageBox.Show("Empleado eliminado correctamente")
+            UserDA.Down(SelectedUser)
+            MessageBox.Show("Usuario eliminado correctamente")
+            ClearInputs()
             ShowUsersList()
         Else
             MessageBox.Show("Por favor seleccione un empleado")
@@ -74,9 +88,12 @@ Class FrmUser
 
     Private Sub ClearInputs()
         SelectedUser = Nothing
+        UsersActiveList = UserDA.List()
         For Each C In Form.Children
             If TypeOf C Is TextBox Then
                 C.Text = Nothing
+            ElseIf TypeOf C Is PasswordBox Then
+                C.Password = Nothing
             ElseIf TypeOf C Is CheckBox Then
                 C.IsChecked = False
             End If
@@ -87,20 +104,25 @@ Class FrmUser
         SaveUser()
     End Sub
 
-    Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
-        ShowUsersList()
-    End Sub
-
     Private Sub EmployeeList_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles UserList.MouseDoubleClick
         ShowUser()
     End Sub
 
-    Private Sub BtnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles BtnUpdate.Click
-        UpdateUser()
+    Private Sub BtnDelete_Click(sender As Object, e As RoutedEventArgs) Handles BtnDelete.Click
+        DownUser()
     End Sub
 
-    Private Sub BtnDelete_Click(sender As Object, e As RoutedEventArgs) Handles BtnDelete.Click
-        DeleteUser()
+    Private Sub TxtCardId_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyUp
+        If e.Key = Key.Enter And TxtCardId.Text.Length = 8 Then
+            ShowEmployeeUsersList(TxtCardId.Text)
+        Else
+            ShowUsersList()
+            TxtEmployeeName.Text = Nothing
+        End If
+    End Sub
+
+    Private Sub Page_Initialized(sender As Object, e As EventArgs)
+        ShowUsersList()
     End Sub
 
 

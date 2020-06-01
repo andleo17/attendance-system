@@ -72,4 +72,12 @@ Public Class FrmMain
     Private Sub MnuJustification_Click(sender As Object, e As RoutedEventArgs) Handles MnuJustification.Click
         ShowFrame(New FrmJustification)
     End Sub
+
+    Private Sub FrmContent_Navigated(sender As Object, e As NavigationEventArgs) Handles FrmContent.Navigated
+
+    End Sub
+
+    Private Sub MnuPermisos_Click(sender As Object, e As RoutedEventArgs) Handles MnuPermisos.Click
+        ShowFrame(New FrmPermisos)
+    End Sub
 End Class

@@ -47,7 +47,7 @@
                     <MenuItem Header="Asistencias"/>
                     <Separator/>
                     <MenuItem Name="MnuJustification" Header="Justificaciones"/>
-                    <MenuItem Header="Permisos"/>
+                    <MenuItem Name="MnuPermisos" Header="Permisos"/>
                     <MenuItem Header="Licencias"/>
                 </MenuItem>
                 <MenuItem Header="Consultas y reportes" Height="32" >

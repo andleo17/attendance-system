@@ -25,4 +25,8 @@ Class FrmEmployeeList
                        Employee.Lastname.ToLower.Contains(TxtFilter.Text.ToLower)
                    End Function
     End Sub
+
+    Private Sub EmployeeList_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
+
+    End Sub
 End Class

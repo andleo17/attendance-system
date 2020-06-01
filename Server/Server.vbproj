@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeDA.vb" />
+    <Compile Include="PermissionDA.vb" />
     <Compile Include="UserDA.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

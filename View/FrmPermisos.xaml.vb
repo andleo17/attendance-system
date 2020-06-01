@@ -38,6 +38,7 @@ Class FrmPermisos
         SelectedPermission = SetPermissionData(SelectedPermission)
         PermissionDA.Update(SelectedPermission)
         MessageBox.Show("Permiso actualizado")
+        ShowPermissionList()
     End Sub
 
     Private Sub ShowPermissionList()
@@ -76,7 +77,7 @@ Class FrmPermisos
             txtMotive.AppendText(Permission.Motive)
             calDate.SelectedDate = Permission.Date
             chkActive.IsChecked = Permission.State
-            btnSearch_Click(Nothing, Nothing)
+            btnSearchEm_Click(Nothing, Nothing)
         End If
     End Sub
 
@@ -89,6 +90,14 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
+
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
+        SavePermission()
+    End Sub
+
+    Private Sub btnSearchEm_Click(sender As Object, e As RoutedEventArgs) Handles btnSearchEm.Click
         If txtCardID.Text IsNot "" Then
             SearchEmployee(New Employee)
         Else
@@ -96,7 +105,7 @@ Class FrmPermisos
         End If
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
-        SavePermission()
+    Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
+        UpdatePermission()
     End Sub
 End Class

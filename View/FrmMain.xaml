@@ -29,15 +29,15 @@
                         <StackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
-                <MenuItem Header="Mantenimiento" Height="32">
+                <MenuItem Header="Mantenimiento" Height="32" Click="MenuItem_Click_2">
                     <MenuItem Header="Parámetros"/>
-                    <MenuItem Header="Tipo de licencia"/>
+                    <MenuItem Header="Tipo de licencia" Name="MnuTipoLicencia"/>
                     <Separator/>
                     <MenuItem Name="MnuLogout" Header="Cerrar sesión"/>
                 </MenuItem>
-                <MenuItem Header="Empleado" Height="32">
+                <MenuItem Header="Empleado" Height="32" Click="MenuItem_Click">
                     <MenuItem Name="MnuEmployee" Header="Gestionar"/>
-                    <MenuItem Header="Contratos"/>
+                    <MenuItem Header="Contratos" Name="MnuContratos"/>
                     <Separator/>
                     <MenuItem Header="Horarios"/>
                     <Separator/>
@@ -48,9 +48,10 @@
                     <Separator/>
                     <MenuItem Name="MnuJustification" Header="Justificaciones"/>
                     <MenuItem Name="MnuPermisos" Header="Permisos"/>
-                    <MenuItem Header="Licencias"/>
+                    <MenuItem Header="Licencias" Name="FrmLicencias"/>
                 </MenuItem>
                 <MenuItem Header="Consultas y reportes" Height="32" >
+                    <MenuItem Header="Consulta asistencia" Name="FrmConsultaAsistencia"/>
                     <MenuItem Header="Consolidado de asistencia mensual"/>
                     <MenuItem Header="Reporte de faltas y tardanzas"/>
                     <MenuItem Header="Reporte de licencias"/>

@@ -80,4 +80,32 @@ Public Class FrmMain
     Private Sub MnuPermisos_Click(sender As Object, e As RoutedEventArgs) Handles MnuPermisos.Click
         ShowFrame(New FrmPermisos)
     End Sub
+
+    Private Sub MenuItem_Click(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MenuItem_Click_1(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MnuContratos_Click(sender As Object, e As RoutedEventArgs) Handles MnuContratos.Click
+        ShowFrame(New FrmContrato)
+    End Sub
+
+    Private Sub MenuItem_Click_2(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MnuTipoLicencia_Click(sender As Object, e As RoutedEventArgs) Handles MnuTipoLicencia.Click
+        ShowFrame(New FrmTipoLicencia)
+    End Sub
+
+    Private Sub FrmLicencias_Click(sender As Object, e As RoutedEventArgs) Handles FrmLicencias.Click
+        ShowFrame(New FrmLicencia)
+    End Sub
+
+    Private Sub FrmConsultaAsistencia_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistencia.Click
+        ShowFrame(New FrmConsultarAsistencia)
+    End Sub
 End Class

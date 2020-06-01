@@ -32,19 +32,19 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="DNI:" Foreground="White" Padding="5,5,5,6.5"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5" BorderBrush="White" CaretBrush="White" Foreground="White" Background="{x:Null}" SelectionBrush="#FF2F3136"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Empleado:" Foreground="White"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Código:" Foreground="White"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Nombre:" Foreground="White"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName" Margin="0,0,0,5"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Contraseña:" Foreground="White"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:" Foreground="White"/>
-            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5"/>
+            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White"/>
             <Label Grid.Row="6" Grid.Column="0" Content="Estado:" Foreground="White"/>
-            <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState"/>
+            <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState" Foreground="White"/>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Margin="20,20,20,0.2" >
             <Grid.RowDefinitions>
@@ -65,6 +65,6 @@
                 <DataGridTextColumn Header="Vigencia" Width="1*" Binding="{Binding Path=State}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="GESTIONAR USUARIO"  Grid.ColumnSpan="2" Background="#FF6BE54C" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        <Label Content="GESTIONAR USUARIO"  Grid.ColumnSpan="2" Background="#FF7289DA" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
     </Grid>
 </Page>

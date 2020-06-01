@@ -60,11 +60,11 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="ID:" Foreground="White" Padding="5,5,5,6.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Name="TxtId" Margin="0,20" Height="33"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Name="TxtId" Margin="0,20" Height="33" Background="{x:Null}" BorderBrush="White" CaretBrush="White" Foreground="White" SelectionBrush="#FF2F3136" VerticalContentAlignment="Center"  />
                 <Label Grid.Row="1" Grid.Column="0" Content="MOTIVO:" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
                 <!--<TextBox Grid.Row="1" Grid.Column="1" Name="TxtMotivo" Margin="0,20" Padding="0"/>-->
                 <!--<TextBlock Grid.Row="1" Grid.Column="1" Margin="0,20" Background="White"/>-->
-                <RichTextBox Grid.Row="1" Grid.Column="1" Margin="0,20" Background="White" />                
+                <RichTextBox Grid.Row="1" Grid.Column="1" Margin="0,20" Background="{x:Null}" BorderBrush="White" CaretBrush="White" Foreground="White" SelectionBrush="#FF2F3136" />
                 <Label Grid.Row="2" Grid.Column="0" Content="ESTADO:" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" Padding="0" FontSize="16" />
                 <CheckBox Grid.Row="2" Grid.Column="1" Content="Vigente" Name="ChkEstado" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
             </Grid>
@@ -111,9 +111,9 @@
                 <Label Background="#FF292B2F" Grid.Row="2" Grid.Column="1" />
             </Grid>
         </Grid>
-            
 
-    <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+        <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>

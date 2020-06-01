@@ -1,0 +1,3 @@
+﻿Class FrmTipoLicencia
+
+End Class

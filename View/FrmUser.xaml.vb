@@ -102,4 +102,6 @@ Class FrmUser
     Private Sub BtnDelete_Click(sender As Object, e As RoutedEventArgs) Handles BtnDelete.Click
         DeleteUser()
     End Sub
+
+
 End Class

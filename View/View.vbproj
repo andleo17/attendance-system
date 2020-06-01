@@ -97,6 +97,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FrmContrato.xaml.vb">
+      <DependentUpon>FrmContrato.xaml</DependentUpon>
+    </Compile>
     <Page Include="FrmConsultarAsistencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FrmJustification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmLicencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +154,9 @@
     <Compile Include="FrmJustification.xaml.vb">
       <DependentUpon>FrmJustification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FrmLicencia.xaml.vb">
+      <DependentUpon>FrmLicencia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.xaml.vb">
       <DependentUpon>FrmLogin.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -159,7 +169,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmTipoLicencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmContrato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,6 +207,9 @@
     </Compile>
     <Compile Include="FrmPermisos.xaml.vb">
       <DependentUpon>FrmPermisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTipoLicencia.xaml.vb">
+      <DependentUpon>FrmTipoLicencia.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmUser.xaml.vb">
       <DependentUpon>FrmUser.xaml</DependentUpon>

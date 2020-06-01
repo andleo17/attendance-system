@@ -20,7 +20,7 @@ Class FrmUser
     Private Sub ShowEmployeeUsersList(CardId As String)
         Try
             Dim UList = UserDA.List(CardId)
-            Dim UEmployee = UList.Single.Employee
+            Dim UEmployee = UList.First.Employee
             TxtEmployeeName.Text = UEmployee.Lastname & ", " & UEmployee.Name
             UserList.ItemsSource = UList
             CollectionViewSource.GetDefaultView(UserList.ItemsSource).Refresh()

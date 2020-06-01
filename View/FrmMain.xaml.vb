@@ -45,7 +45,7 @@ Public Class FrmMain
 
     Private Sub Logout()
         ClearUserData()
-        'ShowLoginForm()
+        ShowLoginForm()
     End Sub
 
     Private Sub ShowFrame(Frame As Page)
@@ -71,5 +71,41 @@ Public Class FrmMain
 
     Private Sub MnuJustification_Click(sender As Object, e As RoutedEventArgs) Handles MnuJustification.Click
         ShowFrame(New FrmJustification)
+    End Sub
+
+    Private Sub FrmContent_Navigated(sender As Object, e As NavigationEventArgs) Handles FrmContent.Navigated
+
+    End Sub
+
+    Private Sub MnuPermisos_Click(sender As Object, e As RoutedEventArgs) Handles MnuPermisos.Click
+        ShowFrame(New FrmPermisos)
+    End Sub
+
+    Private Sub MenuItem_Click(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MenuItem_Click_1(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MnuContratos_Click(sender As Object, e As RoutedEventArgs) Handles MnuContratos.Click
+        ShowFrame(New FrmContrato)
+    End Sub
+
+    Private Sub MenuItem_Click_2(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub MnuTipoLicencia_Click(sender As Object, e As RoutedEventArgs) Handles MnuTipoLicencia.Click
+        ShowFrame(New FrmTipoLicencia)
+    End Sub
+
+    Private Sub FrmLicencias_Click(sender As Object, e As RoutedEventArgs) Handles FrmLicencias.Click
+        ShowFrame(New FrmLicencia)
+    End Sub
+
+    Private Sub FrmConsultaAsistencia_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistencia.Click
+        ShowFrame(New FrmConsultarAsistencia)
     End Sub
 End Class

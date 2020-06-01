@@ -4,7 +4,7 @@ Public MustInherit Class UserDA
 
     Public Shared Function Login(name As String, password As String) As User
         Dim DB = New DBAttendanceEntities()
-        Dim user = From u In DB.User Where u.Name Is name And u.Password Is password Select u
+        Dim user = From u In DB.User Where (u.Name Is name And u.Password Is password) And u.State Select u
         Try
             Return user.Single()
         Catch ex As Exception

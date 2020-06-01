@@ -65,8 +65,8 @@ Class FrmUser
             If User IsNot Nothing Then
                 UserDA.Save(User)
                 MessageBox.Show("Usuario agregado correctamente")
-                ShowUsersList()
                 ClearInputs()
+                ShowUsersList()
             Else
                 MessageBox.Show("Las contraseñas no coinciden")
             End If
@@ -78,9 +78,9 @@ Class FrmUser
     Private Sub DownUser()
         If SelectedUser IsNot Nothing Then
             UserDA.Down(SelectedUser)
-            MessageBox.Show("Empleado eliminado correctamente")
-            ShowUsersList()
+            MessageBox.Show("Usuario eliminado correctamente")
             ClearInputs()
+            ShowUsersList()
         Else
             MessageBox.Show("Por favor seleccione un empleado")
         End If
@@ -88,9 +88,12 @@ Class FrmUser
 
     Private Sub ClearInputs()
         SelectedUser = Nothing
+        UsersActiveList = UserDA.List()
         For Each C In Form.Children
             If TypeOf C Is TextBox Then
                 C.Text = Nothing
+            ElseIf TypeOf C Is PasswordBox Then
+                C.Password = Nothing
             ElseIf TypeOf C Is CheckBox Then
                 C.IsChecked = False
             End If
@@ -114,6 +117,7 @@ Class FrmUser
             ShowEmployeeUsersList(TxtCardId.Text)
         Else
             ShowUsersList()
+            TxtEmployeeName.Text = Nothing
         End If
     End Sub
 

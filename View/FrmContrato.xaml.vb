@@ -1,3 +1,3 @@
-﻿Class Page2
+﻿Class FrmContrato
 
 End Class

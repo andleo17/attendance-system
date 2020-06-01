@@ -14,10 +14,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="65"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
-
 
         <Grid Grid.Row="1" Margin="20"  Background="#FF292B2F" Width="Auto" Height="Auto" >
             <Grid.RowDefinitions>
@@ -72,14 +72,13 @@
             <Grid Grid.Row="0" Grid.Column="2" VerticalAlignment="Center"  >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="PRESENTACIÓN:" Foreground="White" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                <Calendar Name ="cldPresentacion" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0" RenderTransformOrigin="0.51,0.636" >
+                <Label Grid.Row="0" Grid.Column="0" Content="FECHA:" Foreground="White" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Calendar Name ="cldPresentacion" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0" RenderTransformOrigin="0.51,0.636" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Calendar.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFE4EAF0" Offset="0"/>
@@ -89,18 +88,7 @@
                         </LinearGradientBrush>
                     </Calendar.Background>
                 </Calendar>
-                <Label Grid.Row="1" Grid.Column="0" Content="PERMISO:" Foreground="White" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Calendar Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"  Height="Auto" Width="Auto">
-                    <Calendar.Background >
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFE4EAF0" Offset="0"/>
-                            <GradientStop Color="#FFECF0F4" Offset="0.16"/>
-                            <GradientStop Color="#FFFCFCFD" Offset="0.16"/>
-                            <GradientStop Color="#FF313882" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Calendar.Background>
-                </Calendar>
-            </Grid>
+                  </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -113,14 +101,55 @@
         </Grid>
 
 
-        <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid Grid.Row="3" Margin="0,20,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="GUARDAR" Margin="0" Foreground="White" FontFamily="Segoe UI Semibold" FontSize="30" Padding="5,2" Click="Button_Click_1">
+
+            <Button Content="BUSCAR" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" BorderBrush="{x:Null}" Padding="3">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF324885" Offset="1"/>
+                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="REGISTRAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF324885" Offset="1"/>
+                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="MODIFICAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Foreground="White" FontSize="20" BorderBrush="{x:Null}" Padding="3">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF324885" Offset="1"/>
+                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="DAR DE BAJA" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF324885" Offset="1"/>
+                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="ELIMINAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
@@ -130,6 +159,19 @@
                 </Button.Background>
             </Button>
         </Grid>
+
+
+
+
+        <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaContratos" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Width="1*" />
+                <DataGridTextColumn Header="Dni" Width="1*" />
+                <DataGridTextColumn Header="Motivo" Width="1*" />
+                <DataGridTextColumn Header="Fecha" Width="1*" />
+                <DataGridTextColumn Header="Estado" Width="1*" />
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>

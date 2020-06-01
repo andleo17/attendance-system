@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MdiPrincipal" Height="450" Width="800" WindowState="Maximized" Background="#FF36393F" Foreground="White">
+        Title="MdiPrincipal" Height="450" Width="800" WindowState="Maximized" Background="#FF36393F" Foreground="White" Initialized="Window_Initialized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -60,14 +60,14 @@
                 <MenuItem Header="Ventanas" Height="32"></MenuItem>
                 <MenuItem Header="Ayuda" Height="32"></MenuItem>
             </Menu>
-            <Border Grid.Row="1" Grid.Column="0" Padding="8,3" Background="#FF292B2F">
-                <Grid HorizontalAlignment="Left" Margin="0,-0.2,-0.2,0.2" Width="181">
+            <Border Grid.Row="1" Grid.Column="0" Padding="8,5" Background="#FF292B2F">
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" Width="40" Height="40" CornerRadius="20">
                         <Border.Background>

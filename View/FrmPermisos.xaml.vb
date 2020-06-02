@@ -59,27 +59,36 @@ Class FrmPermisos
                 C.IsChecked = False
             End If
         Next
+        txtMotive.Document.Blocks.Clear()
     End Sub
 
     Private Sub ShowPermission()
         Try
+            ClearInputs()
             SelectedPermission = PermissionList.SelectedValue
-            ShowPermissionData(SelectedPermission)
+            txtCardID.Text = SelectedPermission.EmployeeCardId
+            TxtId.Text = SelectedPermission.Id
+            txtMotive.Document.Blocks.Add(New Paragraph(New Run(SelectedPermission.Motive)))
+            calDate.SelectedDate = SelectedPermission.Date
+            chkActive.IsChecked = SelectedPermission.State
+            btnSearchEm_Click(Nothing, Nothing)
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
-    Private Sub ShowPermissionData(Permission As Permission)
-        If Permission IsNot Nothing Then
-            txtCardID.Text = Permission.EmployeeCardId
-            TxtId.Text = Permission.Id
-            txtMotive.AppendText(Permission.Motive)
-            calDate.SelectedDate = Permission.Date
-            chkActive.IsChecked = Permission.State
-            btnSearchEm_Click(Nothing, Nothing)
-        End If
-    End Sub
+    'Private Sub ShowPermissionData(Permission As Permission)
+    '    If Permission IsNot Nothing Then
+    '        ClearInputs()
+    '        txtCardID.Text = Permission.EmployeeCardId
+    '        TxtId.Text = Permission.Id
+    '        txtMotive.Document.Blocks.Add(New Paragraph(New Run(Permission.Motive)))
+    '        calDate.SelectedDate = Permission.Date
+    '        chkActive.IsChecked = Permission.State
+    '        btnSearchEm_Click(Nothing, Nothing)
+    '    End If
+    'End Sub
 
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         ShowPermissionList()

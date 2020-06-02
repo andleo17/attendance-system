@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBAttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBAttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attendance">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,7 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="InHour" Type="time" Precision="7" Nullable="false" />
-          <Property Name="OutHour" Type="time" Precision="7" Nullable="false" />
+          <Property Name="OutHour" Type="time" Precision="7" />
           <Property Name="EmployeeCardId" Type="char" MaxLength="8" Nullable="false" />
         </EntityType>
         <EntityType Name="Contract">
@@ -269,8 +269,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBAttendanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -281,7 +280,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="InHour" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="OutHour" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="OutHour" Type="Time" Precision="7" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Attendanc__Emplo__5441852A" FromRole="Attendance" ToRole="Employee" />
           <NavigationProperty Name="Justification" Relationship="Self.FK__Justifica__Atten__571DF1D5" FromRole="Attendance" ToRole="Justification" />

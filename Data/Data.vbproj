@@ -175,6 +175,7 @@
       <DependentUpon>DBAttendance.edmx</DependentUpon>
       <LastGenOutput>DBAttendance.Context.vb</LastGenOutput>
     </Content>
+    <Content Include="DBAttendance.sql" />
     <Content Include="DBAttendance.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBAttendance.edmx</DependentUpon>

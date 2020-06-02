@@ -14,7 +14,7 @@ Partial Public Class Attendance
     Public Property Id As Integer
     Public Property [Date] As Date
     Public Property InHour As System.TimeSpan
-    Public Property OutHour As System.TimeSpan
+    Public Property OutHour As Nullable(Of System.TimeSpan)
     Public Property EmployeeCardId As String
 
     Public Overridable Property Employee As Employee

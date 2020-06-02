@@ -57,8 +57,10 @@ CREATE TABLE "Attendance" (
 	"Id"				INTEGER		NOT NULL IDENTITY PRIMARY KEY,
 	"Date"				DATE		NOT NULL,
 	"InHour"			TIME		NOT NULL,
-	"OutHour"			TIME		NOT NULL,
-	"EmployeeCardId"	CHAR(8)		NOT NULL REFERENCES "Employee"
+	"OutHour"			TIME		NULL,
+	"EmployeeCardId"	CHAR(8)		NOT NULL REFERENCES "Employee",
+	CONSTRAINT Key_Attendance_Date_EmployeeCardId
+		UNIQUE ("Date", "EmployeeCardId")
 )
 GO
 

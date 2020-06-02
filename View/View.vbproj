@@ -97,9 +97,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FrmConsultaAsistenciaMes.xaml.vb">
+      <DependentUpon>FrmConsultaAsistenciaMes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmContrato.xaml.vb">
       <DependentUpon>FrmContrato.xaml</DependentUpon>
     </Compile>
+    <Page Include="FrmConsultaAsistenciaMes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmConsultarAsistencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

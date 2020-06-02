@@ -78,8 +78,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttendanceDA.vb" />
+    <Compile Include="ContractDA.vb" />
     <Compile Include="EmployeeDA.vb" />
+    <Compile Include="JustificationDA.vb" />
+    <Compile Include="LicenseDA.vb" />
+    <Compile Include="LicenseType.vb" />
     <Compile Include="PermissionDA.vb" />
+    <Compile Include="ScheduleDA.vb" />
+    <Compile Include="ScheduleDetailDA.vb" />
     <Compile Include="UserDA.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

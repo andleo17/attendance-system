@@ -100,8 +100,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ScheduleId" Type="int" Nullable="false" />
           <Property Name="Day" Type="tinyint" Nullable="false" />
-          <Property Name="InHour" Type="tinyint" Nullable="false" />
-          <Property Name="OutHour" Type="tinyint" Nullable="false" />
+          <Property Name="InHour" Type="time" Precision="7" Nullable="false" />
+          <Property Name="OutHour" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -384,8 +384,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ScheduleId" Type="Int32" Nullable="false" />
           <Property Name="Day" Type="Byte" Nullable="false" />
-          <Property Name="InHour" Type="Byte" Nullable="false" />
-          <Property Name="OutHour" Type="Byte" Nullable="false" />
+          <Property Name="InHour" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="OutHour" Type="Time" Nullable="false" Precision="7" />
           <NavigationProperty Name="Schedule" Relationship="Self.FK__ScheduleD__Sched__5165187F" FromRole="ScheduleDetail" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="User">

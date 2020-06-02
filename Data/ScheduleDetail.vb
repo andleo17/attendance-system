@@ -14,8 +14,8 @@ Partial Public Class ScheduleDetail
     Public Property Id As Integer
     Public Property ScheduleId As Integer
     Public Property Day As Byte
-    Public Property InHour As Byte
-    Public Property OutHour As Byte
+    Public Property InHour As System.TimeSpan
+    Public Property OutHour As System.TimeSpan
 
     Public Overridable Property Schedule As Schedule
 

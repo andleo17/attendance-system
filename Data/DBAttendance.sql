@@ -48,8 +48,8 @@ CREATE TABLE "ScheduleDetail" (
 	"Id"			INTEGER		NOT NULL IDENTITY PRIMARY KEY,
 	"ScheduleId"	INTEGER		NOT NULL REFERENCES "Schedule",
 	"Day"			TINYINT		NOT NULL,
-	"InHour"		TINYINT		NOT NULL,
-	"OutHour"		TINYINT		NOT NULL
+	"InHour"		TIME		NOT NULL,
+	"OutHour"		TIME		NOT NULL
 )
 GO
 

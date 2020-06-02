@@ -52,11 +52,6 @@ Public Class FrmMain
         FrmContent.Content = Frame
     End Sub
 
-    Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        InitClock()
-        ShowLoginForm()
-    End Sub
-
     Private Sub MnuLogout_Click(sender As Object, e As RoutedEventArgs) Handles MnuLogout.Click
         Logout()
     End Sub
@@ -107,5 +102,10 @@ Public Class FrmMain
 
     Private Sub FrmConsultaAsistencia_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistencia.Click
         ShowFrame(New FrmConsultarAsistencia)
+    End Sub
+
+    Private Sub Window_Initialized(sender As Object, e As EventArgs)
+        InitClock()
+        ShowLoginForm()
     End Sub
 End Class

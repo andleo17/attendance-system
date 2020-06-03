@@ -14,7 +14,7 @@ Partial Public Class Schedule
     Public Property Id As Integer
     Public Property StartDate As Date
     Public Property FinishDate As Nullable(Of Date)
-    Public Property State As Boolean
+    Public Property State As Boolean = true
     Public Property EmployeeCardId As String
 
     Public Overridable Property Employee As Employee

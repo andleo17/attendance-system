@@ -15,7 +15,7 @@ Partial Public Class License
     Public Property PresentationDate As Date
     Public Property StartDate As Date
     Public Property FinishDate As Date
-    Public Property State As Boolean
+    Public Property State As Boolean = false
     Public Property Document As String
     Public Property EmployeeCardId As String
     Public Property LicenseTypeId As Byte

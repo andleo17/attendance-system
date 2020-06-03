@@ -20,7 +20,7 @@ CREATE TABLE "Employee" (
 	"Address"	VARCHAR(50)	NOT NULL,
 	"Phone"		VARCHAR(13)	NOT NULL,
 	"Email"		VARCHAR(50)	NULL,
-	"State"		BIT			NOT NULL
+	"State"		BIT			NOT NULL DEFAULT TRUE
 )
 GO
 
@@ -29,7 +29,7 @@ CREATE TABLE "Contract" (
 	"StartDate"			DATE			NOT NULL,
 	"FinishDate" 		DATE			NOT NULL,
 	"Mount"				DECIMAL(8, 2)	NOT NULL,
-	"State"				BIT				NOT NULL,
+	"State"				BIT				NOT NULL DEFAULT TRUE,
 	"ExtraHours"		BIT				NOT NULL,
 	"EmployeeCardId"	CHAR(8)			NOT NULL REFERENCES "Employee"
 )
@@ -39,7 +39,7 @@ CREATE TABLE "Schedule" (
 	"Id" 				INTEGER		NOT NULL IDENTITY PRIMARY KEY,
 	"StartDate"			DATE		NOT NULL,
 	"FinishDate"		DATE		NULL,
-	"State"				BIT			NOT NULL,
+	"State"				BIT			NOT NULL DEFAULT TRUE,
 	"EmployeeCardId"	CHAR(8)		NOT NULL REFERENCES "Employee"
 )
 GO
@@ -68,7 +68,7 @@ CREATE TABLE "Justification" (
 	"Id"			INTEGER		NOT NULL IDENTITY PRIMARY KEY,
 	"Date"			DATE		NOT NULL,
 	"Motive"		TEXT		NOT NULL,
-	"State"			BIT			NOT NULL,
+	"State"			BIT			NOT NULL DEFAULT TRUE,
 	"AttendanceId"	INTEGER		NOT NULL REFERENCES "Attendance"
 )
 GO
@@ -78,7 +78,7 @@ CREATE TABLE "Permission" (
 	"PresentationDate"	DATE			NOT NULL,
 	"Date"				DATE			NOT NULL,
 	"Motive"			VARCHAR(100)	NOT NULL,
-	"State"				BIT				NOT NULL,
+	"State"				BIT				NOT NULL DEFAULT FALSE,
 	"EmployeeCardId"	CHAR(8)			NOT NULL REFERENCES "Employee"
 )
 GO
@@ -95,7 +95,7 @@ CREATE TABLE "License" (
 	"PresentationDate"	DATETIME	NOT NULL,
 	"StartDate"			DATE		NOT NULL,
 	"FinishDate"		DATE		NOT NULL,
-	"State"				BIT			NOT NULL,
+	"State"				BIT			NOT NULL DEFAULT FALSE,
 	"Document"			VARCHAR(50)	NOT NULL,
 	"EmployeeCardId"	CHAR(8)		NOT NULL REFERENCES "Employee",
 	"LicenseTypeId"		TINYINT		NOT NULL REFERENCES "LicenseType"
@@ -106,7 +106,7 @@ CREATE TABLE "User" (
 	"Id"				SMALLINT	NOT NULL IDENTITY PRIMARY KEY,
 	"Name"				VARCHAR(30)	NOT NULL,
 	"Password"			VARCHAR(30)	NOT NULL,
-	"State"				BIT			NOT NULL,
+	"State"				BIT			NOT NULL DEFAULT TRUE,
 	"EmployeeCardId"	CHAR(8)		NOT NULL REFERENCES "Employee"
 )
 GO

@@ -24,8 +24,17 @@ Public Class JustificationDA
     Public Shared Sub Save(Justification As Justification)
         Using DB = New DBAttendanceEntities
             Try
-                DB.Justification.Add(Justification)
-                DB.SaveChanges()
+                Dim EmployeeSchedule = From SD In DB.ScheduleDetail Where SD.Schedule.EmployeeCardId Is Justification.Attendance.EmployeeCardId Select SD.InHour, SD.Day
+                For Each ES In EmployeeSchedule
+                    If ES.Day = Justification.Attendance.Date.DayOfWeek Then
+                        If ES.InHour <= Justification.Attendance.InHour Then
+                            DB.Justification.Add(Justification)
+                            DB.SaveChanges()
+                            Return
+                        End If
+                    End If
+                Next
+                Throw New Exception("Justificación en día no valido.")
             Catch ex As Exception
                 Throw ex
             End Try

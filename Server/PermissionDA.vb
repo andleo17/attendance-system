@@ -59,6 +59,7 @@ Public Class PermissionDA
             Try
                 Permission = DB.Permission.Find(Permission.Id)
                 DB.Permission.Remove(Permission)
+                DB.SaveChanges()
             Catch ex As Exception
                 Throw ex
             End Try

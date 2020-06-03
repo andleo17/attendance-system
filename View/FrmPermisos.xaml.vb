@@ -7,15 +7,26 @@ Class FrmPermisos
     Private Function SearchEmployee(Employee As Employee) As Employee
         Try
             Employee.CardId = txtCardID.Text
-            lblName.Content = EmployeeDA.Search(Employee).Name & " " & EmployeeDA.Search(Employee).Lastname
+            Dim E = EmployeeDA.Search(Employee)
+            If E IsNot Nothing Then
+                Employee = E
+                lblName.Content = E.Name & " " & E.Lastname
+            Else
+                Employee = Nothing
+                MessageBox.Show("DNI inválido o el Emlpleado no existe")
+                lblName.Content = "------------------"
+                txtCardID.Focus()
+            End If
         Catch ex As Exception
-            MessageBox.Show("DNI inválido o el Emlpleado no existe")
+            MessageBox.Show(ex.ToString)
         End Try
         Return Employee
     End Function
 
     Private Function SetPermissionData(Permission As Permission) As Permission
-        Permission.PresentationDate = Date.Now.Date
+        If Permission.Id = 0 Then
+            Permission.PresentationDate = Date.Now.Date
+        End If
         Permission.Date = calDate.SelectedDate
         Permission.Motive = New TextRange(txtMotive.Document.ContentStart, txtMotive.Document.ContentEnd).Text
         Permission.State = chkActive.IsChecked
@@ -25,20 +36,55 @@ Class FrmPermisos
 
     Private Sub SavePermission()
         Try
-            Dim Permission = SetPermissionData(New Permission)
-            PermissionDA.Save(Permission)
-            MessageBox.Show("Permiso agregado correctamente")
-            ShowPermissionList()
+            If SelectedPermission Is Nothing Then
+                If ValidateSave() Then
+                    Dim Permission = SetPermissionData(New Permission)
+                    PermissionDA.Save(Permission)
+                    MessageBox.Show("Permiso agregado correctamente")
+                    ShowPermissionList()
+                    ClearInputs()
+                End If
+
+            Else
+                MessageBox.Show("Operación no disponible, limpie para continuar")
+            End If
         Catch ex As Exception
-            MessageBox.Show("Error al registrar")
+            MessageBox.Show(ex.ToString)
         End Try
     End Sub
 
     Private Sub UpdatePermission()
-        SelectedPermission = SetPermissionData(SelectedPermission)
-        PermissionDA.Update(SelectedPermission)
-        MessageBox.Show("Permiso actualizado")
-        ShowPermissionList()
+        If SelectedPermission IsNot Nothing Then
+            If ValidateSave() Then
+                SelectedPermission = SetPermissionData(SelectedPermission)
+                PermissionDA.Update(SelectedPermission)
+                MessageBox.Show("Permiso actualizado")
+                ShowPermissionList()
+                ClearInputs()
+            End If
+        Else
+            MessageBox.Show("Seleccione un permiso")
+        End If
+
+    End Sub
+
+    Private Sub DeletePermission()
+        If SelectedPermission IsNot Nothing Then
+            Dim Msg, Style, Title, Response
+            Msg = "¿Seguro que desea eliminar el permiso"
+            Style = vbYesNo + vbCritical + vbDefaultButton2
+            Title = ".:SISTEMA DE ASISTENCIA:."
+            Response = MsgBox(Msg, Style, Title)
+            If Response = vbYes Then
+                SelectedPermission = SetPermissionData(SelectedPermission)
+                PermissionDA.Delete(SelectedPermission)
+                MessageBox.Show("Permiso eliminado")
+                ShowPermissionList()
+                ClearInputs()
+            End If
+        Else
+            MessageBox.Show("Seleccione un permiso")
+        End If
     End Sub
 
     Private Sub ShowPermissionList()
@@ -60,45 +106,78 @@ Class FrmPermisos
             End If
         Next
         txtMotive.Document.Blocks.Clear()
+        txtCardID.Text = Nothing
+        lblName.Content = "------------------"
+        calDate.SelectedDate = Nothing
+        TxtId.IsEnabled = True
     End Sub
+
+    Private Function ValidateSave() As Boolean
+        If SearchEmployee(New Employee) Is Nothing Then
+            Return False
+        Else
+            If New TextRange(txtMotive.Document.ContentStart, txtMotive.Document.ContentEnd).IsEmpty Then
+                MessageBox.Show("Ingrese el motivo")
+                Return False
+            Else
+                If calDate.SelectedDate Is Nothing Or calDate.SelectedDate <= Date.Now.Date Then
+                    MessageBox.Show("Ingrese una fecha válida")
+                    Return False
+                Else
+                    Return True
+                End If
+            End If
+        End If
+    End Function
 
     Private Sub ShowPermission()
         Try
-            ClearInputs()
-            SelectedPermission = PermissionList.SelectedValue
+            If PermissionList.SelectedValue IsNot Nothing Then
+                SelectedPermission = PermissionList.SelectedValue
+            End If
             txtCardID.Text = SelectedPermission.EmployeeCardId
             TxtId.Text = SelectedPermission.Id
             txtMotive.Document.Blocks.Add(New Paragraph(New Run(SelectedPermission.Motive)))
             calDate.SelectedDate = SelectedPermission.Date
             chkActive.IsChecked = SelectedPermission.State
             btnSearchEm_Click(Nothing, Nothing)
-
+            PermissionList.SelectedValue = Nothing
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
-    'Private Sub ShowPermissionData(Permission As Permission)
-    '    If Permission IsNot Nothing Then
-    '        ClearInputs()
-    '        txtCardID.Text = Permission.EmployeeCardId
-    '        TxtId.Text = Permission.Id
-    '        txtMotive.Document.Blocks.Add(New Paragraph(New Run(Permission.Motive)))
-    '        calDate.SelectedDate = Permission.Date
-    '        chkActive.IsChecked = Permission.State
-    '        btnSearchEm_Click(Nothing, Nothing)
-    '    End If
-    'End Sub
+    Private Sub SearchPermission(Permission As Permission)
+        Try
+            Permission.Id = TxtId.Text
+            Dim P = PermissionDA.Search(Permission)
+            If P IsNot Nothing Then
+                Permission = P
+                SelectedPermission = Permission
+                ShowPermission()
+                TxtId.IsEnabled = False
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
 
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         ShowPermissionList()
     End Sub
 
     Private Sub PermissionList_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles PermissionList.MouseDoubleClick
+        ClearInputs()
         ShowPermission()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
+        If TxtId.Text.Length <> 0 Then
+            txtMotive.Document.Blocks.Clear()
+            SearchPermission(New Permission)
+        Else
+            MessageBox.Show("Ingrese código de permiso")
+        End If
 
     End Sub
 
@@ -107,7 +186,7 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSearchEm_Click(sender As Object, e As RoutedEventArgs) Handles btnSearchEm.Click
-        If txtCardID.Text IsNot "" Then
+        If txtCardID.Text.Length <> 0 Then
             SearchEmployee(New Employee)
         Else
             MessageBox.Show("Ingrese DNI")
@@ -116,5 +195,13 @@ Class FrmPermisos
 
     Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
         UpdatePermission()
+    End Sub
+
+    Private Sub btnClean_Click(sender As Object, e As RoutedEventArgs) Handles btnClean.Click
+        ClearInputs()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As RoutedEventArgs) Handles btnDelete.Click
+        DeletePermission()
     End Sub
 End Class

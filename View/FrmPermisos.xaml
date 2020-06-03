@@ -42,7 +42,7 @@
                 </Button.Background>
             </Button>
             <Label Grid.Column="3"  Content="EMPLEADO:" Foreground="#FF8E9297" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="30,0,0,0" FontFamily="Segoe UI Semibold" FontSize="20"/>
-            <Label Name="lblName" Grid.Column="4"  Content="----------- " Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="16"/>
+            <Label Name="lblName" Grid.Column="4"  Content="------------------" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="20,0,0,0" FontSize="16"/>
         </Grid>
         <Label Content="PERMISOS" FontFamily="Segoe UI Semibold" FontSize="60" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFD5691E" />
 
@@ -154,8 +154,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
-            <Button Name="btn"  Height="Auto" Width="Auto" Content="DAR DE BAJA" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button Name="btnDelete" Content="ELIMINAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -163,8 +162,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
-            <Button Name="btnDelete"  Height="Auto" Width="Auto" Content="ELIMINAR" Grid.Column="4" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button Name="btnClean" Content="LIMPIAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>

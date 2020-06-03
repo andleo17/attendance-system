@@ -293,7 +293,7 @@
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Mount" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
           <Property Name="ExtraHours" Type="Boolean" Nullable="false" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Contract__Employ__4BAC3F29" FromRole="Contract" ToRole="Employee" />
@@ -310,7 +310,7 @@
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
           <NavigationProperty Name="Attendance" Relationship="Self.FK__Attendanc__Emplo__5441852A" FromRole="Employee" ToRole="Attendance" />
           <NavigationProperty Name="Contract" Relationship="Self.FK__Contract__Employ__4BAC3F29" FromRole="Employee" ToRole="Contract" />
           <NavigationProperty Name="License" Relationship="Self.FK__License__Employe__5EBF139D" FromRole="Employee" ToRole="License" />
@@ -325,7 +325,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Motive" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
           <Property Name="AttendanceId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Attendance" Relationship="Self.FK__Justifica__Atten__571DF1D5" FromRole="Justification" ToRole="Attendance" />
         </EntityType>
@@ -337,7 +337,7 @@
           <Property Name="PresentationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="False" />
           <Property Name="Document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="LicenseTypeId" Type="Byte" Nullable="false" />
@@ -361,7 +361,7 @@
           <Property Name="PresentationDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Motive" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="False" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Permissio__Emplo__59FA5E80" FromRole="Permission" ToRole="Employee" />
         </EntityType>
@@ -372,7 +372,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishDate" Type="DateTime" Precision="0" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Schedule__Employ__4E88ABD4" FromRole="Schedule" ToRole="Employee" />
           <NavigationProperty Name="ScheduleDetail" Relationship="Self.FK__ScheduleD__Sched__5165187F" FromRole="Schedule" ToRole="ScheduleDetail" />
@@ -395,7 +395,7 @@
           <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__User__EmployeeCa__628FA481" FromRole="User" ToRole="Employee" />
         </EntityType>

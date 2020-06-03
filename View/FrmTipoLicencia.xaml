@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FrmTipoLicencia">
+      Title="FrmTipoLicencia" Initialized="Page_Initialized">
     <Grid Background="#FF2F3136">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -18,8 +18,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="TIPO LICENCIA" Background="#FF7289DA" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
-        <Grid Grid.Row="2">
+        <Label Content="TIPO LICENCIA" Background="#D5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
+        <Grid Grid.Row="2" Margin="0,20,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -31,52 +31,58 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="BUSCAR" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" BorderBrush="{x:Null}" Padding="3">
+
+
+            <Button Name="btnSearch"  Height="Auto" Width="Auto" Content="BUSCAR" Grid.Column="0" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF324885" Offset="1"/>
-                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="REGISTRAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
+
+            <Button Name="btnSave"  Height="Auto" Width="Auto" Content="REGISTRAR" Grid.Column="1" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF324885" Offset="1"/>
-                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="MODIFICAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Foreground="White" FontSize="20" BorderBrush="{x:Null}" Padding="3">
+
+            <Button Name="btnUpdate"  Height="Auto" Width="Auto" Content="MODIFICAR" Grid.Column="2" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF324885" Offset="1"/>
-                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="DAR DE BAJA" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
+
+            <Button Name="btn"  Height="Auto" Width="Auto" Content="DAR DE BAJA" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF324885" Offset="1"/>
-                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="ELIMINAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3">
+
+            <Button Name="btnDelete"  Height="Auto" Width="Auto" Content="ELIMINAR" Grid.Column="4" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF324885" Offset="1"/>
-                        <GradientStop Color="#FF7289DA" Offset="0.014"/>
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+
+
         </Grid>
+
+
+
 
 
         <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">
@@ -92,17 +98,17 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0"  />
+            <TextBox Name="txtCodigo" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0"  />
             <Label Content="Descripción" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-            <RichTextBox Grid.Column="3" VerticalAlignment="Center" />
+            <TextBox Name="txtDescripcion" Grid.Column="3" VerticalAlignment="Center" />
             <Label Content="Días" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-            <TextBox Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" />
+            <TextBox Name="txtDias" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" />
         </Grid>
-        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaTipoLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">
+        <DataGrid Grid.Row="3" Grid.Column="0" Name="ListaTipoLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Width="1*" />
-                <DataGridTextColumn Header="Descripción" Width="1*" />
-                <DataGridTextColumn Header="Días" Width="1*" />
+                <DataGridTextColumn Header="Código" Binding="{Binding Path=Id}" Width="1*" />
+                <DataGridTextColumn Header="Descripción"  Binding="{Binding Path=Description}" Width="1*" />
+                <DataGridTextColumn Header="Días" Binding="{Binding Path=MaximumDays}"  Width="1*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

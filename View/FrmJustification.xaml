@@ -18,7 +18,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Content="JUSTIFICACIÓN" Background="#D5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
-        
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -41,12 +41,12 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                    <Label Content="Código justificación" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Segoe UI Semibold" FontSize="16" />
-                    <TextBox Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-                    <Label Content="Código asistencia" Foreground="White" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold" />
-                    <TextBox Grid.Column="3"  VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" />
-                    <Label  Content="Estado" Foreground="White" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                    <CheckBox Grid.Column="5" Content="Vigente" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Foreground="#FFC3C3C3" HorizontalAlignment="Left" />
+                <Label Content="Código justificación" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Segoe UI Semibold" FontSize="16" />
+                <TextBox Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
+                <Label Content="Código asistencia" Foreground="White" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold" />
+                <TextBox Grid.Column="3"  VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
+                <Label  Content="Estado" Foreground="White" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <CheckBox Grid.Column="5" Content="Vigente" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Foreground="#FFC3C3C3" HorizontalAlignment="Left" />
             </Grid>
             <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">
                 <Grid.RowDefinitions>
@@ -62,13 +62,13 @@
                 <DatePicker Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FFD5691E" Offset="0"/>
                             <GradientStop Color="White" Offset="1"/>
                         </LinearGradientBrush>
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Motivo" Grid.Column="2" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                <RichTextBox Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,0,30,0" FontSize="16" />
+                <RichTextBox Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0,0,30,0" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
             </Grid>
         </Grid>
         <Grid Grid.Row="2" Margin="0,20,0,20">

@@ -29,7 +29,6 @@ Class FrmTipoLicencia
 
 
     Private Function SetLicenseTypeDa(LicenseType As LicenseType) As LicenseType
-        LicenseType.Id = txtCodigo.Text
         LicenseType.Description = txtDescripcion.Text
         LicenseType.MaximumDays = txtDias.Text
         Return LicenseType

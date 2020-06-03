@@ -32,17 +32,19 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="DNI:" Foreground="White" Padding="5,5,5,6.5"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5" MaxLength="8" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="TxtCardId" Margin="0,0,0,5" MaxLength="8" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Empleado:" Foreground="White"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="TxtEmployeeName" Margin="0,0,0,5" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
             <!--<Label Grid.Row="2" Grid.Column="0" Content="Código:" Foreground="White"/>
             <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5"/>-->
             <Label Grid.Row="3" Grid.Column="0" Content="Nombre:" Foreground="White"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="White" Foreground="White" CaretBrush="White" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="TxtName" Margin="0,0,0,5" SelectionBrush="#FF2F3136" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" CaretBrush="White" VerticalContentAlignment="Center" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Contraseña:" Foreground="White"/>
-            <PasswordBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5" Foreground="White" Background="{x:Null}"/>
+            <PasswordBox Grid.Row="4" Grid.Column="1" Name="TxtPassword" Margin="0,0,0,5" Foreground="White" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Confirmar:" Foreground="White"/>
-            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center"/>
+            <PasswordBox Grid.Row="5" Grid.Column="1" Name="TxtConfirm" Margin="0,0,0,5" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
+            
+          
             <!--<Label Grid.Row="6" Grid.Column="0" Content="Estado:" Foreground="White"/>
             <CheckBox Grid.Row="6" Grid.Column="1" Content="Vigente" Name="ChkState" Foreground="White"/>-->
         </Grid>

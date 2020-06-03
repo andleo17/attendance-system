@@ -52,7 +52,7 @@
                 </MenuItem>
                 <MenuItem Header="Consultas y reportes" Height="32" >
                     <MenuItem Header="Consulta asistencia" Name="FrmConsultaAsistencia"/>
-                    <MenuItem Header="Consolidado de asistencia mensual"/>
+                    <MenuItem Header="Consolidado de asistencia mensual" Name="FrmConsultaAsistenciaMes"/>
                     <MenuItem Header="Reporte de faltas y tardanzas"/>
                     <MenuItem Header="Reporte de licencias"/>
                 </MenuItem>

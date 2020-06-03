@@ -98,11 +98,11 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <TextBox Name="txtCodigo" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0"  />
+            <TextBox Name="txtCodigo" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"  />
             <Label Content="Descripción" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-            <TextBox Name="txtDescripcion" Grid.Column="3" VerticalAlignment="Center" />
+            <TextBox Name="txtDescripcion" Grid.Column="3" VerticalAlignment="Center" BorderThickness="5,1,1,5" BorderBrush="#FFD5691E" Foreground="White" Background="{x:Null}" Style="{DynamicResource Rounded}" />
             <Label Content="Días" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-            <TextBox Name="txtDias" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" />
+            <TextBox Name="txtDias" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" Style="{DynamicResource Rounded}" />
         </Grid>
         <DataGrid Grid.Row="3" Grid.Column="0" Name="ListaTipoLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">
             <DataGrid.Columns>

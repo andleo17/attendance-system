@@ -24,6 +24,18 @@ Public Class LicenseTypeDA
         End Using
     End Function
 
+    Public Shared Sub Update(LicenseType As LicenseType)
+        Using DB = New DBAttendanceEntities()
+            Try
+                Dim oldLicenseType = DB.Permission.Find(LicenseType.Id)
+                DB.Entry(oldLicenseType).CurrentValues.SetValues(LicenseType)
+                DB.SaveChanges()
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+    End Sub
+
 
 
 End Class

@@ -40,7 +40,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <CheckBox Background="#FFD5691E" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="5,0,0,0" />
+                <CheckBox Background="#FFD5691E" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="5,0,0,0"  Grid.Column="1"/>
                 <CheckBox Background="#FFD5691E" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="4" />
                 
                 <Label Grid.Column="1"  Content="Fecha 1"  Foreground="White" FontFamily="Segoe UI Semibold" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />

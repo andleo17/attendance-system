@@ -83,7 +83,7 @@
     <Compile Include="EmployeeDA.vb" />
     <Compile Include="JustificationDA.vb" />
     <Compile Include="LicenseDA.vb" />
-    <Compile Include="LicenseType.vb" />
+    <Compile Include="LicenseTypeDA.vb" />
     <Compile Include="PermissionDA.vb" />
     <Compile Include="ScheduleDA.vb" />
     <Compile Include="ScheduleDetailDA.vb" />

@@ -12,7 +12,10 @@ Class FrmPermisos
                 Employee = E
                 lblName.Content = E.Name & " " & E.Lastname
             Else
+                Employee = Nothing
                 MessageBox.Show("DNI inválido o el Emlpleado no existe")
+                lblName.Content = "------------------"
+                txtCardID.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -106,10 +109,11 @@ Class FrmPermisos
         txtCardID.Text = Nothing
         lblName.Content = "------------------"
         calDate.SelectedDate = Nothing
+        TxtId.IsEnabled = True
     End Sub
 
     Private Function ValidateSave() As Boolean
-        If SearchEmployee(New Employee).Name = "" Then
+        If SearchEmployee(New Employee) Is Nothing Then
             Return False
         Else
             If New TextRange(txtMotive.Document.ContentStart, txtMotive.Document.ContentEnd).IsEmpty Then
@@ -128,16 +132,33 @@ Class FrmPermisos
 
     Private Sub ShowPermission()
         Try
-            ClearInputs()
-            SelectedPermission = PermissionList.SelectedValue
+            If PermissionList.SelectedValue IsNot Nothing Then
+                SelectedPermission = PermissionList.SelectedValue
+            End If
             txtCardID.Text = SelectedPermission.EmployeeCardId
             TxtId.Text = SelectedPermission.Id
             txtMotive.Document.Blocks.Add(New Paragraph(New Run(SelectedPermission.Motive)))
             calDate.SelectedDate = SelectedPermission.Date
             chkActive.IsChecked = SelectedPermission.State
             btnSearchEm_Click(Nothing, Nothing)
+            PermissionList.SelectedValue = Nothing
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub SearchPermission(Permission As Permission)
+        Try
+            Permission.Id = TxtId.Text
+            Dim P = PermissionDA.Search(Permission)
+            If P IsNot Nothing Then
+                Permission = P
+                SelectedPermission = Permission
+                ShowPermission()
+                TxtId.IsEnabled = False
+            End If
+        Catch ex As Exception
+            Throw ex
         End Try
     End Sub
 
@@ -146,10 +167,17 @@ Class FrmPermisos
     End Sub
 
     Private Sub PermissionList_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles PermissionList.MouseDoubleClick
+        ClearInputs()
         ShowPermission()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
+        If TxtId.Text.Length <> 0 Then
+            txtMotive.Document.Blocks.Clear()
+            SearchPermission(New Permission)
+        Else
+            MessageBox.Show("Ingrese código de permiso")
+        End If
 
     End Sub
 
@@ -158,7 +186,7 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSearchEm_Click(sender As Object, e As RoutedEventArgs) Handles btnSearchEm.Click
-        If txtCardID.Text IsNot "" Then
+        If txtCardID.Text.Length <> 0 Then
             SearchEmployee(New Employee)
         Else
             MessageBox.Show("Ingrese DNI")

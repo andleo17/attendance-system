@@ -108,4 +108,8 @@ Public Class FrmMain
         InitClock()
         ShowLoginForm()
     End Sub
+
+    Private Sub FrmConsultaAsistenciaMes_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistenciaMes.Click
+        ShowFrame(New FrmConsultaAsistenciaMes)
+    End Sub
 End Class

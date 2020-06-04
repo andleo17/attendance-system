@@ -101,7 +101,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="CONSULTAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3" Style="{DynamicResource Rounded}">
+                <Button Content="CONSULTAR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" FontSize="20" Foreground="White" BorderBrush="{x:Null}" Padding="3" Style="{DynamicResource Rounded}" Click="Button_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -114,13 +114,15 @@
 
         </Grid>
 
-        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6" Style="{DynamicResource Rounded}" BorderBrush="#FF292B2F" BorderThickness="5">
+        <DataGrid Name="AttendanceList" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6" Style="{DynamicResource Rounded}" BorderBrush="#FF292B2F" BorderThickness="5">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}"/>
-                <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="Hora entrada" Width="1*" Binding="{Binding Path=Password}"/>
-                <DataGridTextColumn Header="Hora salida" Width="1*" Binding="{Binding Path=EmployeeCardId}"/>
-                <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=State}"/>
+                <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path=Date}"/>
+                <DataGridTextColumn Header="Hora entrada" Width="1*" Binding="{Binding Path=InHour}"/>
+                <DataGridTextColumn Header="Hora salida" Width="1*" Binding="{Binding Path=OutHour}"/>
+                <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}"/>
+                <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Path=Employee.Name}"/>
+                <DataGridTextColumn Header="Apellido" Width="1*" Binding="{Binding Path=Employee.Lastname}"/>
             </DataGrid.Columns>
         </DataGrid>
 

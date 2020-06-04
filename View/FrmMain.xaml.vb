@@ -106,7 +106,7 @@ Public Class FrmMain
 
     Private Sub Window_Initialized(sender As Object, e As EventArgs)
         InitClock()
-        ShowLoginForm()
+        'ShowLoginForm()
     End Sub
 
     Private Sub FrmConsultaAsistenciaMes_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistenciaMes.Click

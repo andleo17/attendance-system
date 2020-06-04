@@ -45,7 +45,7 @@
                 <CheckBox Background="#FFD5691E" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="3" />
 
                 <Label Grid.Column="1"  Content="Fecha 1"  Foreground="White" FontFamily="Segoe UI Semibold" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
-                <DatePicker Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" BorderBrush="{x:Null}" >
+                <DatePicker Grid.Column="2" Name="InitialDate" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" BorderBrush="{x:Null}" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA35117" Offset="0"/>
@@ -56,7 +56,7 @@
                 </DatePicker>
                 <Label Content="Fecha 2" Grid.Column="4"  Foreground="White" FontFamily="Segoe UI Semibold" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 
-                <DatePicker Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
+                <DatePicker Grid.Column="5" Name="FinalDate" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA35117" Offset="0"/>

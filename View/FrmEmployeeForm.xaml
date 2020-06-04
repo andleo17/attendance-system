@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
       d:DesignHeight="726.562" d:DesignWidth="766.25"
-      Title="FrmEmployeeForm" Loaded="Page_Loaded" ScrollViewer.CanContentScroll="True">
+      Title="FrmEmployeeForm" Loaded="Page_Loaded" ScrollViewer.CanContentScroll="True" Initialized="Page_Initialized">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Background="#FF36393F" Margin="25">
             <Grid.RowDefinitions>
@@ -156,6 +156,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -167,7 +168,8 @@
                     <DatePicker Grid.Column="1" Name="DpkScheduleInitialDate"/>
                     <Label Grid.Column="2" Content="Fecha final"/>
                     <DatePicker Grid.Column="3" Name="DpkScheduleFinalDate"/>
-                    <DataGrid Grid.Row="1" Grid.ColumnSpan="4" Name="DgdSchedule" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                    <Button Grid.Row="1" Grid.Column="3" Content="Añadir horario" Click="Button_Click_1"/>
+                    <DataGrid Grid.Row="2" Grid.ColumnSpan="4" Name="DgdSchedule" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionUnit="Cell">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Hora" Width="1*" Binding="{Binding Path=StringConcat}"/>
                             <DataGridTextColumn Header="LUNES" Width="1*"/>

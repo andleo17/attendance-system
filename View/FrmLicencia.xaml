@@ -146,7 +146,6 @@
                     </ComboBox.Background>
                 </ComboBox>
 
-
                 <Label Content="Dni" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox Name="txtDni" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16" />
                 <Label Content="Documento" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>

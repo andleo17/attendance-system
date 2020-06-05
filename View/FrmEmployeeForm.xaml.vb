@@ -11,6 +11,10 @@ Class FrmEmployeeForm
         NavigationService.GetNavigationService(Me).GoBack()
     End Sub
 
+    Private Sub ShowDetails(Page As Page)
+        NavigationService.GetNavigationService(Me).Content = Page
+    End Sub
+
     Private Class Hour
         Property StartHour As TimeSpan
         Property FinishHour As TimeSpan
@@ -204,5 +208,13 @@ Class FrmEmployeeForm
 
     Private Sub Page_Initialized(sender As Object, e As EventArgs)
         GenerateSchedule()
+    End Sub
+
+    Private Sub BtnContractDetails_Click(sender As Object, e As RoutedEventArgs) Handles BtnContractDetails.Click
+        ShowDetails(New FrmContrato)
+    End Sub
+
+    Private Sub BtnScheduleDetails_Click(sender As Object, e As RoutedEventArgs) Handles BtnScheduleDetails.Click
+        'ShowDetails(New )
     End Sub
 End Class

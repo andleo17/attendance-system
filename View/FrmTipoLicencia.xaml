@@ -30,8 +30,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-
+            
 
             <Button Name="btnSearch"  Height="Auto" Width="Auto" Content="BUSCAR" Grid.Column="0" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
@@ -60,7 +59,7 @@
                 </Button.Background>
             </Button>
 
-            <Button Name="btn"  Height="Auto" Width="Auto" Content="DAR DE BAJA" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button Name="btnDelete"  Height="Auto" Width="Auto" Content="ELIMINAR" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -69,7 +68,7 @@
                 </Button.Background>
             </Button>
 
-            <Button Name="btnDelete"  Height="Auto" Width="Auto" Content="ELIMINAR" Grid.Column="4" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button Name="btnClean"  Height="Auto" Width="Auto" Content="LIMPIAR" Grid.Column="4" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -77,8 +76,6 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
-
         </Grid>
 
 
@@ -100,7 +97,7 @@
             <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             <TextBox Name="txtCodigo" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"  />
             <Label Content="Descripción" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-            <TextBox Name="txtDescripcion" Grid.Column="3" VerticalAlignment="Center" BorderThickness="5,1,1,5" BorderBrush="#FFD5691E" Foreground="White" Background="{x:Null}" Style="{DynamicResource Rounded}" />
+            <TextBox  Name="txtDescripcion" Grid.Column="3" VerticalAlignment="Center" BorderThickness="5,1,1,5" BorderBrush="#FFD5691E" Foreground="White" Background="{x:Null}" Style="{DynamicResource Rounded}" />
             <Label Content="Días" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
             <TextBox Name="txtDias" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" Style="{DynamicResource Rounded}" />
         </Grid>

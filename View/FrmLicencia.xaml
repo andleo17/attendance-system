@@ -99,7 +99,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Fecha inicio" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
+                <DatePicker Name="InitialDate" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -108,7 +108,7 @@
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Fecha fin" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
-                <DatePicker Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
+                <DatePicker Name="FinalDate" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -117,7 +117,7 @@
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Estado" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
-                <CheckBox Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
+                <CheckBox Name="chkState" Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
             </Grid>
 
             <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">
@@ -135,9 +135,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16"  />
+                <TextBox  Name="txtId" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16"  />
                 <Label Content="Tipo" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <ComboBox Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}"  >
+                <ComboBox Name="cboType" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" >
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -148,7 +148,7 @@
 
 
                 <Label Content="Dni" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16" />
+                <TextBox Name="txtDni" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16" />
                 <Label Content="Documento" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16" />
             </Grid>

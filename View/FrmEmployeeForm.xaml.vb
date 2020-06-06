@@ -4,7 +4,8 @@ Imports Server
 Class FrmEmployeeForm
 	Public Property SelectedEmployee As Employee
 	Public Property Mode As Integer
-
+	Private Property Contract As Contract
+	Private Property Schedule As Schedule
 	Private ScheduleDetails As List(Of ScheduleDetail) = New List(Of ScheduleDetail)
 
 	Private Sub Back()
@@ -109,7 +110,7 @@ Class FrmEmployeeForm
 
 	Private Sub ShowContract()
 		Try
-			Dim Contract = SelectedEmployee.Contract.First
+			Contract = (From C In SelectedEmployee.Contract Order By C.Id Descending, C.State Descending).First
 			chkContract.IsChecked = Contract.State
 			DpkContractInitialDate.SelectedDate = Contract.StartDate
 			DpkContractFinalDate.SelectedDate = Contract.FinishDate
@@ -144,7 +145,7 @@ Class FrmEmployeeForm
 
 	Private Sub ShowSchedule()
 		Try
-			Dim Schedule = SelectedEmployee.Schedule.First
+			Schedule = (From S In SelectedEmployee.Schedule Order By S.Id Descending, S.State Descending).First
 			ChkSchedule.IsChecked = Schedule.State
 			DpkScheduleInitialDate.SelectedDate = Schedule.StartDate
 			DpkScheduleFinalDate.SelectedDate = Schedule.FinishDate
@@ -188,11 +189,6 @@ Class FrmEmployeeForm
 		End If
 	End Sub
 
-	Private Sub ExtractEmployeeDetails()
-		SelectedEmployee.Contract.Add(ContractDA.FindActual(SelectedEmployee))
-		SelectedEmployee.Schedule.Add(ScheduleDA.FindActual(SelectedEmployee))
-	End Sub
-
 	Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
 		If Mode.Equals(0) Then
 			Button.Content = "REGISTRAR"
@@ -200,13 +196,11 @@ Class FrmEmployeeForm
 			BtnScheduleDetails.Visibility = Visibility.Collapsed
 		ElseIf Mode.Equals(1) Then
 			Button.Content = "GUARDAR"
-			ExtractEmployeeDetails()
 			ShowEmployee()
 			ShowContract()
 			ShowSchedule()
 		ElseIf Mode.Equals(2) Then
 			Button.Content = "VOLVER"
-			ExtractEmployeeDetails()
 			ShowEmployee()
 			ShowContract()
 			ShowSchedule()
@@ -231,13 +225,19 @@ Class FrmEmployeeForm
 
 	Private Sub BtnContractDetails_Click(sender As Object, e As RoutedEventArgs) Handles BtnContractDetails.Click
 		Dim Frm = New FrmContrato With {
-			.CurrentContract = SelectedEmployee.Contract.First,
+			.Employee = SelectedEmployee,
+			.CurrentContract = Contract,
 			.Mode = Mode
 		}
 		ShowDetails(Frm)
 	End Sub
 
 	Private Sub BtnScheduleDetails_Click(sender As Object, e As RoutedEventArgs) Handles BtnScheduleDetails.Click
-		'ShowDetails(New )
+		Dim Frm = New FrmHorario With {
+			.Employee = SelectedEmployee,
+			.CurrentSchedule = Schedule,
+			.Mode = Mode
+		}
+		ShowDetails(Frm)
 	End Sub
 End Class

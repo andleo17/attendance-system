@@ -1,15 +1,13 @@
 ﻿Imports Data
 Public Class LicenseTypeDA
     Public Shared Function listarTiposLicencia() As List(Of LicenseType)
-        Using DB = New DBAttendanceEntities
-            Try
-                Dim Lista = DB.LicenseType
-                'Dim lista = From LT In DB.LicenseType Select LT.id 
-                Return Lista.ToList
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Using
+        Try
+            Dim DB = New DBAttendanceEntities
+            Dim LicenseType = From LT In DB.LicenseType Select LT
+            Return LicenseType.ToList()
+        Catch ex As Exception
+            Throw ex
+        End Try
     End Function
 
 

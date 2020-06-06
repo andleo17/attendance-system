@@ -51,12 +51,79 @@ Class FrmLicencia
                 txtEmpleado.Text = E.Name & " " & E.Lastname
             Else
                 MessageBox.Show("DNI inválido o el empleado no existe")
-                txtEmpleado.Text = "------------------"
+                txtEmpleado.Text = " "
                 txtDni.Focus()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
+    End Sub
+
+
+    Private Function SetLicense(License As License) As License
+        License.PresentationDate = Date.Now.Date
+        License.FinishDate = FinalDate.SelectedDate
+        License.StartDate = InitialDate.SelectedDate
+        License.State = chkState.IsChecked
+        License.Document = txtDoc.Text
+        License.EmployeeCardId = txtDni.Text
+        License.LicenseTypeId = CboType.SelectedItem
+
+        Return License
+    End Function
+
+
+    Private Sub SaveLicense()
+        Try
+            If SelectedLicense Is Nothing Then
+                Dim License = SetLicense(New License)
+                LicenseDA.Save(License)
+                MessageBox.Show("Licencia registrada correctamente", MessageBoxImage.Information)
+                listLicense()
+                ClearInputs()
+            Else
+                MessageBox.Show("No se puede registrar la licencia", MessageBoxImage.Error)
+
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+
+    Private Sub UpdateLicense()
+        Try
+            If SelectedLicense IsNot Nothing Then
+                Dim Msg, Style, Title, Response
+                Msg = "¿Seguro que desea eliminar el permiso"
+                Style = vbYesNo + vbCritical + vbDefaultButton2
+                Title = ".:SISTEMA DE ASISTENCIA:."
+                Response = MsgBox(Msg, Style, Title)
+                If Response = vbYes Then
+                    SelectedLicense = SetLicense(SelectedLicense)
+                    LicenseDA.Update(SelectedLicense)
+                    MessageBox.Show("Licencia modificada correctamente", MessageBoxImage.Information)
+                    listLicense()
+                    ClearInputs()
+                End If
+
+            Else
+                MessageBox.Show("No se pudo modificar la licencia", MessageBoxImage.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+
+    Private Sub DeleteLicense()
+        If SelectedLicense IsNot Nothing Then
+            SelectedLicense = SetLicense(SelectedLicense)
+            LicenseDA.Delete(SelectedLicense)
+            MessageBox.Show("Licencia eliminada correctamente", MessageBoxImage.Information)
+
+        End If
     End Sub
 
     Private Sub ClearInputs()
@@ -71,14 +138,6 @@ Class FrmLicencia
         txtDni.IsEnabled = True
         chkState.IsChecked = False
     End Sub
-
-
-
-
-
-
-
-
 
 
     Private Sub ListaLicencia_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaLicencia.MouseDoubleClick
@@ -99,17 +158,4 @@ Class FrmLicencia
         ClearInputs()
     End Sub
 
-    'Private Sub ListaLicencia_PreviewKeyDown(sender As Object, e As KeyEventArgs) Handles ListaLicencia.PreviewKeyDown
-    '    {
-    '        If (e.Key == Key.Delete) Then
-    '                    {
-    '            listLicense Grid = (listLicense())sender;
-    '            DataGridRow row = (DataGridRow)grid.ItemContainerGenerator
-    '                .ContainerFromIndex(Grid.SelectedIndex);
-
-    '            row.Background = Brushes.Red;
-    '        }
-    '        e.Handled = True;
-    '    }
-    'End Sub
 End Class

@@ -14,7 +14,7 @@ Partial Public Class Justification
     Public Property Id As Integer
     Public Property [Date] As Date
     Public Property Motive As String
-    Public Property State As Boolean
+    Public Property State As Boolean = false
     Public Property AttendanceId As Integer
 
     Public Overridable Property Attendance As Attendance

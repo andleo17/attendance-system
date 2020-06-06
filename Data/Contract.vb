@@ -15,7 +15,7 @@ Partial Public Class Contract
     Public Property StartDate As Date
     Public Property FinishDate As Date
     Public Property Mount As Decimal
-    Public Property State As Boolean = true
+    Public Property State As Boolean
     Public Property ExtraHours As Boolean
     Public Property EmployeeCardId As String
 

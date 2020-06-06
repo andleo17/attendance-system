@@ -39,7 +39,7 @@
                     <MenuItem Name="MnuEmployee" Header="Gestionar"/>
                     <MenuItem Header="Contratos" Name="MnuContratos"/>
                     <Separator/>
-                    <MenuItem Header="Horarios"/>
+                    <MenuItem Name="MnuHorario" Header="Horarios" Click="MenuItem_Click_3"/>
                     <Separator/>
                     <MenuItem Name="MnuUsers" Header="Usuarios"/>
                 </MenuItem>

@@ -112,4 +112,8 @@ Public Class FrmMain
     Private Sub FrmConsultaAsistenciaMes_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistenciaMes.Click
         ShowFrame(New FrmConsultaAsistenciaMes)
     End Sub
+
+    Private Sub MenuItem_Click_3(sender As Object, e As RoutedEventArgs)
+        ShowFrame(New FrmHorario)
+    End Sub
 End Class

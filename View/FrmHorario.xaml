@@ -1,4 +1,4 @@
-﻿<Page x:Class="FrmLicencia"
+﻿<Page x:Class="FrmHorario"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FrmLicencia" Loaded="Page_Loaded">
+      Title="FrmHorario">
     <Grid>
         <Grid Background="#FF2F3136">
             <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="LICENCIA" Background="#D5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
+            <Label Content="HORARIO" Background="#D5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
 
             <Grid Grid.Row="3" Margin="0,20,0,20">
                 <Grid.RowDefinitions>
@@ -94,8 +94,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -120,8 +118,6 @@
                 </DatePicker>
                 <Label Content="Estado" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
                 <CheckBox Name="chkState" Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
-                <Label Content="Documento" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Name="txtDoc" Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
 
 
             </Grid>
@@ -137,39 +133,23 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <TextBox  Name="txtId" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
-                <Label Content="Tipo" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Description" Name="CboType" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}"  >
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                            <GradientStop Color="#FFD5691E" Offset="0"/>
-                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
-                        </LinearGradientBrush>
-                        
-                    </ComboBox.Background>
-                </ComboBox>
-
-                <Label Content="Dni" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox MaxLength="8" Name="txtDni" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
-                <Label Content="Empleado" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Name="txtEmpleado" Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
+                <Label Content="Dni" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox MaxLength="8" Name="txtDni" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,30,0" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
+                <Label Content="Empleado" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox Name="txtEmpleado" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
             </Grid>
-            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525">
+            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaHorario" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525">
                 <DataGrid.Columns >
-                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="Black"/>
-                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" />
-                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" />
-                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" />
-                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}"/>
-                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}"/>
-                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" />
-                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= Document}" />
+                    <DataGridTextColumn Header="Código" Width="1*"  Foreground="Black"/>
+                    <DataGridTextColumn Header="Dni" Width="1*"  />
+                    <DataGridTextColumn Header="Fecha inicio" Width="1*" />
+                    <DataGridTextColumn Header="Fecha fin" Width="1*" />
+                    <DataGridTextColumn Header="Estado" Width="1*"  />
                 </DataGrid.Columns>
-                
+
             </DataGrid>
 
         </Grid>

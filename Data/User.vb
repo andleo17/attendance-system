@@ -14,7 +14,7 @@ Partial Public Class User
     Public Property Id As Short
     Public Property Name As String
     Public Property Password As String
-    Public Property State As Boolean
+    Public Property State As Boolean = true
     Public Property EmployeeCardId As String
 
     Public Overridable Property Employee As Employee

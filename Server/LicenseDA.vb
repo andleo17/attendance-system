@@ -13,6 +13,17 @@ Public Class LicenseDA
     End Function
 
 
+    Public Shared Function Search(Employee As Employee) As List(Of License)
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Dim License = From L In DB.License.Where(Function(PE) PE.EmployeeCardId.Equals(Employee.CardId)) Select L
+            Return License.ToList()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+
     Public Shared Function Search(License As License) As License
         Try
             Dim DB = New DBAttendanceEntities()

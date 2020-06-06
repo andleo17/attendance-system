@@ -193,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmHorario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmJustification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,6 +227,9 @@
     </Compile>
     <Compile Include="FrmEmployeeList.xaml.vb">
       <DependentUpon>FrmEmployeeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHorario.xaml.vb">
+      <DependentUpon>FrmHorario.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmJustification.xaml.vb">
       <DependentUpon>FrmJustification.xaml</DependentUpon>

@@ -16,7 +16,7 @@ Class FrmEmployeeList
 
     Private Sub Page_Initialized(sender As Object, e As EventArgs)
         Dim EList = (From Employee In EmployeeDA.List()
-                     Order By Employee.Lastname
+                     Order By Employee.State Descending, Employee.Lastname
                      Select Employee).ToList
         EmployeeList.ItemsSource = EList
         Dim v = CollectionViewSource.GetDefaultView(EList)

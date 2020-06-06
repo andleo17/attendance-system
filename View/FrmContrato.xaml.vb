@@ -3,6 +3,7 @@ Imports Server
 
 Class FrmContrato
 	Public Property CurrentContract As Contract
+	Public Property Employee As Employee
 	Public Property Mode As Integer
 
 	Private Sub DisableButtons()
@@ -25,6 +26,7 @@ Class FrmContrato
 		TxtMount.Text = Contract.Mount
 		DpkStartDate.SelectedDate = Contract.StartDate
 		DpkFinishDate.SelectedDate = Contract.FinishDate
+		ChkState.IsChecked = Contract.State
 	End Sub
 
 	Private Function SetContractData(Contract As Contract) As Contract
@@ -36,11 +38,11 @@ Class FrmContrato
 		Return Contract
 	End Function
 
-	Private Sub ListEmployeeContracts()
+	Private Sub ListEmployeeContracts(Employee As Employee)
 		Try
+			Dim CList = Employee.Contract
+			ListaContratos.ItemsSource = CList.ToList
 			TxtCardId.IsEnabled = False
-			Dim CList = ContractDA.List(CurrentContract.EmployeeCardId)
-			ListaContratos.ItemsSource = CList
 		Catch ex As Exception
 			MessageBox.Show("Error al listar los contratos del empleado.")
 		End Try
@@ -63,9 +65,10 @@ Class FrmContrato
 		ChkState.IsChecked = False
 		If Mode = 0 Then
 			TxtCardId.Text = Nothing
+			TxtCardId.IsEnabled = True
 			ListContracts()
 		ElseIf Mode = 1 Then
-			ListEmployeeContracts()
+			ListEmployeeContracts(Employee)
 		End If
 	End Sub
 
@@ -84,10 +87,10 @@ Class FrmContrato
 		If Mode = 0 Then
 			ListContracts()
 		ElseIf Mode = 1 Then
-			ListEmployeeContracts()
+			ListEmployeeContracts(Employee)
 			ShowContractData(CurrentContract)
 		ElseIf Mode = 2 Then
-			ListEmployeeContracts()
+			ListEmployeeContracts(Employee)
 			ShowContractData(CurrentContract)
 			DisableButtons()
 			DisableFields()
@@ -95,6 +98,26 @@ Class FrmContrato
 	End Sub
 
 	Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
-		Save()
+		If btnSave.Content = "REGISTRAR" Then
+			Save()
+			btnSave.Content = "NUEVO"
+		Else
+			ClearInputs()
+			btnSave.Content = "REGISTRAR"
+		End If
+	End Sub
+
+	Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
+		If btnSearch.Content = "BUSCAR" Then
+			'ListEmployeeContracts(TxtCardId.Text)
+			btnSearch.Content = "NUEVA BÚSQUEDA"
+		Else
+			ClearInputs()
+			btnSearch.Content = "BUSCAR"
+		End If
+	End Sub
+
+	Private Sub ListaContratos_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaContratos.MouseDoubleClick
+		ShowContractData(ListaContratos.SelectedItem)
 	End Sub
 End Class

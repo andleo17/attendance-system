@@ -56,9 +56,9 @@ Public Class EmployeeDA
         Using DB = New DBAttendanceEntities()
             Try
                 Employee = DB.Employee.Find(Employee.CardId)
-                Dim EContract = From C In Employee.Contract Where C.State
-                Dim ESchedule = From S In Employee.Schedule Where S.State
-                Dim EUser = From U In Employee.User Where U.State
+                Dim EContract = From C In Employee.Contract Where C.State = True
+                Dim ESchedule = From S In Employee.Schedule Where S.State = True
+                Dim EUser = From U In Employee.User Where U.State = True
 
                 If EContract.Count = 1 Then
                     EContract.Single.State = False
@@ -70,42 +70,6 @@ Public Class EmployeeDA
                     EUser.Single.State = False
                 End If
                 Employee.State = False
-                DB.SaveChanges()
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Using
-    End Sub
-
-    Public Shared Sub Delete(Employee As Employee)
-        Using DB = New DBAttendanceEntities()
-            Try
-                Employee = DB.Employee.Find(Employee.CardId)
-                For Each A In Employee.Attendance.ToList
-                    For Each J In A.Justification
-                        DB.Justification.Remove(J)
-                    Next
-                    DB.Attendance.Remove(A)
-                Next
-                For Each C In Employee.Contract.ToList
-                    DB.Contract.Remove(C)
-                Next
-                For Each L In Employee.License.ToList
-                    DB.License.Remove(L)
-                Next
-                For Each P In Employee.Permission.ToList
-                    DB.Permission.Remove(P)
-                Next
-                For Each S In Employee.Schedule.ToList
-                    For Each SD In S.ScheduleDetail.ToList
-                        DB.ScheduleDetail.Remove(SD)
-                    Next
-                    DB.Schedule.Remove(S)
-                Next
-                For Each U In Employee.User.ToList
-                    DB.User.Remove(U)
-                Next
-                DB.Employee.Remove(Employee)
                 DB.SaveChanges()
             Catch ex As Exception
                 Throw ex

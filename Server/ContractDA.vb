@@ -6,7 +6,7 @@ Public Class ContractDA
 		Using DB = New DBAttendanceEntities
 			Try
 				Employee = DB.Employee.Find(Employee.CardId)
-				Dim Contract = From C In Employee.Contract Where C.State Select C
+				Dim Contract = From C In Employee.Contract Where C.State = True Select C
 				Return Contract.Single
 			Catch ex As Exception
 				Throw ex
@@ -27,7 +27,7 @@ Public Class ContractDA
 	Public Shared Function List(EmployeeCardId As String) As List(Of Contract)
 		Using DB = New DBAttendanceEntities
 			Try
-				Dim ContractList = From C In DB.Contract Where C.EmployeeCardId Is EmployeeCardId Select C
+				Dim ContractList = From C In DB.Contract Where C.EmployeeCardId Is EmployeeCardId Order By C.State Descending
 				Return ContractList.ToList
 			Catch ex As Exception
 				Throw ex

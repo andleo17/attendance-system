@@ -23,16 +23,6 @@ Public Class EmployeeControl
         End Try
     End Sub
 
-    Private Sub DeleteEmployee()
-        Try
-            EmployeeDA.Delete(DataContext)
-            MessageBox.Show("Empleado eliminado correctamente")
-            Reload()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-
     Private Sub BtnShow_Click(sender As Object, e As RoutedEventArgs) Handles BtnShow.Click
         OpenDetails(2)
     End Sub
@@ -43,9 +33,5 @@ Public Class EmployeeControl
 
     Private Sub BtnDown_Click(sender As Object, e As RoutedEventArgs) Handles BtnDown.Click
         DownEmployee()
-    End Sub
-
-    Private Sub BtnDelete_Click(sender As Object, e As RoutedEventArgs) Handles BtnDelete.Click
-        DeleteEmployee()
     End Sub
 End Class

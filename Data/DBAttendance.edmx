@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBAttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBAttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attendance">
           <Key>
             <PropertyRef Name="Id" />
@@ -113,7 +113,7 @@
           <Property Name="State" Type="bit" Nullable="false" />
           <Property Name="EmployeeCardId" Type="char" MaxLength="8" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Attendanc__Emplo__5441852A">
+        <Association Name="FK__Attendanc__Emplo__45F365D3">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,7 +125,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contract__Employ__4BAC3F29">
+        <Association Name="FK__Contract__Employ__3B75D760">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -137,7 +137,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Justifica__Atten__571DF1D5">
+        <Association Name="FK__Justifica__Atten__49C3F6B7">
           <End Role="Attendance" Type="Self.Attendance" Multiplicity="1" />
           <End Role="Justification" Type="Self.Justification" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,7 +149,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__License__Employe__5EBF139D">
+        <Association Name="FK__License__Employe__534D60F1">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="License" Type="Self.License" Multiplicity="*" />
           <ReferentialConstraint>
@@ -161,7 +161,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__License__License__5FB337D6">
+        <Association Name="FK__License__License__5441852A">
           <End Role="LicenseType" Type="Self.LicenseType" Multiplicity="1" />
           <End Role="License" Type="Self.License" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,7 +173,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Permissio__Emplo__59FA5E80">
+        <Association Name="FK__Permissio__Emplo__4D94879B">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,7 +185,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Schedule__Employ__4E88ABD4">
+        <Association Name="FK__Schedule__Employ__3F466844">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,7 +197,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ScheduleD__Sched__5165187F">
+        <Association Name="FK__ScheduleD__Sched__4222D4EF">
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
           <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +209,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__EmployeeCa__628FA481">
+        <Association Name="FK__User__EmployeeCa__5812160E">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -232,44 +232,45 @@
           <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ScheduleDetail" EntityType="Self.ScheduleDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Attendanc__Emplo__5441852A" Association="Self.FK__Attendanc__Emplo__5441852A">
+          <AssociationSet Name="FK__Attendanc__Emplo__45F365D3" Association="Self.FK__Attendanc__Emplo__45F365D3">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Attendance" EntitySet="Attendance" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contract__Employ__4BAC3F29" Association="Self.FK__Contract__Employ__4BAC3F29">
+          <AssociationSet Name="FK__Contract__Employ__3B75D760" Association="Self.FK__Contract__Employ__3B75D760">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Contract" EntitySet="Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK__Justifica__Atten__571DF1D5" Association="Self.FK__Justifica__Atten__571DF1D5">
+          <AssociationSet Name="FK__Justifica__Atten__49C3F6B7" Association="Self.FK__Justifica__Atten__49C3F6B7">
             <End Role="Attendance" EntitySet="Attendance" />
             <End Role="Justification" EntitySet="Justification" />
           </AssociationSet>
-          <AssociationSet Name="FK__License__Employe__5EBF139D" Association="Self.FK__License__Employe__5EBF139D">
+          <AssociationSet Name="FK__License__Employe__534D60F1" Association="Self.FK__License__Employe__534D60F1">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="License" EntitySet="License" />
           </AssociationSet>
-          <AssociationSet Name="FK__License__License__5FB337D6" Association="Self.FK__License__License__5FB337D6">
+          <AssociationSet Name="FK__License__License__5441852A" Association="Self.FK__License__License__5441852A">
             <End Role="LicenseType" EntitySet="LicenseType" />
             <End Role="License" EntitySet="License" />
           </AssociationSet>
-          <AssociationSet Name="FK__Permissio__Emplo__59FA5E80" Association="Self.FK__Permissio__Emplo__59FA5E80">
+          <AssociationSet Name="FK__Permissio__Emplo__4D94879B" Association="Self.FK__Permissio__Emplo__4D94879B">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Permission" EntitySet="Permission" />
           </AssociationSet>
-          <AssociationSet Name="FK__Schedule__Employ__4E88ABD4" Association="Self.FK__Schedule__Employ__4E88ABD4">
+          <AssociationSet Name="FK__Schedule__Employ__3F466844" Association="Self.FK__Schedule__Employ__3F466844">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
-          <AssociationSet Name="FK__ScheduleD__Sched__5165187F" Association="Self.FK__ScheduleD__Sched__5165187F">
+          <AssociationSet Name="FK__ScheduleD__Sched__4222D4EF" Association="Self.FK__ScheduleD__Sched__4222D4EF">
             <End Role="Schedule" EntitySet="Schedule" />
             <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__EmployeeCa__628FA481" Association="Self.FK__User__EmployeeCa__628FA481">
+          <AssociationSet Name="FK__User__EmployeeCa__5812160E" Association="Self.FK__User__EmployeeCa__5812160E">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBAttendanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -282,8 +283,8 @@
           <Property Name="InHour" Type="Time" Nullable="false" Precision="7" />
           <Property Name="OutHour" Type="Time" Precision="7" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Attendanc__Emplo__5441852A" FromRole="Attendance" ToRole="Employee" />
-          <NavigationProperty Name="Justification" Relationship="Self.FK__Justifica__Atten__571DF1D5" FromRole="Attendance" ToRole="Justification" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Attendanc__Emplo__45F365D3" FromRole="Attendance" ToRole="Employee" />
+          <NavigationProperty Name="Justification" Relationship="Self.FK__Justifica__Atten__49C3F6B7" FromRole="Attendance" ToRole="Justification" />
         </EntityType>
         <EntityType Name="Contract">
           <Key>
@@ -293,10 +294,10 @@
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Mount" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="TRUE" />
           <Property Name="ExtraHours" Type="Boolean" Nullable="false" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Contract__Employ__4BAC3F29" FromRole="Contract" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Contract__Employ__3B75D760" FromRole="Contract" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -310,13 +311,13 @@
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
-          <NavigationProperty Name="Attendance" Relationship="Self.FK__Attendanc__Emplo__5441852A" FromRole="Employee" ToRole="Attendance" />
-          <NavigationProperty Name="Contract" Relationship="Self.FK__Contract__Employ__4BAC3F29" FromRole="Employee" ToRole="Contract" />
-          <NavigationProperty Name="License" Relationship="Self.FK__License__Employe__5EBF139D" FromRole="Employee" ToRole="License" />
-          <NavigationProperty Name="Permission" Relationship="Self.FK__Permissio__Emplo__59FA5E80" FromRole="Employee" ToRole="Permission" />
-          <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__Employ__4E88ABD4" FromRole="Employee" ToRole="Schedule" />
-          <NavigationProperty Name="User" Relationship="Self.FK__User__EmployeeCa__628FA481" FromRole="Employee" ToRole="User" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="TRUE" />
+          <NavigationProperty Name="Attendance" Relationship="Self.FK__Attendanc__Emplo__45F365D3" FromRole="Employee" ToRole="Attendance" />
+          <NavigationProperty Name="Contract" Relationship="Self.FK__Contract__Employ__3B75D760" FromRole="Employee" ToRole="Contract" />
+          <NavigationProperty Name="License" Relationship="Self.FK__License__Employe__534D60F1" FromRole="Employee" ToRole="License" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK__Permissio__Emplo__4D94879B" FromRole="Employee" ToRole="Permission" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__Employ__3F466844" FromRole="Employee" ToRole="Schedule" />
+          <NavigationProperty Name="User" Relationship="Self.FK__User__EmployeeCa__5812160E" FromRole="Employee" ToRole="User" />
         </EntityType>
         <EntityType Name="Justification">
           <Key>
@@ -325,9 +326,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Motive" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="FALSE" />
           <Property Name="AttendanceId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Attendance" Relationship="Self.FK__Justifica__Atten__571DF1D5" FromRole="Justification" ToRole="Attendance" />
+          <NavigationProperty Name="Attendance" Relationship="Self.FK__Justifica__Atten__49C3F6B7" FromRole="Justification" ToRole="Attendance" />
         </EntityType>
         <EntityType Name="License">
           <Key>
@@ -337,12 +338,12 @@
           <Property Name="PresentationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="FALSE" />
           <Property Name="Document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="LicenseTypeId" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__License__Employe__5EBF139D" FromRole="License" ToRole="Employee" />
-          <NavigationProperty Name="LicenseType" Relationship="Self.FK__License__License__5FB337D6" FromRole="License" ToRole="LicenseType" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__License__Employe__534D60F1" FromRole="License" ToRole="Employee" />
+          <NavigationProperty Name="LicenseType" Relationship="Self.FK__License__License__5441852A" FromRole="License" ToRole="LicenseType" />
         </EntityType>
         <EntityType Name="LicenseType">
           <Key>
@@ -351,7 +352,7 @@
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaximumDays" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="License" Relationship="Self.FK__License__License__5FB337D6" FromRole="LicenseType" ToRole="License" />
+          <NavigationProperty Name="License" Relationship="Self.FK__License__License__5441852A" FromRole="LicenseType" ToRole="License" />
         </EntityType>
         <EntityType Name="Permission">
           <Key>
@@ -361,9 +362,9 @@
           <Property Name="PresentationDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Motive" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="FALSE" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Permissio__Emplo__59FA5E80" FromRole="Permission" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Permissio__Emplo__4D94879B" FromRole="Permission" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -372,10 +373,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishDate" Type="DateTime" Precision="0" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="TRUE" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Schedule__Employ__4E88ABD4" FromRole="Schedule" ToRole="Employee" />
-          <NavigationProperty Name="ScheduleDetail" Relationship="Self.FK__ScheduleD__Sched__5165187F" FromRole="Schedule" ToRole="ScheduleDetail" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Schedule__Employ__3F466844" FromRole="Schedule" ToRole="Employee" />
+          <NavigationProperty Name="ScheduleDetail" Relationship="Self.FK__ScheduleD__Sched__4222D4EF" FromRole="Schedule" ToRole="ScheduleDetail" />
         </EntityType>
         <EntityType Name="ScheduleDetail">
           <Key>
@@ -386,7 +387,7 @@
           <Property Name="Day" Type="Byte" Nullable="false" />
           <Property Name="InHour" Type="Time" Nullable="false" Precision="7" />
           <Property Name="OutHour" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="Schedule" Relationship="Self.FK__ScheduleD__Sched__5165187F" FromRole="ScheduleDetail" ToRole="Schedule" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK__ScheduleD__Sched__4222D4EF" FromRole="ScheduleDetail" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -395,11 +396,11 @@
           <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <Property Name="State" Type="Boolean" Nullable="false" DefaultValue="TRUE" />
           <Property Name="EmployeeCardId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__User__EmployeeCa__628FA481" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__User__EmployeeCa__5812160E" FromRole="User" ToRole="Employee" />
         </EntityType>
-        <Association Name="FK__Attendanc__Emplo__5441852A">
+        <Association Name="FK__Attendanc__Emplo__45F365D3">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
           <ReferentialConstraint>
@@ -411,7 +412,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Justifica__Atten__571DF1D5">
+        <Association Name="FK__Justifica__Atten__49C3F6B7">
           <End Role="Attendance" Type="Self.Attendance" Multiplicity="1" />
           <End Role="Justification" Type="Self.Justification" Multiplicity="*" />
           <ReferentialConstraint>
@@ -423,7 +424,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contract__Employ__4BAC3F29">
+        <Association Name="FK__Contract__Employ__3B75D760">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
           <ReferentialConstraint>
@@ -435,7 +436,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__License__Employe__5EBF139D">
+        <Association Name="FK__License__Employe__534D60F1">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="License" Type="Self.License" Multiplicity="*" />
           <ReferentialConstraint>
@@ -447,7 +448,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Permissio__Emplo__59FA5E80">
+        <Association Name="FK__Permissio__Emplo__4D94879B">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
           <ReferentialConstraint>
@@ -459,7 +460,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Schedule__Employ__4E88ABD4">
+        <Association Name="FK__Schedule__Employ__3F466844">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
@@ -471,7 +472,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User__EmployeeCa__628FA481">
+        <Association Name="FK__User__EmployeeCa__5812160E">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -483,7 +484,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__License__License__5FB337D6">
+        <Association Name="FK__License__License__5441852A">
           <End Role="LicenseType" Type="Self.LicenseType" Multiplicity="1" />
           <End Role="License" Type="Self.License" Multiplicity="*" />
           <ReferentialConstraint>
@@ -495,7 +496,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ScheduleD__Sched__5165187F">
+        <Association Name="FK__ScheduleD__Sched__4222D4EF">
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
           <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -518,39 +519,39 @@
           <EntitySet Name="Schedule" EntityType="Self.Schedule" />
           <EntitySet Name="ScheduleDetail" EntityType="Self.ScheduleDetail" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK__Attendanc__Emplo__5441852A" Association="Self.FK__Attendanc__Emplo__5441852A">
+          <AssociationSet Name="FK__Attendanc__Emplo__45F365D3" Association="Self.FK__Attendanc__Emplo__45F365D3">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Attendance" EntitySet="Attendance" />
           </AssociationSet>
-          <AssociationSet Name="FK__Justifica__Atten__571DF1D5" Association="Self.FK__Justifica__Atten__571DF1D5">
+          <AssociationSet Name="FK__Justifica__Atten__49C3F6B7" Association="Self.FK__Justifica__Atten__49C3F6B7">
             <End Role="Attendance" EntitySet="Attendance" />
             <End Role="Justification" EntitySet="Justification" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contract__Employ__4BAC3F29" Association="Self.FK__Contract__Employ__4BAC3F29">
+          <AssociationSet Name="FK__Contract__Employ__3B75D760" Association="Self.FK__Contract__Employ__3B75D760">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Contract" EntitySet="Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK__License__Employe__5EBF139D" Association="Self.FK__License__Employe__5EBF139D">
+          <AssociationSet Name="FK__License__Employe__534D60F1" Association="Self.FK__License__Employe__534D60F1">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="License" EntitySet="License" />
           </AssociationSet>
-          <AssociationSet Name="FK__Permissio__Emplo__59FA5E80" Association="Self.FK__Permissio__Emplo__59FA5E80">
+          <AssociationSet Name="FK__Permissio__Emplo__4D94879B" Association="Self.FK__Permissio__Emplo__4D94879B">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Permission" EntitySet="Permission" />
           </AssociationSet>
-          <AssociationSet Name="FK__Schedule__Employ__4E88ABD4" Association="Self.FK__Schedule__Employ__4E88ABD4">
+          <AssociationSet Name="FK__Schedule__Employ__3F466844" Association="Self.FK__Schedule__Employ__3F466844">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
-          <AssociationSet Name="FK__User__EmployeeCa__628FA481" Association="Self.FK__User__EmployeeCa__628FA481">
+          <AssociationSet Name="FK__User__EmployeeCa__5812160E" Association="Self.FK__User__EmployeeCa__5812160E">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK__License__License__5FB337D6" Association="Self.FK__License__License__5FB337D6">
+          <AssociationSet Name="FK__License__License__5441852A" Association="Self.FK__License__License__5441852A">
             <End Role="LicenseType" EntitySet="LicenseType" />
             <End Role="License" EntitySet="License" />
           </AssociationSet>
-          <AssociationSet Name="FK__ScheduleD__Sched__5165187F" Association="Self.FK__ScheduleD__Sched__5165187F">
+          <AssociationSet Name="FK__ScheduleD__Sched__4222D4EF" Association="Self.FK__ScheduleD__Sched__4222D4EF">
             <End Role="Schedule" EntitySet="Schedule" />
             <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
           </AssociationSet>

@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Attendance_USAT Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Attendance_USAT</Alias>
+        <ConnectionStringEncrypted>9BDZ60Zfk51iSaXcYwApO9FaaStOGHtZ4Vgl8eoY4UbVeGUpzVtD7W9N/dxNKGJ70VTNC0ZZy5XsRrWY5IRgT9VszS1NVdPN4lzZ2E1x6y/leM/jxgXDlUUTbZhpdOc/31TbiGIYkglrRgH4wwRhKt5w2etPXHvtalrR8WHE6zvxcPsrRkxLUWAZ2Q==</ConnectionStringEncrypted>
+        <Key>97d30d158f05458289706311f73bb189</Key>
+        <Name>Attendance_USAT</Name>
+      </Attendance_USAT>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <Inasistencias Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Inasistencias</Alias>
+        <Columns isList="true" count="7">
+          <value>ORIGINAL,dt_val,dt_val,dt_val,System.DateTime,_x0033_afa6119b29d490f88d987e8b935dab9</value>
+          <value>ORIGINAL,EmployeeCardId,EmployeeCardId,EmployeeCardId,System.String,_x0032_4355b323cd64d05abc30aa07f3f1813</value>
+          <value>ORIGINAL,Day,Day,Day,System.Byte,ad5891ef1fa3403d94e946d775ac9c12</value>
+          <value>ORIGINAL,Id,Id,Id,System.Int32,c9d463cd28ec417d99d675967afac523</value>
+          <value>ORIGINAL,Date,Date,Date,System.DateTime,_x0038_b8859e7c0fe4928876c1b5103d00833</value>
+          <value>ORIGINAL,JusID,JusID,JusID,System.Int32,e7184757723d4179a680403927f489d7</value>
+          <value>ORIGINAL,Motive,Motive,Motive,System.String,_x0034_f9da81fb7b34f12af4c7982b984f884</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>002fda44815842ae9c1ac50b40e2d957</Key>
+        <Name>Inasistencias</Name>
+        <NameInSource>Attendance_USAT</NameInSource>
+        <Parameters isList="true" count="2">
+          <value>DNI,DNI_EMP,18,9,f2aee90dfa124ff182bb438369a6fd0e</value>
+          <value>FECHA,FECHA,31,0,17f39e1846684b1a94b0559068b7acb7</value>
+        </Parameters>
+        <SqlCommand>SELECT *
+FROM Non_attendance_Report(@DNI, @FECHA)
+ORDER BY dt_val</SqlCommand>
+      </Inasistencias>
+      <Employee Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Employee</Alias>
+        <Columns isList="true" count="9">
+          <value>CardId,System.String</value>
+          <value>Name,System.String</value>
+          <value>Lastname,System.String</value>
+          <value>Genre,System.String</value>
+          <value>BirthDate,System.DateTime</value>
+          <value>Address,System.String</value>
+          <value>Phone,System.String</value>
+          <value>State,System.Boolean</value>
+          <value>Email,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>7a7a99acba124d78a54ce19bc2b4b79e</Key>
+        <Name>Employee</Name>
+        <NameInSource>Attendance_USAT</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Employee</SqlCommand>
+      </Employee>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="2">
+      <value>,DNI_EMP,DNI_x0020_de_x0020_Empleado,,System.String,,False,False,True,False,,ffaa305a25b74f15bf051b4d605928f9</value>
+      <value>,FECHA,FECHA,,System.DateTime,,False,True,True,False,_x003C__x003F_xml_x0020_version_x003D__x0022_1.0_x0022__x0020_encoding_x003D__x0022_utf-16_x0022__x0020_standalone_x003D__x0022_yes_x0022__x003F__x003E__x003C_StiSerializer_x0020_version_x003D__x0022_1.02_x0022__x0020_type_x003D__x0022_Net_x0022__x0020_application_x003D__x0022_State_x0022__x003E__x003C_DateTimeType_x003E_DateAndTime_x003C__x002F_DateTimeType_x003E__x003C_BindingVariable_x0020_isNull_x003D__x0022_true_x0022__x0020__x002F__x003E__x003C_ValuesBinding_x0020_isList_x003D__x0022_true_x0022__x0020_count_x003D__x0022_0_x0022__x0020__x002F__x003E__x003C__x002F_StiSerializer_x003E_,cd611ed9268346dc8cf22133ee8b4f43</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>1be792c7e32140ada64d4b44632d06db</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <HeaderInasistencias Ref="6" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="7">
+            <HeaderInasistencias_dt_val Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_dt_val</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>dt_val</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_dt_val>
+            <HeaderInasistencias_EmployeeCardId Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_EmployeeCardId</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>EmployeeCardId</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_EmployeeCardId>
+            <HeaderInasistencias_Day Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_Day</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Day</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_Day>
+            <HeaderInasistencias_Id Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_Id</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Id</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_Id>
+            <HeaderInasistencias_Date Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_Date</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Date</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_Date>
+            <HeaderInasistencias_JusID Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_JusID</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>JusID</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_JusID>
+            <HeaderInasistencias_Motive Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderInasistencias_Motive</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Motive</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderInasistencias_Motive>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderInasistencias</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </HeaderInasistencias>
+        <DataInasistencias Ref="14" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,2,19,0.8</ClientRectangle>
+          <Components isList="true" count="7">
+            <DataInasistencias_dt_val Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_dt_val</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.dt_val}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_dt_val>
+            <DataInasistencias_EmployeeCardId Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.8,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_EmployeeCardId</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.EmployeeCardId}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_EmployeeCardId>
+            <DataInasistencias_Day Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.6,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_Day</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.Day}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_Day>
+            <DataInasistencias_Id Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_Id</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.Id}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_Id>
+            <DataInasistencias_Date Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_Date</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.Date}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_Date>
+            <DataInasistencias_JusID Ref="20" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_JusID</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.JusID}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_JusID>
+            <DataInasistencias_Motive Ref="21" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataInasistencias_Motive</Name>
+              <Page isRef="5" />
+              <Parent isRef="14" />
+              <Text>{Inasistencias.Motive}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataInasistencias_Motive>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Inasistencias</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataInasistencias</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </DataInasistencias>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>f202a71d7182433c9d5a75edee958964</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>6/6/2020 4:55:58 PM</ReportChanged>
+  <ReportCreated>6/6/2020 11:47:15 AM</ReportCreated>
+  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\non_attendance_report.mrt</ReportFile>
+  <ReportGuid>8d150863217d427d9fef33fadc5af0a8</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

@@ -163,12 +163,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FrmAttendace.xaml.vb">
+      <DependentUpon>FrmAttendace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsultaAsistenciaMes.xaml.vb">
       <DependentUpon>FrmConsultaAsistenciaMes.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmContrato.xaml.vb">
       <DependentUpon>FrmContrato.xaml</DependentUpon>
     </Compile>
+    <Page Include="FrmAttendace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmConsultaAsistenciaMes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FrmEmployeeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmHorario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,6 +234,9 @@
     </Compile>
     <Compile Include="FrmEmployeeList.xaml.vb">
       <DependentUpon>FrmEmployeeList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHorario.xaml.vb">
+      <DependentUpon>FrmHorario.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmJustification.xaml.vb">
       <DependentUpon>FrmJustification.xaml</DependentUpon>

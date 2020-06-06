@@ -106,8 +106,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Contrato"/>
-                    <CheckBox Grid.Column="1" Content="Vigencia" Name="chkContract"/>
+                    <Label Content="Contrato" Foreground="White"/>
+                    <CheckBox Grid.Column="1" Content="Vigencia" Name="chkContract" Foreground="White"/>
                     <Button Grid.Column="2" Content="Ver detalles" Name="BtnContractDetails"/>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -121,13 +121,13 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Fecha inicial"/>
+                    <Label Content="Fecha inicial" Foreground="White"/>
                     <DatePicker Grid.Column="1" Name="DpkContractInitialDate" BorderBrush="{x:Null}"/>
-                    <Label Grid.Row="1" Content="Fecha final"/>
+                    <Label Grid.Row="1" Content="Fecha final" Foreground="White"/>
                     <DatePicker Grid.Row="1" Grid.Column="1" Name="DpkContractFinalDate" BorderBrush="{x:Null}"/>
-                    <Label Grid.Column="2" Content="Monto"/>
+                    <Label Grid.Column="2" Content="Monto" Foreground="White"/>
                     <TextBox Grid.Column="3" Name="TxtMount"/>
-                    <Label Grid.Row="1" Grid.Column="2" Content="Horas extra"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content="Horas extra" Foreground="White"/>
                     <CheckBox Grid.Row="1" Grid.Column="3" Name="ChkExtraHours"/>
                 </Grid>
             </Grid>
@@ -148,8 +148,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Horario"/>
-                    <CheckBox Grid.Column="1" Content="Vigencia" Name="ChkSchedule"/>
+                    <Label Content="Horario" Foreground="White"/>
+                    <CheckBox Grid.Column="1" Content="Vigencia" Name="ChkSchedule" Foreground="White"/>
                     <Button Grid.Column="2" Content="Ver detalles" Name="BtnScheduleDetails"/>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -164,11 +164,11 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Fecha inicial"/>
-                    <DatePicker Grid.Column="1" Name="DpkScheduleInitialDate"/>
-                    <Label Grid.Column="2" Content="Fecha final"/>
-                    <DatePicker Grid.Column="3" Name="DpkScheduleFinalDate"/>
-                    <Button Grid.Row="1" Grid.Column="3" Content="Añadir horario" Click="Button_Click_1"/>
+                    <Label Content="Fecha inicial" Foreground="White"/>
+                    <DatePicker Grid.Column="1" Name="DpkScheduleInitialDate" BorderBrush="{x:Null}"/>
+                    <Label Grid.Column="2" Content="Fecha final" Foreground="White"/>
+                    <DatePicker Grid.Column="3" Name="DpkScheduleFinalDate" BorderBrush="{x:Null}"/>
+                    <Button Name="BtnAddScheduleDetail" Grid.Row="1" Grid.Column="3" Content="Añadir horario"/>
                     <DataGrid Grid.Row="2" Grid.ColumnSpan="4" Name="DgdSchedule" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionUnit="Cell">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Hora" Width="1*" Binding="{Binding Path=StringConcat}"/>

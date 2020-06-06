@@ -56,7 +56,6 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -64,7 +63,6 @@
             <Button Grid.Column="0" Grid.Row="0" Content="Ver" Name="BtnShow"/>
             <Button Grid.Column="0" Grid.Row="1" Content="Modificar" Name="BtnModify"/>
             <Button Grid.Column="0" Grid.Row="2" Content="Dar de baja" Name="BtnDown"/>
-            <Button Grid.Column="0" Grid.Row="3" Content="Eliminar" Name="BtnDelete"/>
         </Grid>
     </Grid>
 </UserControl>

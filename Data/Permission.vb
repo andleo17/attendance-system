@@ -15,7 +15,7 @@ Partial Public Class Permission
     Public Property PresentationDate As Date
     Public Property [Date] As Date
     Public Property Motive As String
-    Public Property State As Boolean = false
+    Public Property State As Boolean
     Public Property EmployeeCardId As String
 
     Public Overridable Property Employee As Employee

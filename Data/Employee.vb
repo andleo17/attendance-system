@@ -19,7 +19,7 @@ Partial Public Class Employee
     Public Property Address As String
     Public Property Phone As String
     Public Property Email As String
-    Public Property State As Boolean = true
+    Public Property State As Boolean
 
     Public Overridable Property Attendance As ICollection(Of Attendance) = New HashSet(Of Attendance)
     Public Overridable Property Contract As ICollection(Of Contract) = New HashSet(Of Contract)

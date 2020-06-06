@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" Loaded="Page_Loaded"
       Title="Page2">
     <Grid>
         <Grid Background="#FF2F3136">
@@ -19,9 +19,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
             <Label Content="CONTRATO" Background="#FFD5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
-
             <Grid Grid.Row="3" Margin="0,20,0,20">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -33,9 +31,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
-
-
                 <Button Name="btnSearch"  Height="Auto" Width="Auto" Content="BUSCAR" Grid.Column="0" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -44,7 +39,6 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-
                 <Button Name="btnSave"  Height="Auto" Width="Auto" Content="REGISTRAR" Grid.Column="1" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -53,7 +47,6 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-
                 <Button Name="btnUpdate"  Height="Auto" Width="Auto" Content="MODIFICAR" Grid.Column="2" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -62,8 +55,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-
-                <Button Name="btn"  Height="Auto" Width="Auto" Content="DAR DE BAJA" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Button Name="btnDown"  Height="Auto" Width="Auto" Content="DAR DE BAJA" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -71,7 +63,6 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-
                 <Button Name="btnDelete"  Height="Auto" Width="Auto" Content="ELIMINAR" Grid.Column="4" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -80,13 +71,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-
-
             </Grid>
-
-
-
-
             <Grid Grid.Row="2" Background="#FF292B2F" Margin="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -100,7 +85,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Fecha inicio" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
+                <DatePicker Name="DpkStartDate" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -109,7 +94,7 @@
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Fecha fin" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
-                <DatePicker Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
+                <DatePicker Name="DpkFinishDate" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -118,9 +103,8 @@
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Estado" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
-                <CheckBox Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
+                <CheckBox Name="ChkState" Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
             </Grid>
-
             <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -132,30 +116,25 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Número contrato" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"  />
-                <Label Content="Dni" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Grid.Column="3" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"    />
-                <Label Content="Horas extras" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
-                <Label Content="Monto" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
+                <Label Content="Dni" Foreground="White" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox Name="TxtCardId" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"    />
+                <Label Content="Horas extras" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <CheckBox Name="ChkExtraHours" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
+                <Label Content="Monto" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox Name="TxtMount" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
             </Grid>
             <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaContratos" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Número contrato" Width="1*" />
-                    <DataGridTextColumn Header="Dni" Width="1*" />
-                    <DataGridTextColumn Header="Monto" Width="1*" />
-                    <DataGridTextColumn Header="Horas extras" Width="1*" />
-                    <DataGridTextColumn Header="Fecha inicio" Width="1*" />
-                    <DataGridTextColumn Header="Fecha fin" Width="1*" />
-                    <DataGridTextColumn Header="Estado" Width="1*" />
+                    <DataGridTextColumn Header="Número contrato" Binding="{Binding Path=Id}" Width="1*" />
+                    <DataGridTextColumn Header="Dni" Binding="{Binding Path=EmployeeCardId}" Width="1*" />
+                    <DataGridTextColumn Header="Monto" Binding="{Binding Path=Mount}" Width="1*" />
+                    <DataGridCheckBoxColumn Header="Horas extras" Binding="{Binding Path=ExtraHours}" Width="1*" />
+                    <DataGridTextColumn Header="Fecha inicio" Binding="{Binding Path=StartDate}" Width="1*" />
+                    <DataGridTextColumn Header="Fecha fin" Binding="{Binding Path=FinishDate}" Width="1*" />
+                    <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Path=State}" Width="1*" />
                 </DataGrid.Columns>
             </DataGrid>
-
         </Grid>
     </Grid>
 </Page>

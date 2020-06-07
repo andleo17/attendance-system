@@ -57,5 +57,76 @@ Public Class AttendanceDA
         End Try
         Return Nothing
     End Function
+    '----------------------------------------------------------------------------------------------------------------
+
+    Public Shared Function List() As List(Of Attendance)
+        Using DB = New DBAttendanceEntities
+            Try
+                Dim Lista = DB.Attendance
+                Return Lista.ToList
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+
+    End Function
+
+    Public Shared Function List(EmployeeCardId As String) As List(Of Attendance)
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Dim Attendance = From A In DB.Attendance Where A.EmployeeCardId Is EmployeeCardId
+            Return Attendance.ToList
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Shared Function Search(Employee As Employee) As List(Of Attendance)
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Dim Attendance = From A In DB.Attendance.Where(Function(PE) PE.EmployeeCardId.Equals(Employee.CardId)) Select A
+            Return Attendance.ToList()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Shared Sub Save(Attendance As Attendance)
+        Using DB = New DBAttendanceEntities()
+            Try
+                DB.Attendance.Add(Attendance)
+                DB.SaveChanges()
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+
+    End Sub
+
+
+    Public Shared Sub Update(Attendance As Attendance)
+        Using DB = New DBAttendanceEntities()
+            Try
+                Dim oldAttendance = DB.Attendance.Find(Attendance.Id)
+                DB.Entry(oldAttendance).CurrentValues.SetValues(Attendance)
+                DB.SaveChanges()
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+    End Sub
+
+    Public Shared Sub Delete(Attendance As Attendance)
+        Using DB = New DBAttendanceEntities()
+            Try
+                Attendance = DB.Attendance.Find(Attendance.Id)
+                DB.Attendance.Remove(Attendance)
+                DB.SaveChanges()
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Using
+    End Sub
+
 
 End Class

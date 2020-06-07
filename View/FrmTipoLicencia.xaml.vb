@@ -20,11 +20,11 @@ Class FrmTipoLicencia
         Try
             Dim LicenseType = SetLicenseTypeDa(New LicenseType)
             LicenseTypeDA.save(LicenseType)
-            MessageBox.Show("Tipo de licencia agregada de manera exitosa")
+            MessageBox.Show("Tipo de licencia agregada de manera exitosa", "Sistema asistencia")
             listLicenseType()
             ClearInputs()
         Catch ex As Exception
-            MessageBox.Show("Error al registrar", MessageBoxImage.Error)
+            MessageBox.Show("Error al registrar", "Sistema asistencia", MessageBoxImage.Error)
         End Try
     End Sub
 
@@ -56,7 +56,7 @@ Class FrmTipoLicencia
             SelectedLicenseType = SetLicenseTypeDa(SelectedLicenseType)
             LicenseTypeDA.Update(SelectedLicenseType)
             MessageBox.Show("Tipo de licencia actualizado")
-            ShowLicenseType()
+            listLicenseType()
             ClearInputs()
         End If
         MessageBox.Show("Seleccione tipo de licencia")
@@ -129,7 +129,7 @@ Class FrmTipoLicencia
         If txtCodigo.Text.Length <> 0 Then
             SearchLicenseType(New LicenseType)
         Else
-            MessageBox.Show("Ingrese código de tipo de licensia")
+            MessageBox.Show("Ingrese código de tipo de licencia", MessageBoxImage.Error)
         End If
     End Sub
 

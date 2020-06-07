@@ -566,10 +566,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/6/2020 3:57:38 PM</ReportChanged>
+  <ReportChanged>6/6/2020 6:44:36 PM</ReportChanged>
   <ReportCreated>6/4/2020 7:04:10 PM</ReportCreated>
   <ReportFile>C:\Users\ASUS\Desktop\USAT\CICLOS\7.° CICLO\SISTEMAS DISTRIBUIDOS DEL CASTILLO CASTRO, CONSUELO IVONNE\UNIDAD I\attendance-system\View\reports\licence_report.mrt</ReportFile>
-  <ReportGuid>e5f9173699074590a63094d07c4b1391</ReportGuid>
+  <ReportGuid>2e01d03b4bf143df81b5bca24ed664f3</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2020.2.3.0</ReportVersion>

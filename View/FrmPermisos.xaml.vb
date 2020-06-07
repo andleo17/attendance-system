@@ -44,7 +44,6 @@ Class FrmPermisos
                     ShowPermissionList()
                     ClearInputs()
                 End If
-
             Else
                 MessageBox.Show("Operación no disponible, limpie para continuar")
             End If
@@ -172,13 +171,12 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
-        If TxtId.Text.Length <> 0 Then
+        If TxtId.Text.Length > 0 Then
             txtMotive.Document.Blocks.Clear()
             SearchPermission(New Permission)
         Else
             MessageBox.Show("Ingrese código de permiso")
         End If
-
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
@@ -186,7 +184,7 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSearchEm_Click(sender As Object, e As RoutedEventArgs) Handles btnSearchEm.Click
-        If txtCardID.Text.Length <> 0 Then
+        If txtCardID.Text.Length > 0 Then
             SearchEmployee(New Employee)
         Else
             MessageBox.Show("Ingrese DNI")

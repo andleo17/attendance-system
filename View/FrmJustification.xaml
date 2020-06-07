@@ -43,11 +43,11 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Código justificación" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Segoe UI Semibold" FontSize="16" />
-                <TextBox Name="TxtId"  Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
+                <TextBox Name="TxtId"  Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" Margin="0,0,15,0"/>
                 <Label Content="Código asistencia" Foreground="White" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold" />
-                <TextBox Name="TxtAttendanceId" Grid.Column="3"  VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
+                <TextBox Name="TxtAttendanceId" Grid.Column="3"  VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" Margin="0,0,15,0" />
                 <Label  Content="Estado" Foreground="White" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right"/>
-                <CheckBox Name="ChkState" Grid.Column="5" Content="Vigente" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Foreground="#FFC3C3C3" HorizontalAlignment="Left" />
+                <CheckBox Name="ChkState" Grid.Column="5" Content="Vigente" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Foreground="#FFC3C3C3" HorizontalAlignment="Left" BorderBrush="{x:Null}" Background="#FFD5691E" />
             </Grid>
             <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">
                 <Grid.RowDefinitions>
@@ -62,8 +62,8 @@
                     <ColumnDefinition/>
                     
                 </Grid.ColumnDefinitions>
-                <Label  Content="F. Asistencia" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <DatePicker Name="AttendanceDate" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
+                <Label  Content="Fecha asistencia" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <DatePicker Name="AttendanceDate" Grid.Column="1" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Margin="0,0,15,0" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -71,17 +71,10 @@
                         </LinearGradientBrush>
                     </DatePicker.Background>
                 </DatePicker>
-                
-                <Button  Name="BtnSearchAtt" Height="Auto" Width="Auto" Content="BUSCAR" Grid.Column="4" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFA35117" Offset="0.49"/>
-                            <GradientStop Color="#FFD5691E" Offset="0.518"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Label Content="DNI Empleado" Grid.Column="2" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                <TextBox Name="TxtCardId" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
+                <Label Content="DNI" Grid.Column="2" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                <TextBox Name="TxtCardId" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" Margin="0,0,15,0"/>
+                <Label Content="Empleado" Grid.Column="4" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                <TextBox Name="TxtEmpleado" Grid.Column="5" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" Margin="0,0,15,0"/>
             </Grid>
             <Grid Grid.Row="3" Background="#FF292B2F" Margin="20">
                 <Grid.RowDefinitions>
@@ -89,17 +82,17 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="0.3*"/>
-                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     
                 </Grid.ColumnDefinitions>
                 <Label Content="Motivo" Grid.Column="0" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                <TextBox Name="TxtMotive" Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
-                <Label Content="Fecha" Grid.Column="2" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                <TextBox Name="TxtFecha" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"/>
+                <TextBox Name="TxtMotive"  Grid.Column="1" VerticalContentAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16" Margin="0,0,15,0" Grid.ColumnSpan="3"/>
+                <Label Content="Fecha" Grid.Column="4" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                <TextBox Name="TxtFecha" Grid.Column="5" VerticalContentAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White"  BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" Margin="0,0,15,0"/>
             </Grid>
         </Grid>
         

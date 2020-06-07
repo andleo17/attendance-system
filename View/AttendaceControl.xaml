@@ -43,12 +43,11 @@
                 </TextBlock>
             </Label>
             <Label Grid.Row="1" Grid.Column="0" Content="DNI:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=Name}" VerticalContentAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FFD5691E" FontSize="14" BorderThickness="5,0.9,1,5" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Margin="0,0,200,0" Padding="5,8"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=Ca}" VerticalContentAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FFD5691E" FontSize="14" BorderThickness="5,0.9,1,5" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Margin="0,0,200,0" Padding="5,8"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Nombre:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
             <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=Name}" VerticalContentAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FFD5691E" FontSize="14" BorderThickness="5,0.9,1,5" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Margin="0,0,200,0" Padding="5,8"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Hora entrada:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
-            <xctk:TimePicker Grid.Row="3" Grid.Column="1"  BorderBrush="#FFD5691E" BorderThickness="5,1,0,5" VerticalAlignment="Center" Margin="0,0,200,0" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" Format="LongTime" TextAlignment="Center" EndTime="23:59:59" />
-            <Label Grid.Row="3" IsEnabled="False" Grid.Column="1"  Content="{Binding Path=InHour}" VerticalContentAlignment="Center" Foreground="White" Margin="0,0,200,0"/>
+            <xctk:TimePicker Grid.Row="3" IsEnabled="False" Grid.Column="1"  BorderBrush="#FFD5691E" BorderThickness="5,1,0,5" VerticalAlignment="Center" Margin="0,0,200,0" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" Format="LongTime" TextAlignment="Center" EndTime="23:59:59" />
             <Label Grid.Row="4" IsEnabled="False" Grid.Column="0" Content="Hora salida:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
             <xctk:TimePicker Grid.Row="4" Grid.Column="1"  BorderBrush="#FFD5691E" BorderThickness="5,1,0,5" VerticalAlignment="Center" Margin="0,0,200,0" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" Format="LongTime" TextAlignment="Center" EndTime="23:59:59" />
         </Grid>

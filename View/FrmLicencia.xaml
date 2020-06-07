@@ -120,10 +120,20 @@
                 </DatePicker>
                 <Label Content="Estado" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
                 <CheckBox Name="chkState" Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
-                <Label Content="Documento" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Name="txtDoc" Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
+                <!--<Label Content="Documento" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>-->
+                <!--<TextBox Name="txtDoc" Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />-->
+                <!--<WrapPanel>
+                 <Button  Name="btnOpenFil" Content="Subir archivo" Grid.Column="6"/>
+                </WrapPanel>
+                <TextBox Grid.Column="8" Name="txtFile"/>-->
 
-
+                <DockPanel Margin="10" Grid.Column="6">
+                <WrapPanel Grid.Column="6" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <Button Name="btnOpenFile"  Click="btnOpenFile_Click">Open file</Button>
+                </WrapPanel>
+                <TextBox Name="txtEditor" Grid.Column="7" />
+                </DockPanel>
+                
             </Grid>
 
             <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">

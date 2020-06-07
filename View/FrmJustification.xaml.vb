@@ -95,7 +95,6 @@ Class FrmJustification
 		ChkState.IsChecked = True
 		TxtId.Text = Nothing
 		TxtMotive.Text = Nothing
-		BtnSearchAtt.IsEnabled = True
 		TxtId.IsEnabled = True
 	End Sub
 
@@ -154,10 +153,6 @@ Class FrmJustification
 		TxtFecha.Text = Date.Now.Date
 		TxtFecha.IsEnabled = False
 		ChkState.IsChecked = True
-	End Sub
-
-	Private Sub BtnSearchAtt_Click(sender As Object, e As RoutedEventArgs) Handles BtnSearchAtt.Click
-		SearchAttendance()
 	End Sub
 
 	Private Sub BtnSave_Click(sender As Object, e As RoutedEventArgs) Handles BtnSave.Click

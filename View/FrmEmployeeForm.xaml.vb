@@ -110,7 +110,7 @@ Class FrmEmployeeForm
 
 	Private Sub ShowContract()
 		Try
-			Contract = (From C In SelectedEmployee.Contract Order By C.Id Descending, C.State Descending).First
+			Contract = SelectedEmployee.Contract.Last
 			chkContract.IsChecked = Contract.State
 			DpkContractInitialDate.SelectedDate = Contract.StartDate
 			DpkContractFinalDate.SelectedDate = Contract.FinishDate

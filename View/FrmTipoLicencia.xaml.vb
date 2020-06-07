@@ -2,10 +2,10 @@
 Imports Data
 Class FrmTipoLicencia
     Private SelectedLicenseType As LicenseType
+
     Private Sub listLicenseType()
         Try
             ListaTipoLicencia.ItemsSource = LicenseTypeDA.listarTiposLicencia
-
         Catch ex As Exception
             MessageBox.Show("Error al listar", "Sistema asistencia", MessageBoxButton.OK, MessageBoxImage.Error)
         End Try
@@ -20,11 +20,11 @@ Class FrmTipoLicencia
         Try
             Dim LicenseType = SetLicenseTypeDa(New LicenseType)
             LicenseTypeDA.save(LicenseType)
-            MessageBox.Show("Tipo de licencia agregada de manera exitosa")
+            MessageBox.Show("Tipo de licencia agregada de manera exitosa", "Sistema asistencia")
             listLicenseType()
             ClearInputs()
         Catch ex As Exception
-            MessageBox.Show("Error al registrar", MessageBoxImage.Error)
+            MessageBox.Show("Error al registrar", "Sistema asistencia", MessageBoxImage.Error)
         End Try
     End Sub
 
@@ -32,12 +32,13 @@ Class FrmTipoLicencia
     Private Function SetLicenseTypeDa(LicenseType As LicenseType) As LicenseType
         LicenseType.Description = txtDescripcion.Text
         LicenseType.MaximumDays = txtDias.Text
+        txtCodigo.IsEnabled = False
         Return LicenseType
     End Function
 
 
 
-    Private Function ShowLicenseType()
+    Private Sub ShowLicenseType()
         Try
             If ListaTipoLicencia.SelectedValue IsNot Nothing Then
                 SelectedLicenseType = ListaTipoLicencia.SelectedValue
@@ -46,24 +47,29 @@ Class FrmTipoLicencia
             txtDescripcion.Text = SelectedLicenseType.Description
             txtDias.Text = SelectedLicenseType.MaximumDays
             ListaTipoLicencia.SelectedValue = Nothing
+            btnSearch.IsEnabled = False
+            txtCodigo.IsEnabled = False
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-    End Function
+    End Sub
 
-    Private Function UpdateLicenseType()
+    Private Sub UpdateLicenseType()
         If SelectedLicenseType IsNot Nothing Then
             SelectedLicenseType = SetLicenseTypeDa(SelectedLicenseType)
             LicenseTypeDA.Update(SelectedLicenseType)
             MessageBox.Show("Tipo de licencia actualizado")
-            ShowLicenseType()
+            listLicenseType()
             ClearInputs()
+
+        Else
+            MessageBox.Show("Seleccione tipo de licencia")
         End If
-        MessageBox.Show("Seleccione tipo de licencia")
-    End Function
+    End Sub
 
 
-    Private Function DeleteLicenseType()
+
+    Private Sub DeleteLicenseType()
         If SelectedLicenseType IsNot Nothing Then
             Dim Msg, Style, Title, Response
             Msg = "¿Seguro que desea eliminar el tipo de licencia"
@@ -80,13 +86,14 @@ Class FrmTipoLicencia
         Else
             MessageBox.Show("Seleccione un tipo de licencia")
         End If
-    End Function
+    End Sub
 
     Private Sub ClearInputs()
         SelectedLicenseType = Nothing
         txtCodigo.Text = Nothing
         txtDescripcion.Text = Nothing
         txtDias.Text = Nothing
+        btnSearch.IsEnabled = True
     End Sub
 
     Private Sub SearchLicenseType(LicenseType As LicenseType)
@@ -129,7 +136,7 @@ Class FrmTipoLicencia
         If txtCodigo.Text.Length <> 0 Then
             SearchLicenseType(New LicenseType)
         Else
-            MessageBox.Show("Ingrese código de tipo de licensia")
+            MessageBox.Show("Ingrese código de tipo de licencia", MessageBoxImage.Error)
         End If
     End Sub
 

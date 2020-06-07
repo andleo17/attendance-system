@@ -113,6 +113,47 @@ GO
 
 INSERT INTO "Employee" VALUES
 	('12345678', 'Panchito', 'Panchitus Pachas', 'M', '2000-07-01', 'Panamericana 123', '976544354', 'pancho@domain.com', 1)
+GO
 
 INSERT INTO "User" VALUES
 	('admin', 'admin', 1, '12345678')
+GO
+
+CREATE TRIGGER StateChangeContractTrigger ON "Contract"
+	AFTER INSERT AS
+	DECLARE @id INT;
+	DECLARE @cardid CHAR(8);
+	DECLARE @iid INT;
+BEGIN
+	SELECT @iid = "Id", @cardid = "EmployeeCardId" FROM inserted;
+	SELECT TOP 1 @id = "Id" FROM "Contract" WHERE "State" = 1 AND "EmployeeCardId" = @cardid AND "Id" <> @iid ORDER BY "Id";
+	IF @id IS NOT NULL
+		UPDATE "Contract" SET "State" = 0 WHERE "Id" = @id;
+END
+GO
+
+CREATE TRIGGER StateChangeUserTrigger ON "User"
+	AFTER INSERT AS
+	DECLARE @id INT;
+	DECLARE @cardid CHAR(8);
+	DECLARE @iid INT;
+BEGIN
+	SELECT @iid = "Id", @cardid = "EmployeeCardId" FROM inserted;
+	SELECT TOP 1 @id = "Id" FROM "User" WHERE "State" = 1 AND "EmployeeCardId" = @cardid AND "Id" <> @iid ORDER BY "Id";
+	IF @id IS NOT NULL
+		UPDATE "User" SET "State" = 0 WHERE "Id" = @id;
+END
+GO
+
+CREATE TRIGGER StateChangeScheduleTrigger ON "Schedule"
+	AFTER INSERT AS
+	DECLARE @id INT;
+	DECLARE @cardid CHAR(8);
+	DECLARE @iid INT;
+BEGIN
+	SELECT @iid = "Id", @cardid = "EmployeeCardId" FROM inserted;
+	SELECT TOP 1 @id = "Id" FROM "Schedule" WHERE "State" = 1 AND "EmployeeCardId" = @cardid AND "Id" <> @iid ORDER BY "Id";
+	IF @id IS NOT NULL
+		UPDATE "Schedule" SET "State" = 0 WHERE "Id" = @id;
+END
+GO

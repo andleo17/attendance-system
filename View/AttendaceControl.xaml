@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="AttendaceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:View"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="800" Background="#FF36393F">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" CornerRadius="100" Width="100" Height="100" Margin="20,0">
+            <Border.Background>
+                <ImageBrush ImageSource="1ad41039d17f6dd346059c822dd76e4c1555353860_full.png"/>
+            </Border.Background>
+        </Border>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="18" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White">
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}, {1}">
+                            <Binding Path="Lastname"/>
+                            <Binding Path="Name"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Label>
+            <Label Grid.Row="1" Grid.Column="0" Content="DNI:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=CardId}" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Sexo:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=Genre}" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Email:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=Email}" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Estado:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=State}" VerticalContentAlignment="Center" Foreground="White"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Content="Ver" Name="BtnShow"/>
+            <Button Grid.Column="0" Grid.Row="1" Content="Modificar" Name="BtnModify"/>
+            <Button Grid.Column="0" Grid.Row="2" Content="Dar de baja" Name="BtnDown"/>
+        </Grid>
+    </Grid>
+</UserControl>

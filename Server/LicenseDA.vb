@@ -1,5 +1,7 @@
 ﻿Imports Data
 Public Class LicenseDA
+
+    'lista de licencias
     Public Shared Function List() As List(Of License)
         Using DB = New DBAttendanceEntities
             Try
@@ -12,7 +14,7 @@ Public Class LicenseDA
 
     End Function
 
-
+    'buscar licencias por empleado
     Public Shared Function Search(Employee As Employee) As List(Of License)
         Try
             Dim DB = New DBAttendanceEntities()
@@ -24,15 +26,15 @@ Public Class LicenseDA
     End Function
 
 
-    Public Shared Function Search(License As License) As License
-        Try
-            Dim DB = New DBAttendanceEntities()
-            Return DB.License.Find(License.Id)
-        Catch ex As Exception
-            Throw ex
-        End Try
+    'Public Shared Function Search(License As License) As License
+    '    Try
+    '        Dim DB = New DBAttendanceEntities()
+    '        Return DB.License.Find(License.Id)
+    '    Catch ex As Exception
+    '        Throw ex
+    '    End Try
 
-    End Function
+    'End Function
 
 
     Public Shared Sub Save(License As License)
@@ -71,6 +73,17 @@ Public Class LicenseDA
             End Try
         End Using
     End Sub
+
+
+    Public Shared Function List(EmployeeCardId As String) As List(Of License)
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Dim License = From L In DB.License Where L.EmployeeCardId Is EmployeeCardId
+            Return License.ToList
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
 
 
     'Public Shared Function ListLicenseType() As List(Of LicenseType)

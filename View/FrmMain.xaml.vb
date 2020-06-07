@@ -116,4 +116,8 @@ Public Class FrmMain
     Private Sub MenuItem_Click_3(sender As Object, e As RoutedEventArgs)
         ShowFrame(New FrmHorario)
     End Sub
+
+    Private Sub MnuAsistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuAsistencias.Click
+        ShowFrame(New FrmAttendace)
+    End Sub
 End Class

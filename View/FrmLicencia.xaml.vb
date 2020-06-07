@@ -3,10 +3,12 @@ Imports Server
 Class FrmLicencia
 
     Private SelectedLicense As License
+    Private SelectedEmployee As Employee
 
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
         Try
             CboType.ItemsSource = LicenseTypeDA.listarTiposLicencia()
+            txtId.IsEnabled = False
             listLicense()
             txtEmpleado.IsEnabled = False
         Catch ex As Exception
@@ -33,12 +35,15 @@ Class FrmLicencia
             txtDoc.Text = SelectedLicense.Document
             InitialDate.SelectedDate = SelectedLicense.StartDate
             FinalDate.SelectedDate = SelectedLicense.FinishDate
-            CboType.SelectedItem = SelectedLicense.LicenseTypeId
+            CboType.SelectedValue = SelectedLicense.LicenseTypeId
             chkState.IsChecked = SelectedLicense.State
             ListaLicencia.SelectedValue = Nothing
             btnSearch.IsEnabled = False
             txtDni.IsEnabled = False
             txtId.IsEnabled = False
+
+            SearchEmployee(txtDni.Text)
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -65,12 +70,22 @@ Class FrmLicencia
         License.FinishDate = FinalDate.SelectedDate
         License.StartDate = InitialDate.SelectedDate
         License.State = chkState.IsChecked
+        License.LicenseTypeId = CboType.SelectedValue
         License.Document = txtDoc.Text
         License.EmployeeCardId = txtDni.Text
-        License.LicenseTypeId = CboType.SelectedItem
-
         Return License
     End Function
+
+    Private Sub ShowEmployeeLicenseList(CardId As String)
+        Try
+            Dim AList = LicenseDA.List(CardId)
+            Dim AEmployee = AList.First.Employee
+            txtEmpleado.Text = AEmployee.Lastname & ", " & AEmployee.Name
+            ListaLicencia.ItemsSource = AList
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
 
     Private Sub SaveLicense()
@@ -92,38 +107,41 @@ Class FrmLicencia
     End Sub
 
 
-    Private Sub UpdateLicense()
+    Private Sub DeleteLicense()
         Try
             If SelectedLicense IsNot Nothing Then
                 Dim Msg, Style, Title, Response
-                Msg = "¿Seguro que desea eliminar el permiso"
+                Msg = "¿Seguro que desea eliminar la licencia"
                 Style = vbYesNo + vbCritical + vbDefaultButton2
                 Title = ".:SISTEMA DE ASISTENCIA:."
                 Response = MsgBox(Msg, Style, Title)
                 If Response = vbYes Then
                     SelectedLicense = SetLicense(SelectedLicense)
-                    LicenseDA.Update(SelectedLicense)
-                    MessageBox.Show("Licencia modificada correctamente", MessageBoxImage.Information)
+                    LicenseDA.Delete(SelectedLicense)
+                    MessageBox.Show("Licencia eliminar correctamente", MessageBoxImage.Information)
                     listLicense()
                     ClearInputs()
                 End If
 
             Else
-                MessageBox.Show("No se pudo modificar la licencia", MessageBoxImage.Error)
+                MessageBox.Show("No se pudo eliminar la licencia", MessageBoxImage.Error)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
 
-
-    Private Sub DeleteLicense()
+    Private Sub UpdateLicense()
         If SelectedLicense IsNot Nothing Then
             SelectedLicense = SetLicense(SelectedLicense)
-            LicenseDA.Delete(SelectedLicense)
-            MessageBox.Show("Licencia eliminada correctamente", MessageBoxImage.Information)
-
+            LicenseDA.Update(SelectedLicense)
+            MessageBox.Show("Licencia actualizado")
+            listLicense()
+            ClearInputs()
+        Else
+            MessageBox.Show("Seleccione un permiso")
         End If
+
     End Sub
 
     Private Sub ClearInputs()
@@ -134,7 +152,6 @@ Class FrmLicencia
         txtId.Text = Nothing
         FinalDate.SelectedDate = Nothing
         InitialDate.SelectedDate = Nothing
-        txtId.IsEnabled = True
         txtDni.IsEnabled = True
         chkState.IsChecked = False
     End Sub
@@ -148,6 +165,7 @@ Class FrmLicencia
         If e.Key.Equals(Key.Enter) Then
             If txtDni.Text.Length = 8 Then
                 SearchEmployee(txtDni.Text)
+                listLicense()
             Else
                 MessageBox.Show("Ingrese DNI")
             End If
@@ -156,6 +174,32 @@ Class FrmLicencia
 
     Private Sub btnClean_Click(sender As Object, e As RoutedEventArgs) Handles btnClean.Click
         ClearInputs()
+        listLicense()
     End Sub
 
+    Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
+        UpdateLicense()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As RoutedEventArgs) Handles btnDelete.Click
+        DeleteLicense()
+    End Sub
+
+    Private Sub txtId_TextChanged(sender As Object, e As TextChangedEventArgs) Handles txtId.TextChanged
+
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
+
+        If txtDni.Text.Length = 8 Then
+            ShowEmployeeLicenseList(txtDni.Text)
+        Else
+            MessageBox.Show("Ingrese DNI")
+        End If
+
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
+        SaveLicense()
+    End Sub
 End Class

@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="AttendanceDA.vb" />
     <Compile Include="ContractDA.vb" />
+    <Compile Include="DBContextDA.vb" />
     <Compile Include="EmployeeDA.vb" />
     <Compile Include="JustificationDA.vb" />
     <Compile Include="LicenseDA.vb" />

@@ -57,4 +57,14 @@ Public Class ContractDA
 			End Try
 		End Using
 	End Sub
+
+	Public Shared Sub Down(Contract As Contract)
+		Try
+			Contract.State = False
+			Dim DB = DBContextDA.GetContext(Contract)
+			DB.SaveChanges()
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
 End Class

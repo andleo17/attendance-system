@@ -17,12 +17,10 @@ Class FrmUser
         End Try
     End Sub
 
-    Private Sub ShowEmployeeUsersList(CardId As String)
+    Private Sub ShowEmployeeUsersList(Employee As Employee)
         Try
-            Dim UList = UserDA.List(CardId)
-            Dim UEmployee = UList.First.Employee
-            TxtEmployeeName.Text = UEmployee.Lastname & ", " & UEmployee.Name
-            UserList.ItemsSource = UList
+            TxtEmployeeName.Text = Employee.Lastname & ", " & Employee.Name
+            UserList.ItemsSource = Employee.User
             CollectionViewSource.GetDefaultView(UserList.ItemsSource).Refresh()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -32,7 +30,7 @@ Class FrmUser
     Private Sub ShowUserData(User As User)
         If User IsNot Nothing Then
             TxtCardId.Text = User.EmployeeCardId
-            TxtEmployeeName.Text = User.Employee.Name
+            TxtEmployeeName.Text = User.Employee.Lastname & ", " & User.Employee.Name
             TxtName.Text = User.Name
             TxtPassword.Password = User.Password
         End If
@@ -114,7 +112,7 @@ Class FrmUser
 
     Private Sub TxtCardId_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyUp
         If e.Key = Key.Enter And TxtCardId.Text.Length = 8 Then
-            ShowEmployeeUsersList(TxtCardId.Text)
+            ShowEmployeeUsersList(EmployeeDA.Search(TxtCardId.Text))
         Else
             ShowUsersList()
             TxtEmployeeName.Text = Nothing
@@ -124,6 +122,4 @@ Class FrmUser
     Private Sub Page_Initialized(sender As Object, e As EventArgs)
         ShowUsersList()
     End Sub
-
-
 End Class

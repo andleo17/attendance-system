@@ -44,7 +44,7 @@
                     <MenuItem Name="MnuUsers" Header="Usuarios"/>
                 </MenuItem>
                 <MenuItem Header="Operaciones" Height="32" >
-                    <MenuItem Header="Asistencias"/>
+                    <MenuItem Name="MnuAsistencias" Header="Asistencias"/>
                     <Separator/>
                     <MenuItem Name="MnuJustification" Header="Justificaciones"/>
                     <MenuItem Name="MnuPermisos" Header="Permisos"/>

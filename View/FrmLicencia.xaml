@@ -143,7 +143,7 @@
                 <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <TextBox  Name="txtId" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
                 <Label Content="Tipo" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Description" Name="CboType" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}"  >
+                <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Description"  SelectedValuePath="Id" Name="CboType" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}"  >
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>

@@ -73,7 +73,6 @@ Public Class AttendanceDA
         End Try
         Return Nothing
     End Function
-    '----------------------------------------------------------------------------------------------------------------
 
     Public Shared Function List() As List(Of Attendance)
         Using DB = New DBAttendanceEntities
@@ -92,6 +91,17 @@ Public Class AttendanceDA
             Dim DB = New DBAttendanceEntities()
             Dim Attendance = From A In DB.Attendance Where A.EmployeeCardId Is EmployeeCardId
             Return Attendance.ToList
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Shared Function List(PDate As Date) As List(Of ScheduleDetail)
+        Try
+            Dim DB = New DBAttendanceEntities
+            Dim ScheduleDate = From S In DB.Schedule Join SD In DB.ScheduleDetail On S Equals SD.Schedule
+                               Where S.State AndAlso S.StartDate <= PDate And PDate <= S.FinishDate AndAlso SD.Day = PDate.DayOfWeek Select SD
+            Return ScheduleDate.ToList
         Catch ex As Exception
             Throw ex
         End Try
@@ -119,7 +129,6 @@ Public Class AttendanceDA
 
     End Sub
 
-
     Public Shared Sub Update(Attendance As Attendance)
         Using DB = New DBAttendanceEntities()
             Try
@@ -143,6 +152,5 @@ Public Class AttendanceDA
             End Try
         End Using
     End Sub
-
 
 End Class

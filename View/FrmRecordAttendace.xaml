@@ -15,7 +15,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="GESTIONAR EMPLEADO" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Asistencia" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold"/>
         <Frame Grid.Row="1" Grid.Column="0" Name="FrmContent" Source="FrmEmployeeList.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

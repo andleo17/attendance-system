@@ -120,4 +120,8 @@ Public Class FrmMain
     Private Sub MnuAsistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuAsistencias.Click
         ShowFrame(New FrmAttendace)
     End Sub
+
+    Private Sub MnuRegistrarAsistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuRegistrarAsistencias.Click
+        ShowFrame(New FrmAttendaceList)
+    End Sub
 End Class

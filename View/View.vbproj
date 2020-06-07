@@ -178,6 +178,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttendaceControl.xaml.vb">
+      <DependentUpon>AttendaceControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmAttendace.xaml.vb">
       <DependentUpon>FrmAttendace.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
     <Compile Include="FrmContrato.xaml.vb">
       <DependentUpon>FrmContrato.xaml</DependentUpon>
     </Compile>
+    <Page Include="AttendaceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmAttendace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

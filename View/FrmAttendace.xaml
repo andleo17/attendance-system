@@ -1,4 +1,4 @@
-﻿<Page x:Class="FrmAttendace"
+﻿<Page xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="FrmAttendace"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -86,11 +86,13 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Hora entrada" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox  Name="txtStarTime" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
+                <xctk:TimePicker Grid.Column="1"   Name="TPInHour" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="5,1,0,5" VerticalAlignment="Center" Margin="0,0,30,0" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" Format="LongTime" TextAlignment="Center" EndTime="23:59:59" />
+                <!--<TextBox  Name="txtStarTime" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />-->
                 <Label Content="Hora salida" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
-                <TextBox  Name="txtFinalTime" Grid.Column="3" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
+                <xctk:TimePicker Grid.Column="3" Name="TPOutHour" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="5,1,0,5" VerticalAlignment="Center" Margin="0,0,30,0" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" Format="LongTime" TextAlignment="Center" EndTime="23:59:59" />
+                <!--<TextBox  Name="txtFinalTime" Grid.Column="3" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />-->
                 <Label Content="Fecha" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
-                <DatePicker Name="AttendaceDate" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
+                <DatePicker Name="AttendaceDate" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Margin="0"  >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -115,7 +117,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox  Name="txtId" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
+                <TextBox  Name="txtId" Grid.Column="1" IsEnabled="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
                 <Label Content="Dni" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox MaxLength="8" Name="txtDni" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,30,0" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
                 <Label Content="Empleado" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>

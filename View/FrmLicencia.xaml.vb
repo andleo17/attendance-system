@@ -117,7 +117,7 @@ Class FrmLicencia
                 Response = MsgBox(Msg, Style, Title)
                 If Response = vbYes Then
                     SelectedLicense = SetLicense(SelectedLicense)
-                    LicenseDA.Update(SelectedLicense)
+                    LicenseDA.Delete(SelectedLicense)
                     MessageBox.Show("Licencia eliminar correctamente", MessageBoxImage.Information)
                     listLicense()
                     ClearInputs()
@@ -144,15 +144,6 @@ Class FrmLicencia
 
     End Sub
 
-    'Private Sub DeleteLicense()
-    '    If SelectedLicense IsNot Nothing Then
-    '        SelectedLicense = SetLicense(SelectedLicense)
-    '        LicenseDA.Delete(SelectedLicense)
-    '        MessageBox.Show("Licencia eliminada correctamente", MessageBoxImage.Information)
-
-    '    End If
-    'End Sub
-
     Private Sub ClearInputs()
         SelectedLicense = Nothing
         txtDni.Text = Nothing
@@ -161,7 +152,6 @@ Class FrmLicencia
         txtId.Text = Nothing
         FinalDate.SelectedDate = Nothing
         InitialDate.SelectedDate = Nothing
-        txtId.IsEnabled = True
         txtDni.IsEnabled = True
         chkState.IsChecked = False
     End Sub

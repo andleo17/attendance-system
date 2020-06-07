@@ -45,6 +45,7 @@
                 </MenuItem>
                 <MenuItem Header="Operaciones" Height="32" >
                     <MenuItem Name="MnuAsistencias" Header="Asistencias"/>
+                    <MenuItem Name="MnuRegistrarAsistencias" Header="Registrar asistencia"/>
                     <Separator/>
                     <MenuItem Name="MnuJustification" Header="Justificaciones"/>
                     <MenuItem Name="MnuPermisos" Header="Permisos"/>

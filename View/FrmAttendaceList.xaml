@@ -26,7 +26,7 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <local:EmployeeControl/>
+                    <local:AttendaceControl/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

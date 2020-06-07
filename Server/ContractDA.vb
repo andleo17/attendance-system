@@ -38,10 +38,6 @@ Public Class ContractDA
 	Public Shared Sub Save(Contract As Contract)
 		Using DB = New DBAttendanceEntities
 			Try
-				Dim OldContract = From C In DB.Contract Where C.EmployeeCardId Is Contract.EmployeeCardId And C.State
-				If OldContract.Count = 1 Then
-					OldContract.Single().State = False
-				End If
 				DB.Contract.Add(Contract)
 				DB.SaveChanges()
 			Catch ex As Exception

@@ -35,10 +35,6 @@ Public Class ScheduleDA
 	Public Shared Sub Save(Schedule As Schedule)
 		Using DB = New DBAttendanceEntities
 			Try
-				Dim OldSchedule = From S In DB.Schedule Where S.EmployeeCardId Is Schedule.EmployeeCardId And S.State
-				If OldSchedule.Count = 1 Then
-					OldSchedule.Single.State = False
-				End If
 				DB.Schedule.Add(Schedule)
 				DB.SaveChanges()
 			Catch ex As Exception

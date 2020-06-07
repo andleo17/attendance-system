@@ -5,6 +5,11 @@ Class FrmContrato
 	Public Property CurrentContract As Contract
 	Public Property Employee As Employee
 	Public Property Mode As Integer
+	Private SelectedContract As Contract
+
+	Private Sub Back()
+		NavigationService.GetNavigationService(Me).GoBack()
+	End Sub
 
 	Private Sub DisableButtons()
 		btnDelete.Visibility = Visibility.Collapsed
@@ -75,11 +80,33 @@ Class FrmContrato
 	Private Sub Save()
 		Try
 			Dim Contract = SetContractData(New Contract)
-			ContractDA.Save(Contract)
-			MessageBox.Show("Contrato añadido correctamente")
-			ClearInputs()
+			If Mode = 0 Then
+				ContractDA.Save(Contract)
+				MessageBox.Show("Contrato añadido correctamente")
+				ListContracts()
+			ElseIf Mode = 1 Then
+				Employee.Contract.Add(Contract)
+				MessageBox.Show("Contrato añadido correctamente")
+				Back()
+			End If
 		Catch ex As Exception
 			MessageBox.Show("Error al registrar el nuevo contrato")
+		End Try
+	End Sub
+
+	Private Sub Update()
+		Try
+			SelectedContract = SetContractData(SelectedContract)
+			If Mode = 0 Then
+				ContractDA.Update(SelectedContract)
+				MessageBox.Show("Contrato actualizado correctamente")
+				ListContracts()
+			ElseIf Mode = 1 Then
+				MessageBox.Show("Contrato actualizado correctamente")
+				ListEmployeeContracts(Employee)
+			End If
+		Catch ex As Exception
+			MessageBox.Show("Error al actualizar el contrato")
 		End Try
 	End Sub
 
@@ -87,6 +114,7 @@ Class FrmContrato
 		If Mode = 0 Then
 			ListContracts()
 		ElseIf Mode = 1 Then
+			SelectedContract = CurrentContract
 			ListEmployeeContracts(Employee)
 			ShowContractData(CurrentContract)
 		ElseIf Mode = 2 Then
@@ -109,7 +137,8 @@ Class FrmContrato
 
 	Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
 		If btnSearch.Content = "BUSCAR" Then
-			'ListEmployeeContracts(TxtCardId.Text)
+			Employee = EmployeeDA.Search(TxtCardId.Text)
+			ListEmployeeContracts(Employee)
 			btnSearch.Content = "NUEVA BÚSQUEDA"
 		Else
 			ClearInputs()
@@ -118,6 +147,11 @@ Class FrmContrato
 	End Sub
 
 	Private Sub ListaContratos_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaContratos.MouseDoubleClick
-		ShowContractData(ListaContratos.SelectedItem)
+		SelectedContract = ListaContratos.SelectedItem
+		ShowContractData(SelectedContract)
+	End Sub
+
+	Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
+		Update()
 	End Sub
 End Class

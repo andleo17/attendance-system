@@ -35,10 +35,6 @@ Public MustInherit Class UserDA
     Public Shared Sub Save(User As User)
         Using DB = New DBAttendanceEntities()
             Try
-                Dim OldUser = From U In DB.User Where U.EmployeeCardId Is User.EmployeeCardId And U.State = True
-                If OldUser.Count = 1 Then
-                    OldUser.Single().State = False
-                End If
                 DB.User.Add(User)
                 DB.SaveChanges()
             Catch ex As Exception

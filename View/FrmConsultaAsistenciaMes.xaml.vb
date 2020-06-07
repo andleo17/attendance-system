@@ -7,9 +7,9 @@ Class FrmConsultaAsistenciaMes
     End Sub
 
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
         Dim Report = New StiReport()
-        Report.Load("C:\Users\ASUS\Desktop\USAT\CICLOS\7.° CICLO\SISTEMAS DISTRIBUIDOS DEL CASTILLO CASTRO, CONSUELO IVONNE\UNIDAD I\attendance-system\View\reports\licence_report.mrt")
+        Report.Load(ruta(0) & "reports\licence_report.mrt")
         Report.Show()
-
     End Sub
 End Class

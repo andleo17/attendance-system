@@ -115,4 +115,8 @@ Class FrmHorario
 	Private Sub Page_Initialized(sender As Object, e As EventArgs)
 		GenerateSchedule()
 	End Sub
+
+	Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
+
+	End Sub
 End Class

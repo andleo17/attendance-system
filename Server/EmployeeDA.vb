@@ -41,15 +41,12 @@ Public Class EmployeeDA
     End Sub
 
     Public Shared Sub Update(Employee As Employee)
-        Using DB = New DBAttendanceEntities()
-            Try
-                Dim OldEmployee = DB.Employee.Find(Employee.CardId)
-                DB.Entry(OldEmployee).CurrentValues.SetValues(Employee)
-                DB.SaveChanges()
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Using
+        Try
+            Dim DB = DBContextDA.GetContext(Employee)
+            DB.SaveChanges()
+        Catch ex As Exception
+            Throw ex
+        End Try
     End Sub
 
     Public Shared Sub Down(Employee As Employee)

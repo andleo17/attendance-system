@@ -62,65 +62,119 @@ and Attendance.InHour&gt;ScheduleDetail.InHour</SqlCommand>
     <Page1 Ref="5" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="1">
-        <Chart1 Ref="6" type="Stimulsoft.Report.Chart.StiChart" isKey="true">
-          <Area Ref="7" type="Stimulsoft.Report.Chart.StiPieArea" isKey="true">
-            <BorderColor>171, 172, 173</BorderColor>
-            <Brush>[89:91:101]</Brush>
-            <Chart isRef="6" />
+      <Components isList="true" count="4">
+        <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>0,0.4,27.7,1.2</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.6,0.2,5.4,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Microsoft Sans Serif,11,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>SISTEMA DE ASISTENCIA</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.6,0.2,4,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{Time}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Image1 Ref="9" type="Image" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,1.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <HorAlignment>Center</HorAlignment>
+              <Icon>Television</Icon>
+              <IconColor>127, 127, 127</IconColor>
+              <Margins>0,0,0,0</Margins>
+              <Name>Image1</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <VertAlignment>Center</VertAlignment>
+            </Image1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </PageHeaderBand1>
+        <Chart1 Ref="10" type="Stimulsoft.Report.Chart.StiChart" isKey="true">
+          <Area Ref="11" type="Stimulsoft.Report.Chart.StiPieArea" isKey="true">
+            <BorderColor>95, 72, 29</BorderColor>
+            <Brush>GradientBrush,[255:255:255],[255:255:219],90</Brush>
+            <Chart isRef="10" />
           </Area>
-          <Brush>[89:91:101]</Brush>
-          <ClientRectangle>1.4,2,16.2,10</ClientRectangle>
+          <Brush>[255:255:255]</Brush>
+          <ClientRectangle>0.4,5,26.6,12.6</ClientRectangle>
           <Conditions isList="true" count="0" />
           <ConstantLines isList="true" count="0" />
           <CustomStyleName />
           <Filters isList="true" count="0" />
-          <Legend Ref="8" type="Stimulsoft.Report.Chart.StiLegend" isKey="true">
-            <BorderColor>Transparent</BorderColor>
-            <Brush>Transparent</Brush>
-            <Chart isRef="6" />
-            <Font>Arial,9</Font>
-            <LabelsColor>White</LabelsColor>
+          <Legend Ref="12" type="Stimulsoft.Report.Chart.StiLegend" isKey="true">
+            <BorderColor>145, 122, 79</BorderColor>
+            <Brush>GradientBrush,[255:255:255],[255:242:199],90</Brush>
+            <Chart isRef="10" />
+            <Font>Arial,8</Font>
+            <LabelsColor>95, 72, 29</LabelsColor>
             <MarkerSize>10, 10</MarkerSize>
             <ShowShadow>False</ShowShadow>
-            <TitleColor>White</TitleColor>
+            <TitleColor>95, 72, 29</TitleColor>
             <TitleFont>Arial,14,Bold</TitleFont>
           </Legend>
           <Name>Chart1</Name>
           <Page isRef="5" />
           <Parent isRef="5" />
           <Series isList="true" count="1">
-            <Item6 Ref="9" type="Stimulsoft.Report.Chart.StiPieSeries" isKey="true">
-              <BorderColor>Transparent</BorderColor>
-              <Brush>[219:123:70]</Brush>
-              <Chart isRef="6" />
+            <Item10 Ref="13" type="Stimulsoft.Report.Chart.StiPieSeries" isKey="true">
+              <BorderColor>94, 17, 0</BorderColor>
+              <Brush>GlareBrush,[144:67:3],[194:117:53],0,0.5,1</Brush>
+              <Chart isRef="10" />
               <Conditions isList="true" count="0" />
               <Filters isList="true" count="0" />
-              <Lighting>False</Lighting>
               <ListOfArguments>PUNTUAL;TARDANZA</ListOfArguments>
               <ListOfValues>{Asistencia.TA-Tardanzas.TT};{Tardanzas.TT}</ListOfValues>
-              <SeriesLabels Ref="10" type="Stimulsoft.Report.Chart.StiCenterAxisLabels" isKey="true">
-                <BorderColor>Transparent</BorderColor>
-                <Brush>Transparent</Brush>
-                <Chart isRef="6" />
-                <Font>Arial,10</Font>
-                <LabelColor>White</LabelColor>
+              <SeriesLabels Ref="14" type="Stimulsoft.Report.Chart.StiCenterAxisLabels" isKey="true">
+                <BorderColor>95, 72, 29</BorderColor>
+                <Brush>Wheat</Brush>
+                <Chart isRef="10" />
+                <Font>Arial,7</Font>
+                <LabelColor>95, 72, 29</LabelColor>
                 <MarkerSize>8, 6</MarkerSize>
                 <ValueTypeSeparator>-</ValueTypeSeparator>
                 <Width>0</Width>
               </SeriesLabels>
               <ShowShadow>False</ShowShadow>
               <Title>Series 1</Title>
-              <TopN Ref="11" type="Stimulsoft.Report.Chart.StiSeriesTopN" isKey="true" />
-            </Item6>
+              <TopN Ref="15" type="Stimulsoft.Report.Chart.StiSeriesTopN" isKey="true" />
+            </Item10>
           </Series>
-          <SeriesLabels Ref="12" type="Stimulsoft.Report.Chart.StiCenterPieLabels" isKey="true">
-            <BorderColor>Transparent</BorderColor>
-            <Brush>Transparent</Brush>
-            <Chart isRef="6" />
-            <Font>Arial,10</Font>
+          <SeriesLabels Ref="16" type="Stimulsoft.Report.Chart.StiCenterPieLabels" isKey="true">
+            <BorderColor>95, 72, 29</BorderColor>
+            <Brush>Wheat</Brush>
+            <Chart isRef="10" />
+            <Font>Arial,7</Font>
             <Format>P2</Format>
-            <LabelColor>White</LabelColor>
+            <LabelColor>95, 72, 29</LabelColor>
             <LegendValueType>Argument</LegendValueType>
             <MarkerSize>8, 6</MarkerSize>
             <ShowInPercent>True</ShowInPercent>
@@ -130,34 +184,77 @@ and Attendance.InHour&gt;ScheduleDetail.InHour</SqlCommand>
           <SeriesLabelsConditions isList="true" count="0" />
           <Sort isList="true" count="0" />
           <Strips isList="true" count="0" />
-          <Style Ref="13" type="Stimulsoft.Report.Chart.StiStyle30" isKey="true">
+          <Style Ref="17" type="Stimulsoft.Report.Chart.StiStyle01" isKey="true">
             <Conditions isList="true" count="0" />
             <Name />
           </Style>
-          <Table Ref="14" type="Stimulsoft.Report.Chart.StiChartTable" isKey="true">
-            <DataCells Ref="15" type="Stimulsoft.Report.Chart.StiChartTableDataCells" isKey="true">
+          <Table Ref="18" type="Stimulsoft.Report.Chart.StiChartTable" isKey="true">
+            <DataCells Ref="19" type="Stimulsoft.Report.Chart.StiChartTableDataCells" isKey="true">
               <Font>Arial,8</Font>
-              <TextColor>White</TextColor>
+              <TextColor>95, 72, 29</TextColor>
             </DataCells>
-            <GridLineColor>Transparent</GridLineColor>
-            <Header Ref="16" type="Stimulsoft.Report.Chart.StiChartTableHeader" isKey="true">
+            <GridLineColor>145, 122, 79</GridLineColor>
+            <Header Ref="20" type="Stimulsoft.Report.Chart.StiChartTableHeader" isKey="true">
               <Brush>White</Brush>
               <Font>Arial,8</Font>
               <TextColor>DarkGray</TextColor>
             </Header>
           </Table>
-          <Title Ref="17" type="Stimulsoft.Report.Chart.StiChartTitle" isKey="true">
-            <Brush>[140:140:140]</Brush>
+          <Title Ref="21" type="Stimulsoft.Report.Chart.StiChartTitle" isKey="true">
+            <Brush>[95:72:29]</Brush>
             <Font>Tahoma,12,Bold</Font>
           </Title>
         </Chart1>
+        <Text5 Ref="22" type="Text" isKey="true">
+          <Border>None;Black;1;None;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>24,17.8,3.2,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,11</Font>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text5</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>{PageNofM}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>SystemVariables</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text5>
+        <ReportTitleBand1 Ref="23" type="ReportTitleBand" isKey="true">
+          <Brush>[46:46:46]</Brush>
+          <ClientRectangle>0,2.4,27.7,2.2</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text1 Ref="24" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>[28:30:21]</Brush>
+              <ClientRectangle>0,0.4,27.6,1.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,36</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="23" />
+              <Text>ESTADÍSTICA TARDANZAS</Text>
+              <TextBrush>[227:108:9]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </ReportTitleBand1>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>37abc06acf6a45c1b87786d9c4016dc9</Guid>
       <Margins>1,1,1,1</Margins>
       <Name>Page1</Name>
-      <PageHeight>29.7</PageHeight>
-      <PageWidth>21</PageWidth>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
       <Report isRef="0" />
     </Page1>
   </Pages>
@@ -172,10 +269,10 @@ and Attendance.InHour&gt;ScheduleDetail.InHour</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/7/2020 10:44:17 PM</ReportChanged>
+  <ReportChanged>6/8/2020 3:52:38 AM</ReportChanged>
   <ReportCreated>6/7/2020 10:18:33 PM</ReportCreated>
-  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\pie_chart_ad_report.mrt</ReportFile>
-  <ReportGuid>fb397c9c984e4a97ba1dd34155377d7c</ReportGuid>
+  <ReportFile>C:\Users\ASUS\Desktop\USAT\CICLOS\7.° CICLO\SISTEMAS DISTRIBUIDOS DEL CASTILLO CASTRO, CONSUELO IVONNE\UNIDAD I\attendance-system\View\reports\pie_chart_ad_report.mrt</ReportFile>
+  <ReportGuid>ecd4fc159eda467192b9876a1dfab4b9</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2020.2.3.0</ReportVersion>

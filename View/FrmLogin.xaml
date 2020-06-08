@@ -56,10 +56,16 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="CONTRASEÑA" Grid.Row="0" Grid.Column="0" Foreground="#FF8E9297" FontFamily="Segoe UI Semibold" Margin="0,0,0,8"/>
                 <PasswordBox x:Name="TxtPassword" Grid.Row="1" Grid.Column="0" Style="{DynamicResource InputText}" TabIndex="1"/>
-                <Label Content="¿Has olvidado la contraseña?" Grid.Row="2" Grid.Column="0" Background="{x:Null}" Foreground="#FF7289DA" FontSize="14" FontFamily="Segoe UI Semibold" Cursor="Hand"/>
+                <Label Content="¿Has olvidado la contraseña?" Grid.Row="2" Grid.Column="0" Background="{x:Null}" Foreground="#FFD5691E" FontSize="14" FontFamily="Segoe UI Semibold" Cursor="Hand"/>
             </Grid>
         </Grid>
         <Button x:Name="BtnLogin" Grid.Row="2" Grid.Column="0" Content="Iniciar Sesión" BorderBrush="{x:Null}" FontSize="16" Foreground="White" Height="44" FontFamily="Segoe UI Semibold" Cursor="Hand" TabIndex="2" IsDefault="True">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA35117" Offset="0.49"/>
+                    <GradientStop Color="#FFD5691E" Offset="0.518"/>
+                </LinearGradientBrush>
+            </Button.Background>
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">

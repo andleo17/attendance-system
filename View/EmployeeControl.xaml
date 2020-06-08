@@ -27,6 +27,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -42,14 +43,16 @@
                     </TextBlock.Text>
                 </TextBlock>
             </Label>
-            <Label Grid.Row="1" Grid.Column="0" Content="DNI:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=CardId}" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Sexo:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=Genre}" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Email:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=Email}" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="Estado:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=State}" VerticalContentAlignment="Center" Foreground="White"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="DNI:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=CardId}" VerticalContentAlignment="Center" Foreground="White" BorderBrush="#FFD5691E" Margin="0,0,200,10" BorderThickness="5,1,1,5" FontSize="14" VerticalAlignment="Center" Style="{DynamicResource Rounded}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Sexo:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=Genre}" VerticalContentAlignment="Center" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" VerticalAlignment="Center" Margin="0,0,200,10" BorderBrush="#FFD5691E"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Email:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=Email}" VerticalContentAlignment="Center" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" VerticalAlignment="Center" Margin="0,0,200,10" BorderBrush="#FFD5691E"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Estado:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=State}" VerticalContentAlignment="Center" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" VerticalAlignment="Center" Margin="0,0,200,10" BorderBrush="#FFD5691E"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Estado:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="{x:Null}" FontSize="14"/>
+
         </Grid>
         <Grid Grid.Row="0" Grid.Column="2">
             <Grid.RowDefinitions>
@@ -60,9 +63,30 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Ver" Name="BtnShow"/>
-            <Button Grid.Column="0" Grid.Row="1" Content="Modificar" Name="BtnModify"/>
-            <Button Grid.Column="0" Grid.Row="2" Content="Dar de baja" Name="BtnDown"/>
+            <Button Grid.Column="0" Grid.Row="0" Content="Ver" Name="BtnShow" BorderBrush="{x:Null}" Foreground="White" FontSize="20" Margin="0,0,70,0" VerticalAlignment="Center">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="1" Content="Modificar" Name="BtnModify" BorderBrush="{x:Null}" Foreground="White" FontSize="20" Margin="0,0,70,0" VerticalAlignment="Center">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="2" Content="Dar de baja" Name="BtnDown" BorderBrush="{x:Null}" Foreground="White" FontSize="20" Margin="0,0,70,0" VerticalAlignment="Center">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

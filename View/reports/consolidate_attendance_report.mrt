@@ -83,93 +83,218 @@
     <Page1 Ref="6" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="2">
-        <HeaderAttendance Ref="7" type="HeaderBand" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.4,19,0.8</ClientRectangle>
-          <Components isList="true" count="6">
-            <HeaderAttendance_Id Ref="8" type="Text" isKey="true">
+      <Components isList="true" count="6">
+        <PageHeaderBand2 Ref="7" type="PageHeaderBand" isKey="true">
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>0,0.4,19,1.2</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text2 Ref="8" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0.2,5.4,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Microsoft Sans Serif,11,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>SISTEMA DE ASISTENCIA</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Image1 Ref="9" type="Image" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,1.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <HorAlignment>Center</HorAlignment>
+              <Icon>Television</Icon>
+              <IconColor>127, 127, 127</IconColor>
+              <Margins>0,0,0,0</Margins>
+              <Name>Image1</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <VertAlignment>Center</VertAlignment>
+            </Image1>
+            <Text4 Ref="10" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.8,0.2,4,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Time}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand2</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </PageHeaderBand2>
+        <Text3 Ref="11" type="Text" isKey="true">
+          <Border>None;Black;1;None;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>23.6,0.6,4,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,11</Font>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text3</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text>{Time}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text3>
+        <Text5 Ref="12" type="Text" isKey="true">
+          <Border>None;Black;1;None;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>15.6,26.6,3.2,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,11</Font>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text5</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text>{PageNofM}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>SystemVariables</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text5>
+        <ReportTitleBand1 Ref="13" type="ReportTitleBand" isKey="true">
+          <Brush>[46:46:46]</Brush>
+          <ClientRectangle>0,2.4,19,2.2</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text1 Ref="14" type="Text" isKey="true">
+              <Border>None;Black;1;None;False;4;Black</Border>
+              <Brush>[28:30:21]</Brush>
+              <ClientRectangle>0,0.4,19,1.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,36</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="6" />
+              <Parent isRef="13" />
+              <Text>ASISTENCIA</Text>
+              <TextBrush>[227:108:9]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </ReportTitleBand1>
+        <HeaderAttendance Ref="15" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="6">
+            <HeaderAttendance_Id Ref="16" type="Text" isKey="true">
+              <Brush>[223:105:8]</Brush>
+              <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderAttendance_Id</Name>
               <Page isRef="6" />
-              <Parent isRef="7" />
-              <Text>Id</Text>
-              <TextBrush>Black</TextBrush>
+              <Parent isRef="15" />
+              <Text>CÓDIGO</Text>
+              <TextBrush>White</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderAttendance_Id>
-            <HeaderAttendance_Date Ref="9" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,0,3.2,0.8</ClientRectangle>
+            <HeaderAttendance_Date Ref="17" type="Text" isKey="true">
+              <Brush>[223:105:8]</Brush>
+              <ClientRectangle>2.6,0,2.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderAttendance_Date</Name>
               <Page isRef="6" />
-              <Parent isRef="7" />
-              <Text>Date</Text>
-              <TextBrush>Black</TextBrush>
+              <Parent isRef="15" />
+              <Text>FECHA</Text>
+              <TextBrush>White</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderAttendance_Date>
-            <HeaderAttendance_InHour Ref="10" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>6.4,0,3.2,0.8</ClientRectangle>
+            <HeaderAttendance_InHour Ref="18" type="Text" isKey="true">
+              <Brush>[223:105:8]</Brush>
+              <ClientRectangle>5.4,0,2.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderAttendance_InHour</Name>
               <Page isRef="6" />
-              <Parent isRef="7" />
-              <Text>InHour</Text>
-              <TextBrush>Black</TextBrush>
+              <Parent isRef="15" />
+              <Text>H. ENTRADA</Text>
+              <TextBrush>White</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderAttendance_InHour>
-            <HeaderAttendance_OutHour Ref="11" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>9.6,0,3.2,0.8</ClientRectangle>
+            <HeaderAttendance_OutHour Ref="19" type="Text" isKey="true">
+              <Brush>[223:105:8]</Brush>
+              <ClientRectangle>8.2,0,2.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderAttendance_OutHour</Name>
               <Page isRef="6" />
-              <Parent isRef="7" />
-              <Text>OutHour</Text>
-              <TextBrush>Black</TextBrush>
+              <Parent isRef="15" />
+              <Text>H. SALIDA</Text>
+              <TextBrush>White</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderAttendance_OutHour>
-            <HeaderAttendance_EmployeeCardId Ref="12" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>12.8,0,3.2,0.8</ClientRectangle>
+            <HeaderAttendance_EmployeeCardId Ref="20" type="Text" isKey="true">
+              <Brush>[223:105:8]</Brush>
+              <ClientRectangle>11,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderAttendance_EmployeeCardId</Name>
               <Page isRef="6" />
-              <Parent isRef="7" />
-              <Text>EmployeeCardId</Text>
-              <TextBrush>Black</TextBrush>
+              <Parent isRef="15" />
+              <Text>DNI</Text>
+              <TextBrush>White</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderAttendance_EmployeeCardId>
-            <HeaderAttendance_Empleado_Name Ref="13" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>16,0,3,0.8</ClientRectangle>
+            <HeaderAttendance_Empleado_Name Ref="21" type="Text" isKey="true">
+              <Brush>[223:105:8]</Brush>
+              <ClientRectangle>14,0,5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderAttendance_Empleado_Name</Name>
               <Page isRef="6" />
-              <Parent isRef="7" />
-              <Text>Name</Text>
-              <TextBrush>Black</TextBrush>
+              <Parent isRef="15" />
+              <Text>NOMBRE</Text>
+              <TextBrush>White</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderAttendance_Empleado_Name>
           </Components>
@@ -178,95 +303,111 @@
           <Page isRef="6" />
           <Parent isRef="6" />
         </HeaderAttendance>
-        <DataAttendance Ref="14" type="DataBand" isKey="true">
+        <DataAttendance Ref="22" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2,19,0.8</ClientRectangle>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,7,19,0.8</ClientRectangle>
           <Components isList="true" count="6">
-            <DataAttendance_Id Ref="15" type="Text" isKey="true">
+            <DataAttendance_Id Ref="23" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,11</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataAttendance_Id</Name>
               <Page isRef="6" />
-              <Parent isRef="14" />
+              <Parent isRef="22" />
               <Text>{Attendance.Id}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataAttendance_Id>
-            <DataAttendance_Date Ref="16" type="Text" isKey="true">
+            <DataAttendance_Date Ref="24" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.2,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>2.6,0,2.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,11</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataAttendance_Date</Name>
               <Page isRef="6" />
-              <Parent isRef="14" />
+              <Parent isRef="22" />
               <Text>{Attendance.Date}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="25" type="DateFormat" isKey="true">
+                <StringFormat>dd/MM/yyyy</StringFormat>
+              </TextFormat>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataAttendance_Date>
-            <DataAttendance_InHour Ref="17" type="Text" isKey="true">
+            <DataAttendance_InHour Ref="26" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>6.4,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>5.4,0,2.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,11</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataAttendance_InHour</Name>
               <Page isRef="6" />
-              <Parent isRef="14" />
+              <Parent isRef="22" />
               <Text>{Attendance.InHour}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="27" type="TimeFormat" isKey="true">
+                <StringFormat>T</StringFormat>
+              </TextFormat>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataAttendance_InHour>
-            <DataAttendance_OutHour Ref="18" type="Text" isKey="true">
+            <DataAttendance_OutHour Ref="28" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>9.6,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>8.2,0,2.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,11</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataAttendance_OutHour</Name>
               <Page isRef="6" />
-              <Parent isRef="14" />
+              <Parent isRef="22" />
               <Text>{Attendance.OutHour}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="29" type="TimeFormat" isKey="true">
+                <StringFormat>T</StringFormat>
+              </TextFormat>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataAttendance_OutHour>
-            <DataAttendance_EmployeeCardId Ref="19" type="Text" isKey="true">
+            <DataAttendance_EmployeeCardId Ref="30" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>12.8,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>11,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,11</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataAttendance_EmployeeCardId</Name>
               <Page isRef="6" />
-              <Parent isRef="14" />
+              <Parent isRef="22" />
               <Text>{Attendance.EmployeeCardId}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataAttendance_EmployeeCardId>
-            <DataAttendance_Empleado_Name Ref="20" type="Text" isKey="true">
+            <DataAttendance_Empleado_Name Ref="31" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>16,0,3,0.8</ClientRectangle>
+              <ClientRectangle>14,0,5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,11</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataAttendance_Empleado_Name</Name>
               <Page isRef="6" />
-              <Parent isRef="14" />
+              <Parent isRef="22" />
               <Text>{Attendance.Empleado.Name} {Attendance.Empleado.Lastname}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
@@ -304,10 +445,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/7/2020 7:20:13 PM</ReportChanged>
+  <ReportChanged>6/8/2020 3:50:25 AM</ReportChanged>
   <ReportCreated>6/7/2020 6:55:18 PM</ReportCreated>
-  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\consolidate_attendance_report.mrt</ReportFile>
-  <ReportGuid>13aa6170565d4ee89f90f00bf43717b4</ReportGuid>
+  <ReportFile>C:\Users\ASUS\Desktop\USAT\CICLOS\7.° CICLO\SISTEMAS DISTRIBUIDOS DEL CASTILLO CASTRO, CONSUELO IVONNE\UNIDAD I\attendance-system\View\reports\consolidate_attendance_report.mrt</ReportFile>
+  <ReportGuid>335ac4959db649c6b33e1446e5e036eb</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2020.2.3.0</ReportVersion>

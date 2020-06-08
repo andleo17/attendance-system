@@ -10,11 +10,11 @@ Class FrmPermisos
             Dim E = EmployeeDA.Search(Employee)
             If E IsNot Nothing Then
                 Employee = E
-                lblName.Content = E.Name & " " & E.Lastname
+                txtEmpleado.Text = E.Name & " " & E.Lastname
             Else
                 Employee = Nothing
                 MessageBox.Show("DNI inválido o el Emlpleado no existe")
-                lblName.Content = "------------------"
+                txtEmpleado.Text = Nothing
                 txtCardID.Focus()
             End If
         Catch ex As Exception
@@ -22,6 +22,8 @@ Class FrmPermisos
         End Try
         Return Employee
     End Function
+
+
 
     Private Function SetPermissionData(Permission As Permission) As Permission
         If Permission.Id = 0 Then
@@ -106,7 +108,7 @@ Class FrmPermisos
         Next
         txtMotive.Document.Blocks.Clear()
         txtCardID.Text = Nothing
-        lblName.Content = "------------------"
+        txtEmpleado.Text = Nothing
         calDate.SelectedDate = Nothing
         TxtId.IsEnabled = True
     End Sub
@@ -180,7 +182,15 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
-        SavePermission()
+        If btnSave.Content = "REGISTRAR" Then
+            SavePermission()
+            ClearInputs()
+            btnSave.Content = "NUEVO"
+        Else
+            ClearInputs()
+            btnSave.Content = "REGISTRAR"
+        End If
+
     End Sub
 
     Private Sub btnSearchEm_Click(sender As Object, e As RoutedEventArgs) Handles btnSearchEm.Click

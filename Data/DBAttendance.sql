@@ -12,15 +12,17 @@ USE DBAttendance
 GO
 
 CREATE TABLE "Employee" (
-	"CardId"	CHAR(8)		NOT NULL PRIMARY KEY,
-	"Name"		VARCHAR(30)	NOT NULL,
-	"Lastname"	VARCHAR(60)	NOT NULL,
-	"Genre"		CHAR(1)		NOT NULL,
-	"BirthDate"	DATE		NOT NULL,
-	"Address"	VARCHAR(50)	NOT NULL,
-	"Phone"		VARCHAR(13)	NOT NULL,
-	"Email"		VARCHAR(50)	NULL,
-	"State"		BIT			NOT NULL DEFAULT TRUE
+	"CardId"	CHAR(8)			NOT NULL PRIMARY KEY,
+	"Name"		VARCHAR(30)		NOT NULL,
+	"Lastname"	VARCHAR(60)		NOT NULL,
+	"Genre"		CHAR(1)			NOT NULL,
+	"BirthDate"	DATE			NOT NULL,
+	"Address"	VARCHAR(50)		NOT NULL,
+	"Phone"		VARCHAR(13)		NOT NULL,
+	"Email"		VARCHAR(50)		NULL,
+	"Photo"		VARBINARY(MAX)	NULL,
+	"PhotoName" VARCHAR(30)		NULL,
+	"State"		BIT				NOT NULL DEFAULT TRUE
 )
 GO
 

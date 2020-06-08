@@ -40,6 +40,8 @@
           <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="State" Type="bit" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="PhotoName" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Justification">
           <Key>
@@ -318,6 +320,8 @@
           <NavigationProperty Name="Permission" Relationship="Self.FK__Permissio__Emplo__4D94879B" FromRole="Employee" ToRole="Permission" />
           <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__Employ__3F466844" FromRole="Employee" ToRole="Schedule" />
           <NavigationProperty Name="User" Relationship="Self.FK__User__EmployeeCa__5812160E" FromRole="Employee" ToRole="User" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PhotoName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Justification">
           <Key>
@@ -590,6 +594,8 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="DBAttendanceModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="CardId" ColumnName="CardId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />

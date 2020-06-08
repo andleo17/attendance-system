@@ -51,11 +51,18 @@
                     <MenuItem Name="MnuPermisos" Header="Permisos"/>
                     <MenuItem Header="Licencias" Name="FrmLicencias"/>
                 </MenuItem>
-                <MenuItem Header="Consultas y reportes" Height="32" >
+                <MenuItem Header="Consultas" Height="32" >
                     <MenuItem Header="Consulta asistencia" Name="FrmConsultaAsistencia"/>
-                    <MenuItem Header="Consolidado de asistencia mensual" Name="FrmConsultaAsistenciaMes"/>
-                    <MenuItem Header="Reporte de faltas y tardanzas"/>
-                    <MenuItem Header="Reporte de licencias"/>
+                    <MenuItem Header="Consulta de asistencia mensual" Name="FrmConsultaAsistenciaMes"/>
+                    </MenuItem>
+                <MenuItem Header="Reportes" Height="32" Foreground="#FF8E9297">
+                    <MenuItem Header="Tardanzas" Name="MnuTardanzas"/>
+                    <MenuItem Header="Asistencias" Name="MnuConsolidadoAsistencias"/>
+                    <MenuItem Header="Licencias" Name="MnuLicencias"/>
+                    <MenuItem Header="Licencias por tipo" Name="MnuLicenciasTipo"/>
+                    <MenuItem Header="Inasistencias" Name="MnuInasistencias"/>
+                    <MenuItem Header="Estadísticas tardanzas" Name="MnuEstadisticasTardanzas"/>
+                    <MenuItem Header="Estadísticas inasistencias" Name="MnuEstadisticasInasistencias"/>
                 </MenuItem>
                 <MenuItem Header="Ver" Height="32"></MenuItem>
                 <MenuItem Header="Ventanas" Height="32"></MenuItem>

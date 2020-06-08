@@ -66,31 +66,33 @@ Class AttendaceControl
 		' Comparar si llegó tarde
 		Dim Ahorita = Now.TimeOfDay
 		Dim Tolerance = TimeSpan.FromMinutes(10)
-		If SD.OutHour < Ahorita Or AttendanceToday Is Nothing Then
-			If Ahorita >= SD.InHour.Subtract(Tolerance) Then
-				TxtInHour.Content = Format(Ahorita)
-				If Ahorita <= SD.InHour.Add(Tolerance) Then
-					TxtInHour.Foreground = New SolidColorBrush(Colors.White)
-					Try
-						Dim A = New Attendance
-						A.InHour = Ahorita
-						A.EmployeeCardId = TxtDni.Content
-						A.Date = Date.Now.Date
-						AttendanceDA.Save(A)
-						Flag = True
-					Catch ex As Exception
-					End Try
-				Else
-					TxtInHour.Foreground = New SolidColorBrush(Colors.Crimson)
-					Try
-						Dim A = New Attendance
-						A.InHour = Ahorita
-						A.EmployeeCardId = TxtDni.Content
-						A.Date = Date.Now.Date
-						AttendanceDA.Save(A)
-						Flag = True
-					Catch ex As Exception
-					End Try
+		If SD.OutHour > Ahorita Then
+			If AttendanceToday Is Nothing Then
+				If Ahorita >= SD.InHour.Subtract(Tolerance) Then
+					TxtInHour.Content = Format(Ahorita)
+					If Ahorita <= SD.InHour.Add(Tolerance) Then
+						TxtInHour.Foreground = New SolidColorBrush(Colors.White)
+						Try
+							Dim A = New Attendance
+							A.InHour = Ahorita
+							A.EmployeeCardId = TxtDni.Content
+							A.Date = Date.Now.Date
+							AttendanceDA.Save(A)
+							Flag = True
+						Catch ex As Exception
+						End Try
+					Else
+						TxtInHour.Foreground = New SolidColorBrush(Colors.Crimson)
+						Try
+							Dim A = New Attendance
+							A.InHour = Ahorita
+							A.EmployeeCardId = TxtDni.Content
+							A.Date = Date.Now.Date
+							AttendanceDA.Save(A)
+							Flag = True
+						Catch ex As Exception
+						End Try
+					End If
 				End If
 			End If
 		End If

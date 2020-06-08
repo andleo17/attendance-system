@@ -1,0 +1,3 @@
+﻿Class FrmPago
+
+End Class

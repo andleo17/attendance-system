@@ -228,7 +228,6 @@ Class FrmLicencia
 		If (OpenFileDialog.ShowDialog() = True) Then
 			TxtPathFile.Text = OpenFileDialog.SafeFileName
 		End If
-
 	End Sub
 
 	Private Sub BtnOpen_Click(sender As Object, e As RoutedEventArgs) Handles BtnOpen.Click

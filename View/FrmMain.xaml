@@ -77,9 +77,9 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" Width="40" Height="40" CornerRadius="20">
+                    <Border Name="ImgEmployee" Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" Width="40" Height="40" CornerRadius="20">
                         <Border.Background>
-                            <ImageBrush ImageSource="Fuerza_popular.jpg"/>
+                            <ImageBrush ImageSource="blank-user-img.jpg"/>
                         </Border.Background>
                     </Border>
                     <Label Grid.Row="0" Grid.Column="1" Name="LblEmployee" VerticalAlignment="Center" Content="Nombre de usuario" Foreground="White" FontFamily="Segoe UI Semibold" FontSize="14"/>

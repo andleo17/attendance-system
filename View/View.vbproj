@@ -391,15 +391,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Fuerza_popular.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="1ad41039d17f6dd346059c822dd76e4c1555353860_full.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Genji-Ultimate-Icon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="LUPA.png" />
   </ItemGroup>
   <ItemGroup>
@@ -441,6 +432,15 @@
     <Resource Include="Localization\bg.xml" />
     <Resource Include="Localization\be.xml" />
     <Resource Include="Localization\ar.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="blank-user-img.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

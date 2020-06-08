@@ -11,6 +11,7 @@ Class FrmLicencia
             txtId.IsEnabled = False
             listLicense()
             txtEmpleado.IsEnabled = False
+            Paint()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -32,7 +33,7 @@ Class FrmLicencia
             End If
             txtId.Text = SelectedLicense.Id
             txtDni.Text = SelectedLicense.EmployeeCardId
-            txtDoc.Text = SelectedLicense.Document
+            'txtDoc.Text = SelectedLicense.Document
             InitialDate.SelectedDate = SelectedLicense.StartDate
             FinalDate.SelectedDate = SelectedLicense.FinishDate
             CboType.SelectedValue = SelectedLicense.LicenseTypeId
@@ -71,7 +72,7 @@ Class FrmLicencia
         License.StartDate = InitialDate.SelectedDate
         License.State = chkState.IsChecked
         License.LicenseTypeId = CboType.SelectedValue
-        License.Document = txtDoc.Text
+        'License.Document = txtDoc.Text
         License.EmployeeCardId = txtDni.Text
         Return License
     End Function
@@ -144,10 +145,11 @@ Class FrmLicencia
 
     End Sub
 
+
     Private Sub ClearInputs()
         SelectedLicense = Nothing
         txtDni.Text = Nothing
-        txtDoc.Text = Nothing
+        'txtDoc.Text = Nothing
         txtEmpleado.Text = Nothing
         txtId.Text = Nothing
         FinalDate.SelectedDate = Nothing
@@ -157,8 +159,13 @@ Class FrmLicencia
     End Sub
 
 
+    Private Sub Paint()
+
+    End Sub
+
     Private Sub ListaLicencia_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaLicencia.MouseDoubleClick
         ShowLicense()
+        Paint()
     End Sub
 
     Private Sub txtDni_KeyUp(sender As Object, e As KeyEventArgs) Handles txtDni.KeyUp
@@ -201,5 +208,9 @@ Class FrmLicencia
 
     Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
         SaveLicense()
+    End Sub
+
+    Private Sub btnOpenFile_Click(sender As Object, e As RoutedEventArgs)
+        'txtEditor.Text = FileOpen(btnOpenFile.FindName)
     End Sub
 End Class

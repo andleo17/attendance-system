@@ -168,16 +168,17 @@
                 <Label Content="Empleado" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox Name="txtEmpleado" Grid.Column="7" IsEnabled="False" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
             </Grid>
-            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525">
-                <DataGrid.Columns >
-                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="Black"/>
-                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" />
-                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" />
-                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" />
-                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}"/>
-                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}"/>
-                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" />
-                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= Document}" />
+            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaLicencia" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525" AutoGenerateColumns="False" RowBackground="#FF832A2A" Foreground="#FFD31D1D" AlternatingRowBackground="#FFFF1C1C">
+                
+                    <DataGrid.Columns >
+                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="White"/>
+                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" Foreground="White" />
+                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" Foreground="White" />
+                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" Foreground="White" />
+                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}" Foreground="White"/>
+                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}" Foreground="White"/>
+                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" Foreground="White" />
+                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= Document}" Foreground="White" />
                 </DataGrid.Columns>
                 
             </DataGrid>

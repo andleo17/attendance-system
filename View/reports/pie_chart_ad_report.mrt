@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Attendance_USAT Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Attendance_USAT</Alias>
+        <ConnectionStringEncrypted>9NDZCU5Kq8hiE+3E6VygTsQw+yNHUfO8bAa9zE9w4WfdevXr3WzC8WwehIBJBKKP3MCRbd1nech0XO2ccwmkd4J0z+lQXfO8yxONzMMUIhfCdPvjxUGriG9sYdjpiC9e48ix48ZxQ81vafXM7wllXoV4tcvGFkvdaX157GiEYo/FbtnCzUoime1J4VhNXGA/hiD7iEZ6w9lpRLns6WyxP9Vsz2nXA6tNa0a5mHxMsWfR2vk=</ConnectionStringEncrypted>
+        <Key>daae95424de149999c416b46d3808cc0</Key>
+        <Name>Attendance_USAT</Name>
+      </Attendance_USAT>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <Asistencia Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Asistencia</Alias>
+        <Columns isList="true" count="1">
+          <value>ORIGINAL,TA,TA,TA,System.Int32,dccb8d19e7434d56a6cce14d8c7ee4b2</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>e4a24edd29bc4af7a9b5a53b0fe7f23a</Key>
+        <Name>Asistencia</Name>
+        <NameInSource>Attendance_USAT</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>Date,Fecha,31,0,f0d7b0e2ab5e4b2b878c0e1d43ae5af1</value>
+        </Parameters>
+        <SqlCommand>select count(*) as TA from Attendance where DATEPART(m,Attendance.Date) = DATEPART(m,@Date) 
+and DATEPART(YEAR,Attendance.Date) = DATEPART(YEAR,@Date)</SqlCommand>
+      </Asistencia>
+      <Tardanzas Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Tardanzas</Alias>
+        <Columns isList="true" count="1">
+          <value>ORIGINAL,TT,TT,TT,System.Int32,_x0031_96b5a50cccd4dbcb7c9425ff8394579</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>a2b366ab792a4ddcac9ed906249f2e0d</Key>
+        <Name>Tardanzas</Name>
+        <NameInSource>Attendance_USAT</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>Date,Fecha,31,0,0cb48846cb944f6f8291e3f092d95c72</value>
+        </Parameters>
+        <SqlCommand>select count(*) as TT  from Attendance inner join Schedule on Schedule.EmployeeCardId=Attendance.EmployeeCardId
+inner join ScheduleDetail on ScheduleDetail.ScheduleId = Schedule.Id
+where DATEPART(m,Attendance.Date)=DATEPART(m,@Date)and DATEPART(YEAR,Attendance.Date)=DATEPART(YEAR,@Date)
+and DATEPART(dw,Attendance.Date)-1=ScheduleDetail.Day 
+and Attendance.InHour&gt;ScheduleDetail.InHour</SqlCommand>
+      </Tardanzas>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,Fecha,Fecha,,System.DateTime,_x0036__x002F_7_x002F_2020_x0020_10:35:55_x0020_PM,False,False,True,False,,b201c783ed374c06b41fcfebbb28610b</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>1ff9a5c12d294a4bb673401c51e6b6c1</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <Chart1 Ref="6" type="Stimulsoft.Report.Chart.StiChart" isKey="true">
+          <Area Ref="7" type="Stimulsoft.Report.Chart.StiPieArea" isKey="true">
+            <BorderColor>171, 172, 173</BorderColor>
+            <Brush>[89:91:101]</Brush>
+            <Chart isRef="6" />
+          </Area>
+          <Brush>[89:91:101]</Brush>
+          <ClientRectangle>1.4,2,16.2,10</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <ConstantLines isList="true" count="0" />
+          <CustomStyleName />
+          <Filters isList="true" count="0" />
+          <Legend Ref="8" type="Stimulsoft.Report.Chart.StiLegend" isKey="true">
+            <BorderColor>Transparent</BorderColor>
+            <Brush>Transparent</Brush>
+            <Chart isRef="6" />
+            <Font>Arial,9</Font>
+            <LabelsColor>White</LabelsColor>
+            <MarkerSize>10, 10</MarkerSize>
+            <ShowShadow>False</ShowShadow>
+            <TitleColor>White</TitleColor>
+            <TitleFont>Arial,14,Bold</TitleFont>
+          </Legend>
+          <Name>Chart1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Series isList="true" count="1">
+            <Item6 Ref="9" type="Stimulsoft.Report.Chart.StiPieSeries" isKey="true">
+              <BorderColor>Transparent</BorderColor>
+              <Brush>[219:123:70]</Brush>
+              <Chart isRef="6" />
+              <Conditions isList="true" count="0" />
+              <Filters isList="true" count="0" />
+              <Lighting>False</Lighting>
+              <ListOfArguments>PUNTUAL;TARDANZA</ListOfArguments>
+              <ListOfValues>{Asistencia.TA-Tardanzas.TT};{Tardanzas.TT}</ListOfValues>
+              <SeriesLabels Ref="10" type="Stimulsoft.Report.Chart.StiCenterAxisLabels" isKey="true">
+                <BorderColor>Transparent</BorderColor>
+                <Brush>Transparent</Brush>
+                <Chart isRef="6" />
+                <Font>Arial,10</Font>
+                <LabelColor>White</LabelColor>
+                <MarkerSize>8, 6</MarkerSize>
+                <ValueTypeSeparator>-</ValueTypeSeparator>
+                <Width>0</Width>
+              </SeriesLabels>
+              <ShowShadow>False</ShowShadow>
+              <Title>Series 1</Title>
+              <TopN Ref="11" type="Stimulsoft.Report.Chart.StiSeriesTopN" isKey="true" />
+            </Item6>
+          </Series>
+          <SeriesLabels Ref="12" type="Stimulsoft.Report.Chart.StiCenterPieLabels" isKey="true">
+            <BorderColor>Transparent</BorderColor>
+            <Brush>Transparent</Brush>
+            <Chart isRef="6" />
+            <Font>Arial,10</Font>
+            <Format>P2</Format>
+            <LabelColor>White</LabelColor>
+            <LegendValueType>Argument</LegendValueType>
+            <MarkerSize>8, 6</MarkerSize>
+            <ShowInPercent>True</ShowInPercent>
+            <ValueTypeSeparator>-</ValueTypeSeparator>
+            <Width>0</Width>
+          </SeriesLabels>
+          <SeriesLabelsConditions isList="true" count="0" />
+          <Sort isList="true" count="0" />
+          <Strips isList="true" count="0" />
+          <Style Ref="13" type="Stimulsoft.Report.Chart.StiStyle30" isKey="true">
+            <Conditions isList="true" count="0" />
+            <Name />
+          </Style>
+          <Table Ref="14" type="Stimulsoft.Report.Chart.StiChartTable" isKey="true">
+            <DataCells Ref="15" type="Stimulsoft.Report.Chart.StiChartTableDataCells" isKey="true">
+              <Font>Arial,8</Font>
+              <TextColor>White</TextColor>
+            </DataCells>
+            <GridLineColor>Transparent</GridLineColor>
+            <Header Ref="16" type="Stimulsoft.Report.Chart.StiChartTableHeader" isKey="true">
+              <Brush>White</Brush>
+              <Font>Arial,8</Font>
+              <TextColor>DarkGray</TextColor>
+            </Header>
+          </Table>
+          <Title Ref="17" type="Stimulsoft.Report.Chart.StiChartTitle" isKey="true">
+            <Brush>[140:140:140]</Brush>
+            <Font>Tahoma,12,Bold</Font>
+          </Title>
+        </Chart1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>37abc06acf6a45c1b87786d9c4016dc9</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>6/7/2020 10:44:17 PM</ReportChanged>
+  <ReportCreated>6/7/2020 10:18:33 PM</ReportCreated>
+  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\pie_chart_ad_report.mrt</ReportFile>
+  <ReportGuid>fb397c9c984e4a97ba1dd34155377d7c</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

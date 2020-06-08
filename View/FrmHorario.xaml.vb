@@ -5,18 +5,19 @@ Class FrmHorario
 	Public Property CurrentSchedule As Schedule
 	Public Property Employee As Employee
 	Public Property Mode As Integer
-	Private Class Hour
-		Property StartHour As TimeSpan
-		Property FinishHour As TimeSpan
-		Property StringConcat As String
-	End Class
+	Private SelectedSchedule As Schedule
+	Private ScheduleDetails As List(Of ScheduleDetail) = New List(Of ScheduleDetail)
+
+	Private Sub Back()
+		NavigationService.GetNavigationService(Me).GoBack()
+	End Sub
 
 	Private Sub GenerateSchedule()
-		Dim Hours = New List(Of Hour)
+		Dim Hours = New List(Of Object)
 		For i As Integer = 7 To 21
 			Dim SH = New TimeSpan(i, 0, 0)
 			Dim FH = SH.Add(TimeSpan.FromHours(1))
-			Dim Hour = New Hour With {
+			Dim Hour = New With {
 				.StartHour = SH,
 				.FinishHour = FH,
 				.StringConcat = SH.ToString & " - " & FH.ToString
@@ -29,10 +30,12 @@ Class FrmHorario
 	Private Sub PaintSchedule(ScheduleDetail As ScheduleDetail)
 		Dim HoursInDays = DgdSchedule.Columns.Item(ScheduleDetail.Day)
 		For Each H In DgdSchedule.Items
-			If ScheduleDetail.InHour <= H.StartHour And H.FinishHour <= ScheduleDetail.OutHour Then
-				Dim C As TextBlock = HoursInDays.GetCellContent(H)
-				If C IsNot Nothing Then
+			Dim C As TextBlock = HoursInDays.GetCellContent(H)
+			If C IsNot Nothing Then
+				If ScheduleDetail.InHour <= H.StartHour And H.FinishHour <= ScheduleDetail.OutHour Then
 					C.Background = New SolidColorBrush(Colors.Yellow)
+				Else
+					C.Background = Nothing
 				End If
 			End If
 		Next
@@ -67,6 +70,92 @@ Class FrmHorario
 		For Each SD In Schedule.ScheduleDetail
 			PaintSchedule(SD)
 		Next
+	End Sub
+
+	Private Function SetScheduleData(Schedule As Schedule) As Schedule
+		Schedule.EmployeeCardId = txtDni.Text
+		Schedule.FinishDate = FinalDate.SelectedDate
+		Schedule.StartDate = InitialDate.SelectedDate
+		Schedule.ScheduleDetail = ScheduleDetails
+		Return Schedule
+	End Function
+
+	Private Sub AddScheduleDetail()
+		Dim Cells = DgdSchedule.SelectedCells
+		Dim StartHour = Cells.First().Item.StartHour
+		Dim FinishHour = Cells.Last().Item.FinishHour
+		Dim Day = Cells.First().Column.DisplayIndex
+		Dim SDInList = (From SD In ScheduleDetails Where Day = SD.Day Select SD)
+		Dim ScheduleDetail As ScheduleDetail
+		If SDInList.Count = 0 Then
+			ScheduleDetail = New ScheduleDetail With {
+				.InHour = StartHour,
+				.OutHour = FinishHour,
+				.Day = Day
+			}
+			ScheduleDetails.Add(ScheduleDetail)
+		Else
+			ScheduleDetail = SDInList.Single
+			If ScheduleDetail.InHour > StartHour Then
+				ScheduleDetail.InHour = StartHour
+			End If
+			If ScheduleDetail.OutHour <= FinishHour Then
+				ScheduleDetail.OutHour = FinishHour
+			End If
+		End If
+		PaintSchedule(ScheduleDetail)
+	End Sub
+
+	Private Sub ModifyScheduleDetail()
+		Dim Cells = DgdSchedule.SelectedCells
+		Dim StartHour = Cells.First().Item.StartHour
+		Dim FinishHour = Cells.Last().Item.FinishHour
+		Dim Day = Cells.First().Column.DisplayIndex
+		Dim SDInList = (From SD In ScheduleDetails Where Day = SD.Day Select SD)
+		Dim ScheduleDetail As ScheduleDetail
+		If SDInList.Count = 0 Then
+			ScheduleDetail = New ScheduleDetail With {
+				.InHour = StartHour,
+				.OutHour = FinishHour,
+				.Day = Day
+			}
+			ScheduleDetails.Add(ScheduleDetail)
+		Else
+			ScheduleDetail = SDInList.Single
+			ScheduleDetail.InHour = StartHour
+			ScheduleDetail.OutHour = FinishHour
+		End If
+		PaintSchedule(ScheduleDetail)
+	End Sub
+
+	Private Sub DeleteScheduleDetail()
+		Dim Cells = DgdSchedule.SelectedCells
+		Dim StartHour = Cells.First().Item.StartHour
+		Dim FinishHour = Cells.Last().Item.FinishHour
+		Dim Day = Cells.First().Column.DisplayIndex
+		Dim SDInList = (From SD In ScheduleDetails Where Day = SD.Day Select SD)
+		Try
+			Dim ScheduleDetail = SDInList.Single
+			If StartHour <= ScheduleDetail.OutHour And ScheduleDetail.InHour <= FinishHour Then
+				Dim IHour As TimeSpan
+				Dim OHour As TimeSpan
+				If ScheduleDetail.InHour > StartHour Then
+					IHour = FinishHour
+				End If
+				If ScheduleDetail.OutHour <= FinishHour Then
+					OHour = StartHour
+				End If
+				If OHour - IHour >= TimeSpan.Zero Then
+					ScheduleDetail.InHour = IHour
+					ScheduleDetail.OutHour = OHour
+				Else
+					ScheduleDetails.Remove(ScheduleDetail)
+				End If
+			End If
+			PaintSchedule(ScheduleDetail)
+		Catch ex As Exception
+			Console.WriteLine("Se intentó eliminar un horario que no existe.")
+		End Try
 	End Sub
 
 	Private Sub DisableButtons()

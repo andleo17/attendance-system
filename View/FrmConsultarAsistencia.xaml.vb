@@ -2,6 +2,14 @@
 Imports Data
 
 Class FrmConsultarAsistencia
+    Private Sub List()
+        Dim A = AttendanceDA.List()
+        If A.Count > 0 Then
+            AttendanceList.ItemsSource = A
+        Else
+            MessageBox.Show("Sin registros")
+        End If
+    End Sub
 
     Private Sub SearchDate()
         Try
@@ -101,5 +109,9 @@ Class FrmConsultarAsistencia
             ChkFinal.IsChecked = False
             ChkFinal.IsEnabled = False
         End If
+    End Sub
+
+    Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+        List()
     End Sub
 End Class

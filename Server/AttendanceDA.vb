@@ -75,15 +75,12 @@ Public Class AttendanceDA
     End Function
 
     Public Shared Function List() As List(Of Attendance)
-        Using DB = New DBAttendanceEntities
-            Try
-                Dim Lista = DB.Attendance
-                Return Lista.ToList
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Using
-
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Return DB.Attendance.ToList
+        Catch ex As Exception
+            Throw ex
+        End Try
     End Function
 
     Public Shared Function List(EmployeeCardId As String) As List(Of Attendance)

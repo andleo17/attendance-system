@@ -91,14 +91,15 @@ CREATE TABLE "LicenseType" (
 GO
 
 CREATE TABLE "License" (
-	"Id"				INTEGER		NOT NULL IDENTITY PRIMARY KEY,
-	"PresentationDate"	DATETIME	NOT NULL,
-	"StartDate"			DATE		NOT NULL,
-	"FinishDate"		DATE		NOT NULL,
-	"State"				BIT			NOT NULL DEFAULT FALSE,
-	"Document"			VARCHAR(50)	NOT NULL,
-	"EmployeeCardId"	CHAR(8)		NOT NULL REFERENCES "Employee",
-	"LicenseTypeId"		TINYINT		NOT NULL REFERENCES "LicenseType"
+	"Id"				INTEGER			NOT NULL IDENTITY PRIMARY KEY,
+	"PresentationDate"	DATETIME		NOT NULL,
+	"StartDate"			DATE			NOT NULL,
+	"FinishDate"		DATE			NOT NULL,
+	"State"				BIT				NOT NULL DEFAULT FALSE,
+	"Document"			VARBINARY(MAX)	NOT NULL,
+	"DocumentName"		VARCHAR(50)		NOT NULL,
+	"EmployeeCardId"	CHAR(8)			NOT NULL REFERENCES "Employee",
+	"LicenseTypeId"		TINYINT			NOT NULL REFERENCES "LicenseType"
 )
 GO
 

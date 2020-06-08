@@ -16,9 +16,10 @@ Partial Public Class License
     Public Property StartDate As Date
     Public Property FinishDate As Date
     Public Property State As Boolean = false
-    Public Property Document As String
+    Public Property Document As Byte()
     Public Property EmployeeCardId As String
     Public Property LicenseTypeId As Byte
+    Public Property DocumentName As String
 
     Public Overridable Property Employee As Employee
     Public Overridable Property LicenseType As LicenseType

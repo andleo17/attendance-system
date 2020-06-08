@@ -208,4 +208,18 @@ Class FrmHorario
 	Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
 
 	End Sub
+
+	Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
+		If btnSave.Content = "REGISTRAR" Then
+			'Save()
+			btnSave.Content = "NUEVO"
+		Else
+			ClearInputs()
+			btnSave.Content = "REGISTRAR"
+		End If
+	End Sub
+
+	Private Sub btnClean_Click(sender As Object, e As RoutedEventArgs) Handles btnClean.Click
+		ClearInputs()
+	End Sub
 End Class

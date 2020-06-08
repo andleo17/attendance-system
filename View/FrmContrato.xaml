@@ -75,17 +75,19 @@
             <Grid Grid.Row="2" Background="#FF292B2F" Margin="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Fecha inicio" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Name="DpkStartDate" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
+                <DatePicker Name="DpkStartDate" Grid.Column="1" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Margin="0,0,30,0"  >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -94,7 +96,7 @@
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Fecha fin" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
-                <DatePicker Name="DpkFinishDate" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
+                <DatePicker Name="DpkFinishDate" Grid.Column="3" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Margin="0,0,30,0" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -104,6 +106,8 @@
                 </DatePicker>
                 <Label Content="Estado" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
                 <CheckBox Name="ChkState" Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
+                <Label Content="Monto" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox Name="TxtMount" Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
             </Grid>
             <Grid Grid.Row="1" Background="#FF292B2F" Margin="20">
                 <Grid.RowDefinitions>
@@ -116,22 +120,26 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Dni" Foreground="White" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox MaxLength="8" Name="TxtCardId" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"    />
-                <Label Content="Horas extras" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <CheckBox Name="ChkExtraHours" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
-                <Label Content="Monto" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Name="TxtMount" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
-            </Grid>
-            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaContratos" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center">
+                <Label Content="Código" Foreground="White" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox Name="TxtId" IsEnabled="False" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
+                <Label Content="Dni" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox MaxLength="8" Name="TxtCardId" Grid.Column="3" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"    />
+                <Label Content="Empleado" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox MaxLength="8" IsEnabled="False" Name="TxtEmpleado" Grid.Column="5" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}"    />
+                <Label Content="Horas extras" Foreground="White" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <CheckBox Name="ChkExtraHours" Grid.Column="6" VerticalAlignment="Center" Margin="0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="3" Style="{DynamicResource Rounded}" HorizontalContentAlignment="Right" HorizontalAlignment="Right" />
+                </Grid>
+            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaContratos" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderBrush="#FF292B2F" BorderThickness="10" FontSize="14" AlternatingRowBackground="#FF6E6868" RowBackground="#FF343434" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Número contrato" Binding="{Binding Path=Id}" Width="1*" />
-                    <DataGridTextColumn Header="Dni" Binding="{Binding Path=EmployeeCardId}" Width="1*" />
-                    <DataGridTextColumn Header="Monto" Binding="{Binding Path=Mount}" Width="1*" />
+                    <DataGridTextColumn Header="Número contrato" Binding="{Binding Path=Id}" Width="1*" Foreground="White" />
+                    <DataGridTextColumn Header="Dni" Binding="{Binding Path=EmployeeCardId}" Width="1*" Foreground="White" />
+                    <DataGridTextColumn Header="Monto" Binding="{Binding Path=Mount}" Width="1*" Foreground="White" />
                     <DataGridCheckBoxColumn Header="Horas extras" Binding="{Binding Path=ExtraHours}" Width="1*" />
-                    <DataGridTextColumn Header="Fecha inicio" Binding="{Binding Path=StartDate}" Width="1*" />
-                    <DataGridTextColumn Header="Fecha fin" Binding="{Binding Path=FinishDate}" Width="1*" />
+                    <DataGridTextColumn Header="Fecha inicio" Binding="{Binding Path=StartDate}" Width="1*" Foreground="White" />
+                    <DataGridTextColumn Header="Fecha fin" Binding="{Binding Path=FinishDate}" Width="1*" Foreground="White" />
                     <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Path=State}" Width="1*" />
                 </DataGrid.Columns>
             </DataGrid>

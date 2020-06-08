@@ -17,6 +17,21 @@ Class FrmContrato
 		btnDown.Visibility = Visibility.Collapsed
 	End Sub
 
+	Private Sub SearchEmployee(EmployeeCardId As String)
+		Try
+			Dim E = EmployeeDA.Search(EmployeeCardId)
+			If E IsNot Nothing Then
+				TxtEmpleado.Text = E.Name & " " & E.Lastname
+			Else
+				MessageBox.Show("DNI inválido o el empleado no existe")
+				TxtEmpleado.Text = " "
+				TxtCardId.Focus()
+			End If
+		Catch ex As Exception
+			MessageBox.Show(ex.ToString)
+		End Try
+	End Sub
+
 	Private Sub ShowContractData(Contract As Contract)
 		TxtCardId.Text = Contract.EmployeeCardId
 		ChkExtraHours.IsChecked = Contract.ExtraHours
@@ -24,6 +39,8 @@ Class FrmContrato
 		DpkStartDate.SelectedDate = Contract.StartDate
 		DpkFinishDate.SelectedDate = Contract.FinishDate
 		ChkState.IsChecked = Contract.State
+		TxtId.Text = Contract.Id
+		TxtCardId.IsEnabled = False
 	End Sub
 
 	Private Function SetContractData(Contract As Contract) As Contract
@@ -64,6 +81,8 @@ Class FrmContrato
 
 	Private Sub ClearInputs()
 		TxtMount.Text = Nothing
+		TxtCardId.Text = Nothing
+		TxtEmpleado.Text = Nothing
 		DpkFinishDate.SelectedDate = Nothing
 		DpkStartDate.SelectedDate = Nothing
 		ChkExtraHours.IsChecked = False
@@ -169,6 +188,7 @@ Class FrmContrato
 		If e.Key = Key.Enter Then
 			If TxtCardId.Text.Length = 8 Then
 				Search()
+				SearchEmployee(TxtCardId.Text)
 			Else
 				MessageBox.Show("Por favor ingrese un DNI válido.")
 			End If
@@ -191,10 +211,12 @@ Class FrmContrato
 
 	Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
 		Update()
+		ClearInputs()
 	End Sub
 
 	Private Sub btnDown_Click(sender As Object, e As RoutedEventArgs) Handles btnDown.Click
 		Down()
+		ClearInputs()
 	End Sub
 
 	Private Sub BtnClear_Click(sender As Object, e As RoutedEventArgs) Handles BtnClear.Click

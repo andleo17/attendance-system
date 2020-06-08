@@ -123,13 +123,13 @@
                 <Label Content="Empleado" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox Name="txtEmpleado" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
             </Grid>
-            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaAttendace" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525">
+            <DataGrid Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="2" Name="ListaAttendace" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525" FontSize="14" GridLinesVisibility="None" AlternatingRowBackground="#FF6E6868" RowBackground="#FF343434">
                 <DataGrid.Columns >
-                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="Black"/>
-                    <DataGridTextColumn Header="Dni" Width="1*"  Binding="{Binding Path=EmployeeCardId}" Foreground="Black"/>
-                    <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path= Date}" />
-                    <DataGridTextColumn Header="Hora de entrada" Width="1*" Binding="{Binding Path=InHour}" />
-                    <DataGridTextColumn Header="Hora de salida" Width="1*" Binding="{Binding Path=OutHour}" />
+                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="White"/>
+                    <DataGridTextColumn Header="Dni" Width="1*"  Binding="{Binding Path=EmployeeCardId}" Foreground="White"/>
+                    <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path= Date}" Foreground="White" />
+                    <DataGridTextColumn Header="Hora de entrada" Width="1*" Binding="{Binding Path=InHour}" Foreground="White" />
+                    <DataGridTextColumn Header="Hora de salida" Width="1*" Binding="{Binding Path=OutHour}" Foreground="White" />
                 </DataGrid.Columns>
 
             </DataGrid>

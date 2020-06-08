@@ -177,16 +177,6 @@ Class FrmContrato
 		End If
 	End Sub
 
-	Private Sub TxtCardId_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyUp
-		If e.Key = Key.Enter Then
-			If TxtCardId.Text.Length = 8 Then
-				SearchEmployee(TxtCardId.Text)
-			Else
-				MessageBox.Show("Por favor ingrese un DNI válido.")
-			End If
-		End If
-	End Sub
-
 	Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
 		If btnSearch.Content = "BUSCAR" Then
 			btnSearch.Content = "NUEVA BÚSQUEDA"
@@ -223,5 +213,15 @@ Class FrmContrato
 
 	Private Sub BtnClear_Click(sender As Object, e As RoutedEventArgs) Handles BtnClear.Click
 		ClearInputs()
+	End Sub
+
+	Private Sub TxtCardId_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyDown
+		If e.Key = Key.Enter Then
+			If TxtCardId.Text.Length = 8 Then
+				SearchEmployee(TxtCardId.Text)
+			Else
+				MessageBox.Show("Por favor ingrese un DNI válido.")
+			End If
+		End If
 	End Sub
 End Class

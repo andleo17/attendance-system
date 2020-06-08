@@ -86,6 +86,11 @@ Class FrmConsultarAsistencia
     '    End If
     'End Function
 
+    Private Sub ClearInputs()
+        TxtCardId.Text = Nothing
+        InitialDate.SelectedDate = Nothing
+        FinalDate.SelectedDate = Nothing
+    End Sub
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
         SearchDate()
     End Sub
@@ -101,5 +106,9 @@ Class FrmConsultarAsistencia
             ChkFinal.IsChecked = False
             ChkFinal.IsEnabled = False
         End If
+    End Sub
+
+    Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
+        ClearInputs()
     End Sub
 End Class

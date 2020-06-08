@@ -12,7 +12,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -25,32 +24,32 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                
-            </Grid.ColumnDefinitions>
-            <CheckBox BorderBrush="{x:Null}" Background="#FFA35117" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" />
-            <Label  Content="MES" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,20,0" Grid.Column="1"/>
-            <DatePicker Grid.Row="0" Grid.Column="2" CalendarClosed="DatePicker_CalendarClosed" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" />
-        </Grid>
-
-        <Grid Grid.Row="2" Margin="20" Background="#FF292B2F">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
 
             </Grid.ColumnDefinitions>
-            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" Background="#FFA35117" BorderBrush="{x:Null}" Foreground="White" />
-            <Label  Content="DNI" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,20,0" Grid.Column="1"/>
-            <TextBox Background="{x:Null}" BorderBrush="#FFA35117" Grid.Column="2" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" VerticalAlignment="Center" FontSize="16" Margin="0,0,100,0" Width="150" HorizontalAlignment="Left" SelectionBrush="{x:Null}" Foreground="White" />
+            <CheckBox BorderBrush="{x:Null}" Background="#FFA35117" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0,0,0" />
+            <Label  Content="MES" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0" Grid.Column="1"/>
+            <DatePicker Grid.Row="0" Grid.Column="2" CalendarClosed="DatePicker_CalendarClosed" VerticalAlignment="Center" Style="{DynamicResource Rounded}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >
+                <DatePicker.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFD5691E" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </DatePicker.Background>
+            </DatePicker>
+            <CheckBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0,0,0" Background="#FFA35117" BorderBrush="{x:Null}" Foreground="White" Grid.Column="3" />
+            <Label  Content="DNI" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,20,0" Grid.Column="4"/>
+            <TextBox Background="{x:Null}" BorderBrush="#FFA35117" Grid.Column="5" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" VerticalAlignment="Center" FontSize="16" SelectionBrush="{x:Null}" Foreground="White" />
+
         </Grid>
 
-        <Grid Grid.Row="3" Margin="20">
+        <Grid Grid.Row="2" Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -78,13 +77,13 @@
             </Button>
         </Grid>
 
-        <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6" BorderBrush="#FF292B2F">
+        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaAsistencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" BorderBrush="#FF292B2F" FontSize="14" BorderThickness="10" GridLinesVisibility="None" AlternatingRowBackground="#FF6E6868" RowBackground="#FF343434">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}"/>
-                <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="Hora entrada" Width="1*" Binding="{Binding Path=Password}"/>
-                <DataGridTextColumn Header="Hora salida" Width="1*" Binding="{Binding Path=EmployeeCardId}"/>
-                <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=State}"/>
+                <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}" Foreground="White"/>
+                <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path=Name}" Foreground="White"/>
+                <DataGridTextColumn Header="Hora entrada" Width="1*" Binding="{Binding Path=Password}" Foreground="White"/>
+                <DataGridTextColumn Header="Hora salida" Width="1*" Binding="{Binding Path=EmployeeCardId}" Foreground="White"/>
+                <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=State}" Foreground="White"/>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -45,7 +45,7 @@ Class AttendaceControl
 		' Comparar si llegó tarde
 		Dim Ahorita = Now.TimeOfDay
 		Dim Tolerance = TimeSpan.FromMinutes(10)
-		If SD.OutHour > Ahorita Or AttendanceToday Is Nothing Then
+		If SD.OutHour < Ahorita Or AttendanceToday Is Nothing Then
 			If Ahorita >= SD.InHour.Subtract(Tolerance) Then
 				TxtInHour.Content = Format(Ahorita)
 				If Ahorita <= SD.InHour.Add(Tolerance) Then

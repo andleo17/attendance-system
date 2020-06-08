@@ -6,7 +6,6 @@ Class FrmEmployeeForm
 	Public Property Mode As Integer
 	Private Property Contract As Contract
 	Private Property Schedule As Schedule
-	Private ScheduleDetails As List(Of ScheduleDetail) = New List(Of ScheduleDetail)
 
 	Private Sub Back()
 		NavigationService.GetNavigationService(Me).GoBack()
@@ -16,18 +15,12 @@ Class FrmEmployeeForm
 		NavigationService.GetNavigationService(Me).Content = Page
 	End Sub
 
-	Private Class Hour
-		Property StartHour As TimeSpan
-		Property FinishHour As TimeSpan
-		Property StringConcat As String
-	End Class
-
 	Private Sub GenerateSchedule()
-		Dim Hours = New List(Of Hour)
+		Dim Hours = New List(Of Object)
 		For i As Integer = 7 To 21
 			Dim SH = New TimeSpan(i, 0, 0)
 			Dim FH = SH.Add(TimeSpan.FromHours(1))
-			Dim Hour = New Hour With {
+			Dim Hour = New With {
 				.StartHour = SH,
 				.FinishHour = FH,
 				.StringConcat = SH.ToString & " - " & FH.ToString
@@ -40,10 +33,12 @@ Class FrmEmployeeForm
 	Private Sub PaintSchedule(ScheduleDetail As ScheduleDetail)
 		Dim HoursInDays = DgdSchedule.Columns.Item(ScheduleDetail.Day)
 		For Each H In DgdSchedule.Items
-			If ScheduleDetail.InHour <= H.StartHour And H.FinishHour <= ScheduleDetail.OutHour Then
-				Dim C As TextBlock = HoursInDays.GetCellContent(H)
-				If C IsNot Nothing Then
+			Dim C As TextBlock = HoursInDays.GetCellContent(H)
+			If C IsNot Nothing Then
+				If ScheduleDetail.InHour <= H.StartHour And H.FinishHour <= ScheduleDetail.OutHour Then
 					C.Background = New SolidColorBrush(Colors.Yellow)
+				Else
+					C.Background = Nothing
 				End If
 			End If
 		Next
@@ -70,6 +65,8 @@ Class FrmEmployeeForm
 			DpkScheduleInitialDate.IsEnabled = False
 			DpkScheduleFinalDate.IsEnabled = False
 			BtnAddScheduleDetail.Visibility = Visibility.Collapsed
+			BtnModifyScheduleDetail.Visibility = Visibility.Collapsed
+			BtnDeleteScheduleDetail.Visibility = Visibility.Collapsed
 			DgdSchedule.IsEnabled = False
 		End If
 	End Sub
@@ -87,6 +84,7 @@ Class FrmEmployeeForm
 	End Function
 
 	Private Sub ShowEmployee()
+		DisableFields()
 		TxtAddress.Text = SelectedEmployee.Address
 		TxtCardId.Text = SelectedEmployee.CardId
 		TxtEmail.Text = SelectedEmployee.Email
@@ -96,7 +94,6 @@ Class FrmEmployeeForm
 		CboGenre.SelectedValue = SelectedEmployee.Genre
 		ChkState.IsChecked = SelectedEmployee.State
 		DpkBirthDate.SelectedDate = SelectedEmployee.BirthDate
-		DisableFields()
 	End Sub
 
 	Private Function SetContractData(Contract As Contract) As Contract
@@ -125,27 +122,92 @@ Class FrmEmployeeForm
 		Schedule.EmployeeCardId = TxtCardId.Text
 		Schedule.FinishDate = DpkScheduleFinalDate.SelectedDate
 		Schedule.StartDate = DpkScheduleInitialDate.SelectedDate
-		Schedule.ScheduleDetail = ScheduleDetails
 		Return Schedule
 	End Function
 
-	Private Sub GetScheduleDetail()
+	Private Function GetSelectedCells() As Object
 		Dim Cells = DgdSchedule.SelectedCells
-		Dim StartHour = Cells.First().Item.StartHour
-		Dim FinishHour = Cells.Last().Item.FinishHour
-		Dim Day = Cells.First().Column.DisplayIndex
-		Dim ScheduleDetail = New ScheduleDetail With {
-			.InHour = StartHour,
-			.OutHour = FinishHour,
-			.Day = Day
+		Return New With {
+			Cells.First().Item.StartHour,
+			Cells.Last().Item.FinishHour,
+			.Day = Cells.First().Column.DisplayIndex
 		}
-		ScheduleDetails.Add(ScheduleDetail)
+	End Function
+
+	Private Sub AddScheduleDetail()
+		Dim CS = GetSelectedCells()
+		Dim SDInList = (From SD In Schedule.ScheduleDetail Where CS.Day = SD.Day Select SD)
+		Dim ScheduleDetail As ScheduleDetail
+		If SDInList.Count = 0 Then
+			ScheduleDetail = New ScheduleDetail With {
+				.InHour = CS.StartHour,
+				.OutHour = CS.FinishHour,
+				.Day = CS.Day
+			}
+			Schedule.ScheduleDetail.Add(ScheduleDetail)
+		Else
+			ScheduleDetail = SDInList.Single
+			If ScheduleDetail.InHour > CS.StartHour Then
+				ScheduleDetail.InHour = CS.StartHour
+			End If
+			If ScheduleDetail.OutHour <= CS.FinishHour Then
+				ScheduleDetail.OutHour = CS.FinishHour
+			End If
+		End If
 		PaintSchedule(ScheduleDetail)
+	End Sub
+
+	Private Sub ModifyScheduleDetail()
+		Dim CS = GetSelectedCells()
+		Dim SDInList = (From SD In Schedule.ScheduleDetail Where CS.Day = SD.Day Select SD)
+		Dim ScheduleDetail As ScheduleDetail
+		If SDInList.Count = 0 Then
+			ScheduleDetail = New ScheduleDetail With {
+				.InHour = CS.StartHour,
+				.OutHour = CS.FinishHour,
+				.Day = CS.Day
+			}
+			Schedule.ScheduleDetail.Add(ScheduleDetail)
+		Else
+			ScheduleDetail = SDInList.Single
+			ScheduleDetail.InHour = CS.StartHour
+			ScheduleDetail.OutHour = CS.FinishHour
+		End If
+		PaintSchedule(ScheduleDetail)
+	End Sub
+
+	Private Sub DeleteScheduleDetail()
+		Dim CS = GetSelectedCells()
+		Dim SDInList = (From SD In Schedule.ScheduleDetail Where CS.Day = SD.Day Select SD)
+		Try
+			Dim ScheduleDetail = SDInList.Single
+			If CS.StartHour <= ScheduleDetail.OutHour And ScheduleDetail.InHour <= CS.FinishHour Then
+				Dim IHour = ScheduleDetail.InHour
+				Dim OHour = ScheduleDetail.OutHour
+				If IHour >= CS.StartHour Then
+					IHour = CS.FinishHour
+				End If
+				If OHour <= CS.FinishHour Then
+					OHour = CS.StartHour
+				End If
+				If OHour - IHour >= TimeSpan.Zero Then
+					ScheduleDetail.InHour = IHour
+					ScheduleDetail.OutHour = OHour
+				Else
+					ScheduleDetail.InHour = Nothing
+					ScheduleDetail.OutHour = Nothing
+					Schedule.ScheduleDetail.Remove(ScheduleDetail)
+				End If
+				PaintSchedule(ScheduleDetail)
+			End If
+		Catch ex As Exception
+			Console.WriteLine("Se intentó eliminar un horario que no existe.")
+		End Try
 	End Sub
 
 	Private Sub ShowSchedule()
 		Try
-			Schedule = (From S In SelectedEmployee.Schedule Order By S.Id Descending, S.State Descending).First
+			Schedule = SelectedEmployee.Schedule.Last
 			ChkSchedule.IsChecked = Schedule.State
 			DpkScheduleInitialDate.SelectedDate = Schedule.StartDate
 			DpkScheduleFinalDate.SelectedDate = Schedule.FinishDate
@@ -161,7 +223,7 @@ Class FrmEmployeeForm
 		Try
 			Dim Employee = SetEmployeeData(New Employee)
 			Dim Contract = SetContractData(New Contract)
-			Dim Schedule = SetScheduleData(New Schedule)
+			Schedule = SetScheduleData(Schedule)
 			Employee.Contract.Add(Contract)
 			Employee.Schedule.Add(Schedule)
 			EmployeeDA.Save(Employee)
@@ -192,6 +254,9 @@ Class FrmEmployeeForm
 	Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
 		If Mode.Equals(0) Then
 			Button.Content = "REGISTRAR"
+			Schedule = New Schedule With {
+				.ScheduleDetail = New List(Of ScheduleDetail)
+			}
 			BtnContractDetails.Visibility = Visibility.Collapsed
 			BtnScheduleDetails.Visibility = Visibility.Collapsed
 		ElseIf Mode.Equals(1) Then
@@ -216,7 +281,7 @@ Class FrmEmployeeForm
 	End Sub
 
 	Private Sub BtnAddScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnAddScheduleDetail.Click
-		GetScheduleDetail()
+		AddScheduleDetail()
 	End Sub
 
 	Private Sub Page_Initialized(sender As Object, e As EventArgs)
@@ -239,5 +304,13 @@ Class FrmEmployeeForm
 			.Mode = Mode
 		}
 		ShowDetails(Frm)
+	End Sub
+
+	Private Sub BtnModifyScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnModifyScheduleDetail.Click
+		ModifyScheduleDetail()
+	End Sub
+
+	Private Sub BtnDeleteScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnDeleteScheduleDetail.Click
+		DeleteScheduleDetail()
 	End Sub
 End Class

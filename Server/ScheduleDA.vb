@@ -54,4 +54,14 @@ Public Class ScheduleDA
 			End Try
 		End Using
 	End Sub
+
+	Public Shared Sub Down(Schedule As Schedule)
+		Try
+			Schedule.State = False
+			Dim DB = DBContextDA.GetContext(Schedule)
+			DB.SaveChanges()
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
 End Class

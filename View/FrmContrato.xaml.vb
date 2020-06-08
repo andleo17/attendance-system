@@ -19,12 +19,12 @@ Class FrmContrato
 
 	Private Sub SearchEmployee(EmployeeCardId As String)
 		Try
-			Dim E = EmployeeDA.Search(EmployeeCardId)
-			If E IsNot Nothing Then
-				TxtEmpleado.Text = E.Name & " " & E.Lastname
+			Employee = EmployeeDA.Search(EmployeeCardId)
+			If Employee IsNot Nothing Then
+				TxtEmpleado.Text = Employee.Name & " " & Employee.Lastname
+				ListContracts()
 			Else
-				MessageBox.Show("DNI inválido o el empleado no existe")
-				TxtEmpleado.Text = " "
+				MessageBox.Show("Empleado no encontrado")
 				TxtCardId.Focus()
 			End If
 		Catch ex As Exception
@@ -33,6 +33,7 @@ Class FrmContrato
 	End Sub
 
 	Private Sub ShowContractData(Contract As Contract)
+		btnSave.Content = "NUEVO"
 		TxtCardId.Text = Contract.EmployeeCardId
 		ChkExtraHours.IsChecked = Contract.ExtraHours
 		TxtMount.Text = Contract.Mount
@@ -40,6 +41,7 @@ Class FrmContrato
 		DpkFinishDate.SelectedDate = Contract.FinishDate
 		ChkState.IsChecked = Contract.State
 		TxtId.Text = Contract.Id
+		TxtEmpleado.Text = Contract.Employee.Name & " " & Contract.Employee.Lastname
 		TxtCardId.IsEnabled = False
 	End Sub
 
@@ -137,15 +139,6 @@ Class FrmContrato
 		End Try
 	End Sub
 
-	Private Sub Search()
-		Employee = EmployeeDA.Search(TxtCardId.Text)
-		If Employee IsNot Nothing Then
-			ListContracts()
-		Else
-			MessageBox.Show("Empleado no encontrado.")
-		End If
-	End Sub
-
 	Private Sub Down()
 		Try
 			If Mode = 0 Then
@@ -187,7 +180,6 @@ Class FrmContrato
 	Private Sub TxtCardId_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyUp
 		If e.Key = Key.Enter Then
 			If TxtCardId.Text.Length = 8 Then
-				Search()
 				SearchEmployee(TxtCardId.Text)
 			Else
 				MessageBox.Show("Por favor ingrese un DNI válido.")
@@ -206,17 +198,27 @@ Class FrmContrato
 
 	Private Sub ListaContratos_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaContratos.MouseDoubleClick
 		SelectedContract = ListaContratos.SelectedItem
-		ShowContractData(SelectedContract)
+		If SelectedContract IsNot Nothing Then
+			ShowContractData(SelectedContract)
+		End If
 	End Sub
 
 	Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
-		Update()
-		ClearInputs()
+		If SelectedContract IsNot Nothing Then
+			Update()
+			ClearInputs()
+		Else
+			MessageBox.Show("Por favor seleccione un contrato.")
+		End If
 	End Sub
 
 	Private Sub btnDown_Click(sender As Object, e As RoutedEventArgs) Handles btnDown.Click
-		Down()
-		ClearInputs()
+		If SelectedContract IsNot Nothing Then
+			Down()
+			ClearInputs()
+		Else
+			MessageBox.Show("Por favor seleccione un contrato.")
+		End If
 	End Sub
 
 	Private Sub BtnClear_Click(sender As Object, e As RoutedEventArgs) Handles BtnClear.Click

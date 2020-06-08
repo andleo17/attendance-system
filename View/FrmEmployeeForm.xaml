@@ -168,7 +168,9 @@
                     <DatePicker Grid.Column="1" Name="DpkScheduleInitialDate" BorderBrush="{x:Null}"/>
                     <Label Grid.Column="2" Content="Fecha final" Foreground="White"/>
                     <DatePicker Grid.Column="3" Name="DpkScheduleFinalDate" BorderBrush="{x:Null}"/>
-                    <Button Name="BtnAddScheduleDetail" Grid.Row="1" Grid.Column="3" Content="Añadir horario"/>
+                    <Button Name="BtnAddScheduleDetail" Grid.Row="1" Grid.Column="1" Content="Añadir Detalle"/>
+                    <Button Name="BtnModifyScheduleDetail" Grid.Row="1" Grid.Column="2" Content="Modificar Detalle"/>
+                    <Button Name="BtnDeleteScheduleDetail" Grid.Row="1" Grid.Column="3" Content="Eliminar Detalle"/>
                     <DataGrid Grid.Row="2" Grid.ColumnSpan="4" Name="DgdSchedule" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionUnit="Cell">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Hora" Width="1*" Binding="{Binding Path=StringConcat}"/>

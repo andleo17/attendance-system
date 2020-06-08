@@ -72,7 +72,7 @@
                 <Label Grid.Row="1" Grid.Column="0" Content="MOTIVO:" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
                 <!--<TextBox Grid.Row="1" Grid.Column="1" Name="TxtMotivo" Margin="0,20" Padding="0"/>-->
                 <!--<TextBlock Grid.Row="1" Grid.Column="1" Margin="0,20" Background="White"/>-->
-                <RichTextBox Name="txtMotive" Grid.Row="1" Grid.Column="1" Margin="0" Background="{x:Null}" BorderBrush="#FFD5691E" CaretBrush="White" Foreground="White" SelectionBrush="#FF2F3136" VerticalAlignment="Center" FontSize="20" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
+                <TextBox Name="txtMotive" Grid.Row="1" Grid.Column="1" Margin="0" Background="{x:Null}" BorderBrush="#FFD5691E" CaretBrush="White" Foreground="White" SelectionBrush="#FF2F3136" VerticalAlignment="Center" FontSize="20" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" />
                 <Label Grid.Row="2" Grid.Column="0" Content="ESTADO:" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" Padding="0" FontSize="16" />
                 <CheckBox Name="chkActive" Grid.Row="2" Grid.Column="1" Content="Vigente" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Background="#FFD5691E"/>
             </Grid>
@@ -178,7 +178,7 @@
                 <DataGridTextColumn Header="Fecha de presentacion" Width="1*" Binding="{Binding Path=PresentationDate}" Foreground="White" />
                 <DataGridTextColumn Header="Fecha" Width="1*" Binding="{Binding Path=Date}" Foreground="White"/>
                 <DataGridTextColumn Header="Motivo" Width="1*" Binding="{Binding Path=Motive}" Foreground="White"/>
-                <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path=State}" Foreground="White"/>
+                <DataGridCheckBoxColumn Header="Estado" Width="1*" Binding="{Binding Path=State}"/>
                 <DataGridTextColumn Header="DNI" Width="1*" Binding="{Binding Path=EmployeeCardId}" Foreground="White"/>
                 <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Path=Employee.Name}" Foreground="White"/>
                 <DataGridTextColumn Header="Apellido" Width="1*" Binding="{Binding Path=Employee.Lastname}" Foreground="White"/>

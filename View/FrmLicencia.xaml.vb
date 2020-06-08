@@ -206,17 +206,6 @@ Class FrmLicencia
 		ShowLicense()
 	End Sub
 
-	Private Sub txtDni_KeyUp(sender As Object, e As KeyEventArgs) Handles txtDni.KeyUp
-		If e.Key.Equals(Key.Enter) Then
-			If txtDni.Text.Length = 8 Then
-				SearchEmployee(txtDni.Text)
-				listLicense()
-			Else
-				MessageBox.Show("Ingrese DNI")
-			End If
-		End If
-	End Sub
-
 	Private Sub btnClean_Click(sender As Object, e As RoutedEventArgs) Handles btnClean.Click
 		ClearInputs()
 		listLicense()
@@ -287,4 +276,14 @@ Class FrmLicencia
 		End If
 	End Sub
 
+	Private Sub txtDni_KeyDown(sender As Object, e As KeyEventArgs) Handles txtDni.KeyDown
+		If e.Key.Equals(Key.Enter) Then
+			If txtDni.Text.Length = 8 Then
+				SearchEmployee(txtDni.Text)
+				listLicense()
+			Else
+				MessageBox.Show("Ingrese DNI")
+			End If
+		End If
+	End Sub
 End Class

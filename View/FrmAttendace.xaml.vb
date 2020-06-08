@@ -143,14 +143,6 @@ Class FrmAttendace
         ShowAttendace()
     End Sub
 
-    Private Sub txtDni_KeyUp(sender As Object, e As KeyEventArgs) Handles txtDni.KeyUp
-        If e.Key = Key.Enter And txtDni.Text.Length = 8 Then
-            SearchEmployee(txtDni.Text)
-        Else
-            txtEmpleado.Text = Nothing
-        End If
-    End Sub
-
     Private Sub Page_Initialized(sender As Object, e As EventArgs)
         listAttendace()
         txtId.IsEnabled = False
@@ -171,5 +163,13 @@ Class FrmAttendace
 
     Private Sub btnClean_Click(sender As Object, e As RoutedEventArgs) Handles btnClean.Click
         ClearInputs()
+    End Sub
+
+    Private Sub txtDni_KeyDown(sender As Object, e As KeyEventArgs) Handles txtDni.KeyDown
+        If e.Key = Key.Enter And txtDni.Text.Length = 8 Then
+            SearchEmployee(txtDni.Text)
+        Else
+            txtEmpleado.Text = Nothing
+        End If
     End Sub
 End Class

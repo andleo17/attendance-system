@@ -46,7 +46,7 @@ Public Class LicenseTypeDA
         End Using
     End Sub
 
-    Public Shared Function Search(LicenseType As LicenseType)
+    Public Shared Function Search(LicenseType As LicenseType) As LicenseType
         Try
             Dim DB = New DBAttendanceEntities()
             Return DB.LicenseType.Find(LicenseType.Id)
@@ -54,5 +54,4 @@ Public Class LicenseTypeDA
             Throw ex
         End Try
     End Function
-
 End Class

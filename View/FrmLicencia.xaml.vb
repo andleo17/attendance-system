@@ -57,6 +57,7 @@ Class FrmLicencia
 			Dim E = EmployeeDA.Search(EmployeeCardId)
 			If E IsNot Nothing Then
 				txtEmpleado.Text = E.Name & " " & E.Lastname
+				SelectedEmployee = E
 			Else
 				MessageBox.Show("DNI inválido o el empleado no existe")
 				txtEmpleado.Text = " "
@@ -96,23 +97,33 @@ Class FrmLicencia
 	End Sub
 
 
-	Private Sub SaveLicense()
+	Private Function SaveLicense() As Boolean
 		Try
 			If SelectedLicense Is Nothing Then
-				Dim License = SetLicense(New License)
-				LicenseDA.Save(License)
-				MessageBox.Show("Licencia registrada correctamente", MessageBoxImage.Information)
-				listLicense()
-				ClearInputs()
+				If SelectedEmployee IsNot Nothing Then
+					If ValidateDate() Then
+						Dim License = SetLicense(New License)
+						LicenseDA.Save(License)
+						MessageBox.Show("Licencia registrada correctamente", MessageBoxImage.Information)
+						listLicense()
+						ClearInputs()
+						Return True
+					Else
+						Return False
+					End If
+				Else
+					MessageBox.Show("Busque un empleado", MessageBoxImage.Error)
+					Return False
+				End If
 			Else
 				MessageBox.Show("No se puede registrar la licencia", MessageBoxImage.Error)
-
+				Return False
 			End If
 
 		Catch ex As Exception
 			MessageBox.Show(ex.ToString)
 		End Try
-	End Sub
+	End Function
 
 
 	Private Sub DeleteLicense()
@@ -154,6 +165,7 @@ Class FrmLicencia
 
 	Private Sub ClearInputs()
 		SelectedLicense = Nothing
+		SelectedEmployee = Nothing
 		txtDni.Text = Nothing
 		txtEmpleado.Text = Nothing
 		txtId.Text = Nothing
@@ -167,6 +179,28 @@ Class FrmLicencia
 		btnSave.Content = "NUEVO"
 	End Sub
 
+	Private Function ValidateDate() As Boolean
+		Dim S As Schedule
+		S = ScheduleDA.FindActual(SelectedEmployee)
+		Dim LT = New LicenseType
+		If InitialDate.SelectedDate < Date.Now.Date Then
+			MessageBox.Show("Fecha de inicio no válida")
+			Return False
+		Else
+			If FinalDate.SelectedDate > S.FinishDate Then
+				MessageBox.Show("Fecha de fin no es válida")
+				Return False
+			Else
+				LT.Id = CboType.SelectedValue
+				If LicenseTypeDA.Search(LT).MaximumDays < LicenseDA.Validate(InitialDate.SelectedDate, FinalDate.SelectedDate, txtDni.Text) Then
+					MessageBox.Show("Los dias exceden el máximo permitido")
+					Return False
+				Else
+					Return True
+				End If
+			End If
+		End If
+	End Function
 
 	Private Sub ListaLicencia_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaLicencia.MouseDoubleClick
 		ShowLicense()
@@ -203,13 +237,16 @@ Class FrmLicencia
 		Else
 			MessageBox.Show("Ingrese DNI")
 		End If
+		MessageBox.Show(LicenseDA.Validate("2019-12-1", "2020-06-2", "77777777"))
+
 
 	End Sub
 
 	Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
 		If btnSave.Content = "REGISTRAR" Then
-			SaveLicense()
-			btnSave.Content = "NUEVO"
+			If SaveLicense() Then
+				btnSave.Content = "NUEVO"
+			End If
 		Else
 			ClearInputs()
 			btnSave.Content = "REGISTRAR"

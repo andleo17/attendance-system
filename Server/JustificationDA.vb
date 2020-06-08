@@ -40,6 +40,7 @@ Public Class JustificationDA
     '        End Try
     '    End Using
     'End Sub
+
     Public Shared Sub Save(Justification As Justification)
         Using DB = New DBAttendanceEntities()
             Try

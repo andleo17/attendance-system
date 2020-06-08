@@ -5,7 +5,7 @@
     <Databases isList="true" count="1">
       <Attendance_USAT Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>Attendance_USAT</Alias>
-        <ConnectionStringEncrypted>9BDZ60Zfk51iSaXcYwApO9FaaStOGHtZ4Vgl8eoY4UbVeGUpzVtD7W9N/dxNKGJ70VTNC0ZZy5XsRrWY5IRgT9VszS1NVdPN4lzZ2E1x6y/leM/jxgXDlUUTbZhpdOc/31TbiGIYkglrRgH4wwRhKt5w2etPXHvtalrR8WHE6zvxcPsrRkxLUWAZ2Q==</ConnectionStringEncrypted>
+        <ConnectionStringEncrypted>9NDZCU5Kq8hiE+3E6VygTsQw+yNHUfO8bAa9zE9w4WfdevXr3WzC8WwehIBJBKKP3MCRbd1nech0XO2ccwmkd4J0z+lQXfO8yxONzMMUIhfCdPvjxUGriG9sYdjpiC9e48ix48ZxQ81vafXM7wllXoV4tcvGFkvdaX157GiEYo/FbtnCzUoime1J4VhNXGA/hiD7iEZ6w9lpRLns6WyxP9Vsz2nXA6tNa0a5mHxMsWfR2vk=</ConnectionStringEncrypted>
         <Key>01168f0d2d7448ddacc87260dab0ec5a</Key>
         <Name>Attendance_USAT</Name>
       </Attendance_USAT>
@@ -35,14 +35,14 @@
       <License Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>License</Alias>
         <Columns isList="true" count="8">
-          <value>Id,System.Int32</value>
+          <value>ORIGINAL,Id,Id,Id,System.Int32,_x0035_6d9936401f24c6bbc2b7852e213879a</value>
           <value>ORIGINAL,PresentationDate,PresentationDate,PresentationDate,System.DateTime,_x0034_64e74514ff044178f45becd628b4d71</value>
           <value>ORIGINAL,StartDate,StartDate,StartDate,System.DateTime,af6d33454175455bac98d2745410bb84</value>
-          <value>FinishDate,System.DateTime</value>
-          <value>State,System.Boolean</value>
-          <value>Document,System.String</value>
-          <value>EmployeeCardId,System.String</value>
-          <value>LicenseTypeId,System.Byte</value>
+          <value>ORIGINAL,FinishDate,FinishDate,FinishDate,System.DateTime,fc5ed8b5874a49cbab57170fa27b7631</value>
+          <value>ORIGINAL,State,State,State,System.Boolean,_x0031_df849e0bab14086ab12b3a01407c916</value>
+          <value>ORIGINAL,Document,Document,Document,System.String,_x0031_c4ad3e3abae4a37bd0c8b1bdc697a46</value>
+          <value>ORIGINAL,EmployeeCardId,EmployeeCardId,EmployeeCardId,System.String,b2959011be47451d8c0848286638343a</value>
+          <value>ORIGINAL,LicenseTypeId,LicenseTypeId,LicenseTypeId,System.Byte,_x0039_de57e4e4c774beaa463acf277ad7ed3</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -76,6 +76,7 @@
         </ChildColumns>
         <ChildSource isRef="4" />
         <Dictionary isRef="1" />
+        <Key>eebfa9edadd54425b2124d74db4f2e76</Key>
         <Name>Employee_name</Name>
         <NameInSource>Employee</NameInSource>
         <ParentColumns isList="true" count="1">
@@ -90,6 +91,7 @@
         </ChildColumns>
         <ChildSource isRef="4" />
         <Dictionary isRef="1" />
+        <Key>6a515a3646e646de9830108a3390d751</Key>
         <Name>License_desc</Name>
         <NameInSource>License</NameInSource>
         <ParentColumns isList="true" count="1">
@@ -100,7 +102,10 @@
     </Relations>
     <Report isRef="0" />
     <Resources isList="true" count="0" />
-    <Variables isList="true" count="0" />
+    <Variables isList="true" count="2">
+      <value>,Todo,Todo,,System.Boolean,true,False,False,True,False,,_x0037_e8dc762b61c48c78d3b398e168c2a69</value>
+      <value>,DNI,DNI_x0020_de_x0020_empleado,,System.String,,False,False,True,False,,cac993830a8142fc81ea7a6c57a7beb4</value>
+    </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
   <GlobalizationStrings isList="true" count="0" />
@@ -383,7 +388,6 @@
         <DataLicense Ref="27" type="DataBand" isKey="true">
           <Border>None;Transparent;1;None;False;4;Black;True</Border>
           <Brush>Transparent</Brush>
-          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,7.2,28.7,0.8</ClientRectangle>
           <Components isList="true" count="8">
             <DataLicense_PresentationDate Ref="28" type="Text" isKey="true">
@@ -451,6 +455,7 @@
               <Border>All;[155:36:0];1;None;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <Checked>{License.State}</Checked>
+              <CheckStyleForFalse>Cross</CheckStyleForFalse>
               <ClientRectangle>18.6,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <ContourColor>Transparent</ContourColor>
@@ -528,7 +533,11 @@
           <DataRelationName>Employee</DataRelationName>
           <DataSourceName>License</DataSourceName>
           <EvenStyle>Estilo26_Datos1_Estilo Pares</EvenStyle>
-          <Filters isList="true" count="0" />
+          <FilterMode>Or</FilterMode>
+          <Filters isList="true" count="2">
+            <value>_x007B_Todo_x007D_</value>
+            <value>_x007B_License.EmployeeCardId_x0020__x003D__x003D_DNI_x0020__x007D_</value>
+          </Filters>
           <Name>DataLicense</Name>
           <OddStyle>Estilo26_Datos1_Estilo Impar</OddStyle>
           <Page isRef="8" />
@@ -566,10 +575,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/6/2020 6:44:36 PM</ReportChanged>
+  <ReportChanged>6/7/2020 6:34:39 PM</ReportChanged>
   <ReportCreated>6/4/2020 7:04:10 PM</ReportCreated>
-  <ReportFile>C:\Users\ASUS\Desktop\USAT\CICLOS\7.° CICLO\SISTEMAS DISTRIBUIDOS DEL CASTILLO CASTRO, CONSUELO IVONNE\UNIDAD I\attendance-system\View\reports\licence_report.mrt</ReportFile>
-  <ReportGuid>2e01d03b4bf143df81b5bca24ed664f3</ReportGuid>
+  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\licence_report.mrt</ReportFile>
+  <ReportGuid>469800d3aa5e4d2d82e44b0e2aecea4f</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2020.2.3.0</ReportVersion>

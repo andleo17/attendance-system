@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <Attendance_USAT Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>Attendance_USAT</Alias>
+        <ConnectionStringEncrypted>9NDZCU5Kq8hiE+3E6VygTsQw+yNHUfO8bAa9zE9w4WfdevXr3WzC8WwehIBJBKKP3MCRbd1nech0XO2ccwmkd4J0z+lQXfO8yxONzMMUIhfCdPvjxUGriG9sYdjpiC9e48ix48ZxQ81vafXM7wllXoV4tcvGFkvdaX157GiEYo/FbtnCzUoime1J4VhNXGA/hiD7iEZ6w9lpRLns6WyxP9Vsz2nXA6tNa0a5mHxMsWfR2vk=</ConnectionStringEncrypted>
+        <Key>07a7a9dcdaa04c53b4f7fb53317f5fb0</Key>
+        <Name>Attendance_USAT</Name>
+      </Attendance_USAT>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <Attendance Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Attendance</Alias>
+        <Columns isList="true" count="5">
+          <value>ORIGINAL,Id,Id,Id,System.Int32,_x0031_839bbad8cea400094408596541ba7ed</value>
+          <value>ORIGINAL,Date,Date,Date,System.DateTime,_x0033_738935c2ef04a42b9bd06ec3fd311fb</value>
+          <value>ORIGINAL,InHour,InHour,InHour,System.TimeSpan,_x0031_5dd721cdb5242c08c83c81ae98c425a</value>
+          <value>ORIGINAL,EmployeeCardId,EmployeeCardId,EmployeeCardId,System.String,e731bab8d6ae4f13bb582060443c4e79</value>
+          <value>ORIGINAL,OutHour,OutHour,OutHour,System.TimeSpan,da19c1cbbdae4f169a494354a2b3390a</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>560ccc0108644fa299f08d5414a223bf</Key>
+        <Name>Attendance</Name>
+        <NameInSource>Attendance_USAT</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>Date,Fecha,31,0</value>
+        </Parameters>
+        <SqlCommand>select * from Attendance where DATEPART(m,Attendance.Date) = DATEPART(m,@Date)</SqlCommand>
+      </Attendance>
+      <Employee Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Employee</Alias>
+        <Columns isList="true" count="9">
+          <value>CardId,System.String</value>
+          <value>Name,System.String</value>
+          <value>Lastname,System.String</value>
+          <value>Genre,System.String</value>
+          <value>BirthDate,System.DateTime</value>
+          <value>Address,System.String</value>
+          <value>Phone,System.String</value>
+          <value>State,System.Boolean</value>
+          <value>Email,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>a469d8c590394e018e843897fb5b930a</Key>
+        <Name>Employee</Name>
+        <NameInSource>Attendance_USAT</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Employee</SqlCommand>
+      </Employee>
+    </DataSources>
+    <Relations isList="true" count="1">
+      <Empleado Ref="5" type="DataRelation" isKey="true">
+        <Alias>Empleado</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EmployeeCardId</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Key>ddd50269d3fa4a31b7132731acfe7ca2</Key>
+        <Name>Empleado</Name>
+        <NameInSource>Empleado</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CardId</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </Empleado>
+    </Relations>
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,Fecha,Fecha,,System.DateTime,_x0036__x002F_7_x002F_2020_x0020_7:09:27_x0020_PM,False,False,True,False,,_x0038_a34e542ed9544a9a666db4b2907cb79</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>87e698ac988846998e4126cd583d2ffe</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <HeaderAttendance Ref="7" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="6">
+            <HeaderAttendance_Id Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAttendance_Id</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Id</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAttendance_Id>
+            <HeaderAttendance_Date Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAttendance_Date</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Date</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAttendance_Date>
+            <HeaderAttendance_InHour Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.4,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAttendance_InHour</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>InHour</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAttendance_InHour>
+            <HeaderAttendance_OutHour Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.6,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAttendance_OutHour</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>OutHour</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAttendance_OutHour>
+            <HeaderAttendance_EmployeeCardId Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.8,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAttendance_EmployeeCardId</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>EmployeeCardId</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAttendance_EmployeeCardId>
+            <HeaderAttendance_Empleado_Name Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAttendance_Empleado_Name</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>Name</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAttendance_Empleado_Name>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderAttendance</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </HeaderAttendance>
+        <DataAttendance Ref="14" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2,19,0.8</ClientRectangle>
+          <Components isList="true" count="6">
+            <DataAttendance_Id Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAttendance_Id</Name>
+              <Page isRef="6" />
+              <Parent isRef="14" />
+              <Text>{Attendance.Id}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAttendance_Id>
+            <DataAttendance_Date Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAttendance_Date</Name>
+              <Page isRef="6" />
+              <Parent isRef="14" />
+              <Text>{Attendance.Date}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAttendance_Date>
+            <DataAttendance_InHour Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.4,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAttendance_InHour</Name>
+              <Page isRef="6" />
+              <Parent isRef="14" />
+              <Text>{Attendance.InHour}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAttendance_InHour>
+            <DataAttendance_OutHour Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAttendance_OutHour</Name>
+              <Page isRef="6" />
+              <Parent isRef="14" />
+              <Text>{Attendance.OutHour}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAttendance_OutHour>
+            <DataAttendance_EmployeeCardId Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12.8,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAttendance_EmployeeCardId</Name>
+              <Page isRef="6" />
+              <Parent isRef="14" />
+              <Text>{Attendance.EmployeeCardId}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAttendance_EmployeeCardId>
+            <DataAttendance_Empleado_Name Ref="20" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAttendance_Empleado_Name</Name>
+              <Page isRef="6" />
+              <Parent isRef="14" />
+              <Text>{Attendance.Empleado.Name} {Attendance.Empleado.Lastname}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataAttendance_Empleado_Name>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Attendance</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataAttendance</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataAttendance>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>858e41449e3b4b4e90acbcb616a13976</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>6/7/2020 7:20:13 PM</ReportChanged>
+  <ReportCreated>6/7/2020 6:55:18 PM</ReportCreated>
+  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\consolidate_attendance_report.mrt</ReportFile>
+  <ReportGuid>13aa6170565d4ee89f90f00bf43717b4</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

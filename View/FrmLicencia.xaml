@@ -14,6 +14,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -22,7 +23,7 @@
 
             <Label Content="LICENCIA" Background="#D5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" />
 
-            <Grid Grid.Row="3" Margin="0,20,0,20">
+            <Grid Grid.Row="4" Margin="0,20,0,20">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -33,8 +34,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
-
 
                 <Button Name="btnSearch"  Height="Auto" Width="Auto" Content="BUSCAR" Grid.Column="0" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
@@ -80,16 +79,22 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-
-
             </Grid>
+            <Grid Grid.Row="3" Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-
-
+                <Label Content="Documento" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
+                <TextBox Grid.Column="1" Name="TxtPathFile" VerticalAlignment="Center" Margin="25,0,0,0" FontSize="14"/>
+                <Button Grid.Column="2" Name="btnOpenFile" Content="..." Padding="10,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0"/>
+                <Button Grid.Column="3" Name="BtnOpen" Content="Abrir" Padding="10,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
             <Grid Grid.Row="2" Background="#FF292B2F" Margin="20">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -120,19 +125,6 @@
                 </DatePicker>
                 <Label Content="Estado" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4"/>
                 <CheckBox Name="chkState" Grid.Column="5" Content="Vigente" FontSize="16" FontFamily="Segoe UI" Foreground="White" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FFD5691E" />
-                <!--<Label Content="Documento" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>-->
-                <!--<TextBox Name="txtDoc" Grid.Column="7" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />-->
-                <!--<WrapPanel>
-                 <Button  Name="btnOpenFil" Content="Subir archivo" Grid.Column="6"/>
-                </WrapPanel>
-                <TextBox Grid.Column="8" Name="txtFile"/>-->
-
-                <DockPanel Margin="10" Grid.Column="6">
-                <WrapPanel Grid.Column="6" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
-                    <Button Name="btnOpenFile"  Click="btnOpenFile_Click">Open file</Button>
-                </WrapPanel>
-                <TextBox Name="txtEditor" Grid.Column="7" />
-                </DockPanel>
                 
             </Grid>
 
@@ -168,17 +160,16 @@
                 <Label Content="Empleado" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox Name="txtEmpleado" Grid.Column="7" IsEnabled="False" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
             </Grid>
-            <DataGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Name="ListaLicencia" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525" AutoGenerateColumns="False" RowBackground="#FF832A2A" Foreground="#FFD31D1D" AlternatingRowBackground="#FFFF1C1C">
-                
-                    <DataGrid.Columns >
-                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="White"/>
-                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" Foreground="White" />
-                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" Foreground="White" />
-                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" Foreground="White" />
-                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}" Foreground="White"/>
-                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}" Foreground="White"/>
-                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" Foreground="White" />
-                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= Document}" Foreground="White" />
+            <DataGrid Grid.Row="5" Grid.Column="0" Name="ListaLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="Black"/>
+                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" />
+                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" />
+                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" />
+                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}"/>
+                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}"/>
+                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" />
+                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= DocumentName}" />
                 </DataGrid.Columns>
                 
             </DataGrid>

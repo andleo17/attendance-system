@@ -64,9 +64,11 @@
                     <MenuItem Header="Estadísticas tardanzas" Name="MnuEstadisticasTardanzas"/>
                     <MenuItem Header="Estadísticas inasistencias" Name="MnuEstadisticasInasistencias"/>
                 </MenuItem>
-                <MenuItem Header="Ver" Height="32"></MenuItem>
+                <MenuItem Header="Ver" Height="32" ></MenuItem>
                 <MenuItem Header="Ventanas" Height="32"></MenuItem>
-                <MenuItem Header="Ayuda" Height="32"></MenuItem>
+                <MenuItem Header="Ayuda" Height="32" Foreground="#FF8E9297">
+                    <MenuItem Header="Pagos" Name="MnuPagos"/>
+                </MenuItem>
             </Menu>
             <Border Grid.Row="1" Grid.Column="0" Padding="8,5" Background="#FF292B2F">
                 <Grid>

@@ -281,6 +281,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmPago.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmPermisos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -324,6 +328,9 @@
   <ItemGroup>
     <Compile Include="FrmMain.xaml.vb">
       <DependentUpon>FrmMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPago.xaml.vb">
+      <DependentUpon>FrmPago.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmPermisos.xaml.vb">
       <DependentUpon>FrmPermisos.xaml</DependentUpon>

@@ -183,4 +183,11 @@ Public Class FrmMain
     Private Sub MenuItem_Click_4(sender As Object, e As RoutedEventArgs)
         'ShowFrame(New FrmMain)
     End Sub
+
+    Private Sub MnuAsistenciasEmpleado_Click(sender As Object, e As RoutedEventArgs) Handles MnuAsistenciasEmpleado.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\pie_chart_af_report.mrt")
+        Report.Show()
+    End Sub
 End Class

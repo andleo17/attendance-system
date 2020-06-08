@@ -20,6 +20,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -60,6 +61,7 @@
                 <MenuItem Header="Reportes" Height="32" Foreground="#FF8E9297">
                     <MenuItem Header="Tardanzas" Name="MnuTardanzas" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Asistencias" Name="MnuConsolidadoAsistencias" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Asistencias empleado" Name="MnuAsistenciasEmpleado" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Licencias" Name="MnuLicencias" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Licencias por tipo" Name="MnuLicenciasTipo" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Inasistencias" Name="MnuInasistencias" Background="#FFFFBF93" Foreground="White" />

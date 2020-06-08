@@ -199,4 +199,12 @@ Public Class FrmMain
 		Report.Load(ruta(0) & "reports\pie_chart_af_report.mrt")
 		Report.Show()
 	End Sub
+
+	Private Sub MnuPagos_Click(sender As Object, e As RoutedEventArgs) Handles MnuPagos.Click
+		ShowFrame(New FrmPago)
+	End Sub
+
+	Private Sub MenuItem_Click_4(sender As Object, e As RoutedEventArgs)
+		'ShowFrame(New FrmMain)
+	End Sub
 End Class

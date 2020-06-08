@@ -366,7 +366,7 @@ Class FrmHorario
 		ClearInputs()
 	End Sub
 
-	Private Sub txtDni_KeyUp(sender As Object, e As KeyEventArgs) Handles txtDni.KeyUp
+	Private Sub txtDni_KeyDown(sender As Object, e As KeyEventArgs) Handles txtDni.KeyDown
 		If e.Key = Key.Enter Then
 			If txtDni.Text.Length = 8 Then
 				SearchEmployee(txtDni.Text)

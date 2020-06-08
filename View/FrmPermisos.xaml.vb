@@ -30,13 +30,13 @@ Class FrmPermisos
             Permission.PresentationDate = Date.Now.Date
         End If
         Permission.Date = calDate.SelectedDate
-        Permission.Motive = New TextRange(txtMotive.Document.ContentStart, txtMotive.Document.ContentEnd).Text
+        Permission.Motive = txtMotive.Text
         Permission.State = chkActive.IsChecked
         Permission.EmployeeCardId = SearchEmployee(New Employee).CardId
         Return Permission
     End Function
 
-    Private Sub SavePermission()
+    Private Function SavePermission() As Boolean
         Try
             If SelectedPermission Is Nothing Then
                 If ValidateSave() Then
@@ -45,18 +45,22 @@ Class FrmPermisos
                     MessageBox.Show("Permiso agregado correctamente")
                     ShowPermissionList()
                     ClearInputs()
+                    Return True
+                Else
+                    Return False
                 End If
             Else
-                MessageBox.Show("Operación no disponible, limpie para continuar")
+                MessageBox.Show("Operación no disponible")
+                Return True
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
-    End Sub
+    End Function
 
     Private Sub UpdatePermission()
         If SelectedPermission IsNot Nothing Then
-            If ValidateSave() Then
+            If ValidateUpdate() Then
                 SelectedPermission = SetPermissionData(SelectedPermission)
                 PermissionDA.Update(SelectedPermission)
                 MessageBox.Show("Permiso actualizado")
@@ -106,22 +110,40 @@ Class FrmPermisos
                 C.IsChecked = False
             End If
         Next
-        txtMotive.Document.Blocks.Clear()
         txtCardID.Text = Nothing
         txtEmpleado.Text = Nothing
         calDate.SelectedDate = Nothing
         TxtId.IsEnabled = True
+        btnSave.Content = "NUEVO"
     End Sub
 
     Private Function ValidateSave() As Boolean
         If SearchEmployee(New Employee) Is Nothing Then
             Return False
         Else
-            If New TextRange(txtMotive.Document.ContentStart, txtMotive.Document.ContentEnd).IsEmpty Then
+            If txtMotive.Text.Length <= 0 Then
                 MessageBox.Show("Ingrese el motivo")
                 Return False
             Else
                 If calDate.SelectedDate Is Nothing Or calDate.SelectedDate <= Date.Now.Date Then
+                    MessageBox.Show("Ingrese una fecha válida")
+                    Return False
+                Else
+                    Return True
+                End If
+            End If
+        End If
+    End Function
+
+    Private Function ValidateUpdate() As Boolean
+        If SearchEmployee(New Employee) Is Nothing Then
+            Return False
+        Else
+            If txtMotive.Text.Length <= 0 Then
+                MessageBox.Show("Ingrese el motivo")
+                Return False
+            Else
+                If calDate.SelectedDate Is Nothing Or calDate.SelectedDate < SelectedPermission.Date Then
                     MessageBox.Show("Ingrese una fecha válida")
                     Return False
                 Else
@@ -138,7 +160,7 @@ Class FrmPermisos
             End If
             txtCardID.Text = SelectedPermission.EmployeeCardId
             TxtId.Text = SelectedPermission.Id
-            txtMotive.Document.Blocks.Add(New Paragraph(New Run(SelectedPermission.Motive)))
+            txtMotive.Text = SelectedPermission.Motive
             calDate.SelectedDate = SelectedPermission.Date
             chkActive.IsChecked = SelectedPermission.State
             btnSearchEm_Click(Nothing, Nothing)
@@ -166,6 +188,7 @@ Class FrmPermisos
     End Sub
 
     Private Sub Page_Loaded(sender As Object, e As RoutedEventArgs)
+        txtEmpleado.IsEnabled = False
         ShowPermissionList()
     End Sub
 
@@ -176,7 +199,6 @@ Class FrmPermisos
 
     Private Sub btnSearch_Click(sender As Object, e As RoutedEventArgs) Handles btnSearch.Click
         If TxtId.Text.Length > 0 Then
-            txtMotive.Document.Blocks.Clear()
             SearchPermission(New Permission)
         Else
             MessageBox.Show("Ingrese código de permiso")
@@ -185,9 +207,10 @@ Class FrmPermisos
 
     Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
         If btnSave.Content = "REGISTRAR" Then
-            SavePermission()
-            ClearInputs()
-            btnSave.Content = "NUEVO"
+            If SavePermission() Then
+                ClearInputs()
+                btnSave.Content = "NUEVO"
+            End If
         Else
             ClearInputs()
             btnSave.Content = "REGISTRAR"
@@ -196,7 +219,7 @@ Class FrmPermisos
     End Sub
 
     Private Sub btnSearchEm_Click(sender As Object, e As RoutedEventArgs) Handles btnSearchEm.Click
-        If txtCardID.Text.Length > 0 Then
+        If txtCardID.Text.Length = 8 Then
             SearchEmployee(New Employee)
         Else
             MessageBox.Show("Ingrese DNI")
@@ -213,5 +236,11 @@ Class FrmPermisos
 
     Private Sub btnDelete_Click(sender As Object, e As RoutedEventArgs) Handles btnDelete.Click
         DeletePermission()
+    End Sub
+
+    Private Sub txtCardID_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCardID.KeyDown
+        If e.Key.Equals(Key.Enter) Then
+            btnSearchEm_Click(Nothing, Nothing)
+        End If
     End Sub
 End Class

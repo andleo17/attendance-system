@@ -97,6 +97,19 @@ Public Class LicenseDA
 
     'End Function
 
+    Public Shared Function Validate(InitialDate As Date, FinalDate As Date, EmployeeCardId As String) As Integer
+        Try
+            Dim DB = New DBAttendanceEntities()
+            Dim CountDay = DB.Database.SqlQuery(Of DataTable)("
+                select * from Date_range(@p0,@p1) As DR inner join ScheduleDetail on ScheduleDetail.Day = DATEPART(dw,DR.Date) -1  
+                inner join Schedule on Schedule.Id = ScheduleDetail.ScheduleId where Schedule.State = 1 and Schedule.EmployeeCardId = @p2", InitialDate, FinalDate, EmployeeCardId)
+            Return CountDay.ToList().Count
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+
 
 
 End Class

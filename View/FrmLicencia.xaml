@@ -181,7 +181,7 @@
                     <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" Foreground="White" />
                     <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}" Foreground="White"/>
                     <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}" Foreground="White"/>
-                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" Foreground="White" />
+                    <DataGridCheckBoxColumn Header="Estado" Width="1*" Binding="{Binding Path= State}"  />
                     <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= DocumentName}" Foreground="White" />
                 </DataGrid.Columns>
             </DataGrid>

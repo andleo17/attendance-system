@@ -101,7 +101,7 @@
             <Label Content="Días" Foreground="White" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
             <TextBox Name="txtDias" Grid.Column="5" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" Style="{DynamicResource Rounded}" />
         </Grid>
-        <DataGrid Grid.Row="3" Grid.Column="0" Name="ListaTipoLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">
+        <DataGrid Grid.Row="3" Grid.Column="0" Name="ListaTipoLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" BorderBrush="#FF292B2F" FontSize="14" BorderThickness="10" GridLinesVisibility="None" RowBackground="#FF343434" AlternatingRowBackground="#FF6E6868">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Binding="{Binding Path=Id}" Width="1*" />
                 <DataGridTextColumn Header="Descripción"  Binding="{Binding Path=Description}" Width="1*" />

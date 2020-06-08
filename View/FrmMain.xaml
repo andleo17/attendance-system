@@ -17,74 +17,88 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Menu Grid.Row="0" Grid.Column="0" Background="#FF2F3136" Foreground="#FF8E9297" FontSize="16">
+            <Menu Grid.Row="1" Grid.Column="0" Background="#FF2F3136" Foreground="#FF8E9297" FontSize="16">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
-                <MenuItem Header="Mantenimiento" Height="32" Click="MenuItem_Click_2">
-                    <MenuItem Header="Parámetros"/>
-                    <MenuItem Header="Tipo de licencia" Name="MnuTipoLicencia"/>
-                    <Separator/>
-                    <MenuItem Name="MnuLogout" Header="Cerrar sesión"/>
+                <MenuItem Header="Inicio" Height="32" Click="MenuItem_Click_4" ></MenuItem>
+                <MenuItem Header="Mantenimiento" Height="32" Click="MenuItem_Click_2" Foreground="#FF8E9297" HorizontalContentAlignment="Stretch">
+                    <MenuItem Header="Parámetros" Background="#FFFFBF93" Foreground="White"  BorderBrush="{x:Null}" MinWidth="32"/>
+                    <MenuItem Header="Tipo de licencia" Name="MnuTipoLicencia" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" MinWidth="32"/>
+                    <Separator Background="{x:Null}" Foreground="{x:Null}" BorderBrush="White"/>
+                    <MenuItem Name="MnuLogout" Header="Cerrar sesión" Background="#FFFFBF93" BorderBrush="{x:Null}" MinWidth="32"/>
                 </MenuItem>
-                <MenuItem Header="Empleado" Height="32" Click="MenuItem_Click">
-                    <MenuItem Name="MnuEmployee" Header="Gestionar"/>
-                    <MenuItem Header="Contratos" Name="MnuContratos"/>
+                <MenuItem Header="Empleado" Height="32" Click="MenuItem_Click" Foreground="#FF8E9297">
+                    <MenuItem Name="MnuEmployee" Header="Gestionar" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" />
+                    <MenuItem Header="Contratos" Name="MnuContratos" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" />
                     <Separator/>
-                    <MenuItem Name="MnuHorario" Header="Horarios" Click="MenuItem_Click_3"/>
+                    <MenuItem Name="MnuHorario" Header="Horarios" Click="MenuItem_Click_3" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" />
                     <Separator/>
-                    <MenuItem Name="MnuUsers" Header="Usuarios"/>
+                    <MenuItem Name="MnuUsers" Header="Usuarios" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" />
                 </MenuItem>
-                <MenuItem Header="Operaciones" Height="32" >
-                    <MenuItem Name="MnuAsistencias" Header="Asistencias"/>
-                    <MenuItem Name="MnuRegistrarAsistencias" Header="Registrar asistencia"/>
+
+                <MenuItem Header="Operaciones" Height="32" Foreground="#FF8E9297">
+                    <MenuItem Name="MnuAsistencias" Header="Asistencias" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Name="MnuRegistrarAsistencias" Header="Registrar asistencia" Background="#FFFFBF93" Foreground="White" />
                     <Separator/>
-                    <MenuItem Name="MnuJustification" Header="Justificaciones"/>
-                    <MenuItem Name="MnuPermisos" Header="Permisos"/>
-                    <MenuItem Header="Licencias" Name="FrmLicencias"/>
+                    <MenuItem Name="MnuJustification" Header="Justificaciones" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Name="MnuPermisos" Header="Permisos" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Licencias" Name="FrmLicencias" Background="#FFFFBF93" Foreground="White" />
                 </MenuItem>
-                <MenuItem Header="Consultas" Height="32" >
-                    <MenuItem Header="Consulta asistencia" Name="FrmConsultaAsistencia"/>
-                    <MenuItem Header="Consulta de asistencia mensual" Name="FrmConsultaAsistenciaMes"/>
-                    </MenuItem>
+                <MenuItem Header="Consultas" Height="32" Foreground="#FF8E9297">
+                    <MenuItem Header="Consulta asistencia" Name="FrmConsultaAsistencia" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Consulta de asistencia mensual" Name="FrmConsultaAsistenciaMes" Background="#FFFFBF93" Foreground="White" />
+                </MenuItem>
                 <MenuItem Header="Reportes" Height="32" Foreground="#FF8E9297">
-                    <MenuItem Header="Tardanzas" Name="MnuTardanzas"/>
-                    <MenuItem Header="Asistencias" Name="MnuConsolidadoAsistencias"/>
-                    <MenuItem Header="Licencias" Name="MnuLicencias"/>
-                    <MenuItem Header="Licencias por tipo" Name="MnuLicenciasTipo"/>
-                    <MenuItem Header="Inasistencias" Name="MnuInasistencias"/>
-                    <MenuItem Header="Estadísticas tardanzas" Name="MnuEstadisticasTardanzas"/>
-                    <MenuItem Header="Estadísticas inasistencias" Name="MnuEstadisticasInasistencias"/>
+                    <MenuItem Header="Tardanzas" Name="MnuTardanzas" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Asistencias" Name="MnuConsolidadoAsistencias" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Licencias" Name="MnuLicencias" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Licencias por tipo" Name="MnuLicenciasTipo" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Inasistencias" Name="MnuInasistencias" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Estadísticas tardanzas" Name="MnuEstadisticasTardanzas" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Estadísticas inasistencias" Name="MnuEstadisticasInasistencias" Background="#FFFFBF93" Foreground="White" />
                 </MenuItem>
-                <MenuItem Header="Ver" Height="32"></MenuItem>
-                <MenuItem Header="Ventanas" Height="32"></MenuItem>
-                <MenuItem Header="Ayuda" Height="32"></MenuItem>
+                <MenuItem Header="Ver" Height="32" Foreground="#FF8E9297"></MenuItem>
+                <MenuItem Header="Ventanas" Height="32" Foreground="#FF8E9297"></MenuItem>
+                <MenuItem Header="Ayuda" Height="32" Foreground="#FF8E9297">
+                    <MenuItem Header="Pagos" Name="MnuPagos" Background="#FFFFBF93" Foreground="White" />
+                </MenuItem>
             </Menu>
-            <Border Grid.Row="1" Grid.Column="0" Padding="8,5" Background="#FF292B2F">
+            <Border Grid.Row="0" Grid.Column="0" Padding="8,5" Background="#FF292B2F">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Border Name="ImgEmployee" Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" Width="40" Height="40" CornerRadius="20">
+                    <Border Name="ImgEmployee" Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" Width="70" Height="70" CornerRadius="70">
                         <Border.Background>
                             <ImageBrush ImageSource="blank-user-img.jpg"/>
                         </Border.Background>
                     </Border>
-                    <Label Grid.Row="0" Grid.Column="1" Name="LblEmployee" VerticalAlignment="Center" Content="Nombre de usuario" Foreground="White" FontFamily="Segoe UI Semibold" FontSize="14"/>
+                    <Label Grid.Row="2" Grid.Column="1" Name="LblEmployee" VerticalAlignment="Center" Content="Nombre de usuario" FontFamily="Segoe UI Semibold" FontSize="16">
+                        <Label.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA35117" Offset="0.651"/>
+                                <GradientStop Color="#FFD5691E" Offset="0.634"/>
+                            </LinearGradientBrush>
+                        </Label.Foreground>
+                    </Label>
                 </Grid>
             </Border>
+
+           
+            
         </Grid>
         <Frame Grid.Row="1" Grid.Column="1" Name="FrmContent" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <Grid Grid.Row="0" Grid.Column="1" Background="#FFC3C3C3" Grid.ColumnSpan="2">

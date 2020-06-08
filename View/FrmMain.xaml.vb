@@ -207,4 +207,11 @@ Public Class FrmMain
 	Private Sub MenuItem_Click_4(sender As Object, e As RoutedEventArgs)
 		'ShowFrame(New FrmMain)
 	End Sub
+
+	Private Sub MnuAsistenciaEmp_Click(sender As Object, e As RoutedEventArgs) Handles MnuAsistenciaEmp.Click
+		Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+		Dim Report = New StiReport()
+		Report.Load(ruta(0) & "reports\non_attendance_emp_report.mrt")
+		Report.Show()
+	End Sub
 End Class

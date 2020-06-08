@@ -58,7 +58,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Entrada" Name="BtnShow" FontSize="16" VerticalAlignment="Center" BorderBrush="{x:Null}" Foreground="White" FontFamily="Segoe UI Semibold">
+            <Button Grid.Column="0" Grid.Row="0" Content="Entrada" Name="BtnShow" FontSize="20" VerticalAlignment="Center" BorderBrush="{x:Null}" Foreground="White" FontFamily="Segoe UI Semibold">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -66,7 +66,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Grid.Column="0" Grid.Row="1" Content="Salida" Name="BtnModify" VerticalAlignment="Center" FontSize="16" Foreground="White" BorderBrush="{x:Null}" FontFamily="Segoe UI Semibold">
+            <Button Grid.Column="0" Grid.Row="1" Content="Salida" Name="BtnModify" VerticalAlignment="Center" FontSize="20" Foreground="White" BorderBrush="{x:Null}" FontFamily="Segoe UI Semibold">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>

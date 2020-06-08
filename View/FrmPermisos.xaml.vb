@@ -157,9 +157,11 @@ Class FrmPermisos
                 SelectedPermission = Permission
                 ShowPermission()
                 TxtId.IsEnabled = False
+            Else
+                MessageBox.Show("No se encontraron resultados")
             End If
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(ex.ToString)
         End Try
     End Sub
 

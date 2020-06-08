@@ -15,9 +15,9 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" CornerRadius="100" Width="100" Height="100" Margin="20,0">
+        <Border Name="ImgEmployee" Grid.Row="0" Grid.Column="0" CornerRadius="100" Width="100" Height="100" Margin="20,0">
             <Border.Background>
-                <ImageBrush ImageSource="1ad41039d17f6dd346059c822dd76e4c1555353860_full.png"/>
+                <ImageBrush ImageSource="blank-user-img.jpg"/>
             </Border.Background>
         </Border>
         <Grid Grid.Row="0" Grid.Column="1">

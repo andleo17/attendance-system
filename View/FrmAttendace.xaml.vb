@@ -136,7 +136,7 @@ Class FrmAttendace
         TPOutHour.Value = Nothing
         txtDni.IsEnabled = True
         btnSearch.IsEnabled = True
-
+        listAttendace()
     End Sub
 
     Private Sub ListaAttendace_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaAttendace.MouseDoubleClick

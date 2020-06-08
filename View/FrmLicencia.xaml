@@ -44,7 +44,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button Name="btnSave"  Height="Auto" Width="Auto" Content="REGISTRAR" Grid.Column="1" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Button Name="btnSave"  Height="Auto" Width="Auto" Content="NUEVO" Grid.Column="1" Foreground="White" FontFamily="Segoe UI Semibold"  Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FontSize="20" Padding="4,1" ClipToBounds="True" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -80,21 +80,34 @@
                     </Button.Background>
                 </Button>
             </Grid>
-            <Grid Grid.Row="3" Margin="20,0">
+            <Grid Grid.Row="3" Margin="20,0" Background="#FF292B2F" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
                 <Label Content="Documento" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <TextBox Grid.Column="1" Name="TxtPathFile" VerticalAlignment="Center" Margin="25,0,0,0" FontSize="14"/>
-                <Button Grid.Column="2" Name="btnOpenFile" Content="..." Padding="10,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0"/>
-                <Button Grid.Column="3" Name="BtnOpen" Content="Abrir" Padding="10,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Name="TxtPathFile" VerticalAlignment="Center" Margin="0,0,30,0" FontSize="14" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" Grid.ColumnSpan="5" Foreground="White"/>
+                <Button Grid.Column="6" Name="btnOpenFile" Content="..." Padding="10,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Background="{x:Null}" Foreground="#FFD5691E" BorderThickness="2" Style="{DynamicResource Rounded}" BorderBrush="#FFD5691E"/>
+                <Button Grid.Column="7" Name="BtnOpen" Content="Abrir" Padding="10,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Foreground="White" BorderBrush="{x:Null}" Margin="0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA35117" Offset="0.49"/>
+                            <GradientStop Color="#FFD5691E" Offset="0.518"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
             <Grid Grid.Row="2" Background="#FF292B2F" Margin="20">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -106,7 +119,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Fecha inicio" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <DatePicker Name="InitialDate" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}"  >
+                <DatePicker  Name="InitialDate" Grid.Column="1" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Margin="0,0,30,0" BorderBrush="{x:Null}" Cursor=""  >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -115,7 +128,7 @@
                     </DatePicker.Background>
                 </DatePicker>
                 <Label Content="Fecha fin" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
-                <DatePicker Name="FinalDate" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource Rounded}" >
+                <DatePicker Name="FinalDate" Grid.Column="3" VerticalAlignment="Center" Style="{DynamicResource Rounded}" Margin="0,0,30,0" BorderBrush="{x:Null}" >
                     <DatePicker.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -145,7 +158,7 @@
                 <Label Content="Código" Foreground="White" FontSize="16" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <TextBox  Name="txtId" IsEnabled="False" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14"  />
                 <Label Content="Tipo" Foreground="White" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
-                <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Description"  SelectedValuePath="Id" Name="CboType" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}"  >
+                <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Description"  SelectedValuePath="Id" Name="CboType" Grid.Column="3" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Margin="0,0,30,0" BorderThickness="0" Style="{DynamicResource Rounded}"  >
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFD5691E" Offset="0"/>
@@ -160,18 +173,17 @@
                 <Label Content="Empleado" Foreground="White" Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI Semibold"/>
                 <TextBox Name="txtEmpleado" Grid.Column="7" IsEnabled="False" VerticalAlignment="Center" Margin="0,0,30,0" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="14" />
             </Grid>
-            <DataGrid Grid.Row="5" Grid.Column="0" Name="ListaLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="#FFBF3838" VerticalGridLinesBrush="#FF592525">
+            <DataGrid Grid.Row="5" Grid.Column="0" Name="ListaLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" VerticalContentAlignment="Center" BorderThickness="10" BorderBrush="#FF292B2F" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" AlternatingRowBackground="#FF6E6868" RowBackground="#FF343434" HorizontalContentAlignment="Center" FontSize="14">
                 <DataGrid.Columns >
-                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="Black"/>
-                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" />
-                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" />
-                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" />
-                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}"/>
-                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}"/>
-                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" />
-                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= DocumentName}" />
+                    <DataGridTextColumn Header="Código" Width="1*"  Binding="{Binding Path=Id}" Foreground="White"/>
+                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Path= LicenseTypeId}" Foreground="White" />
+                    <DataGridTextColumn Header="Dni" Width="1*" Binding="{Binding Path=EmployeeCardId}" Foreground="White" />
+                    <DataGridTextColumn Header="Fecha presentación" Width="1*" Binding="{Binding Path=PresentationDate}" Foreground="White" />
+                    <DataGridTextColumn Header="Fecha inicio" Width="1*" Binding="{Binding Path= StartDate}" Foreground="White"/>
+                    <DataGridTextColumn Header="Fecha fin" Width="1*" Binding="{Binding Path= FinishDate}" Foreground="White"/>
+                    <DataGridTextColumn Header="Estado" Width="1*" Binding="{Binding Path= State}" Foreground="White" />
+                    <DataGridTextColumn Header="Documento" Width="1*" Binding="{Binding Path= DocumentName}" Foreground="White" />
                 </DataGrid.Columns>
-                
             </DataGrid>
 
         </Grid>

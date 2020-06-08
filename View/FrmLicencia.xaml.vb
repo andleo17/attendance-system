@@ -162,6 +162,9 @@ Class FrmLicencia
 		InitialDate.SelectedDate = Nothing
 		txtDni.IsEnabled = True
 		chkState.IsChecked = False
+		btnSearch.IsEnabled = True
+		CboType.SelectedIndex = -1
+		btnSave.Content = "NUEVO"
 	End Sub
 
 
@@ -204,7 +207,14 @@ Class FrmLicencia
 	End Sub
 
 	Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
-		SaveLicense()
+		If btnSave.Content = "REGISTRAR" Then
+			SaveLicense()
+			btnSave.Content = "NUEVO"
+		Else
+			ClearInputs()
+			btnSave.Content = "REGISTRAR"
+		End If
+
 	End Sub
 
 	Private Sub btnOpenFile_Click(sender As Object, e As RoutedEventArgs) Handles btnOpenFile.Click
@@ -238,9 +248,6 @@ Class FrmLicencia
 			File.WriteAllBytes(FullPath, SelectedLicense.Document)
 			Process.Start(FullPath)
 		End If
-    End Sub
+	End Sub
 
-    Private Sub btnOpenFile_Click(sender As Object, e As RoutedEventArgs)
-        'txtEditor.Text = FileOpen(btnOpenFile.FindName)
-    End Sub
 End Class

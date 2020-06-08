@@ -27,12 +27,31 @@ Class FrmUser
         End Try
     End Sub
 
+    Private Sub SearchEmployee(EmployeeCardId As String)
+        Try
+            Dim E = EmployeeDA.Search(EmployeeCardId)
+            If E IsNot Nothing Then
+                TxtEmployeeName.Text = E.Name & " " & E.Lastname
+            Else
+                MessageBox.Show("DNI inválido o el empleado no existe")
+                TxtEmployeeName.Text = " "
+                TxtCardId.Focus()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
     Private Sub ShowUserData(User As User)
         If User IsNot Nothing Then
             TxtCardId.Text = User.EmployeeCardId
             TxtEmployeeName.Text = User.Employee.Lastname & ", " & User.Employee.Name
             TxtName.Text = User.Name
             TxtPassword.Password = User.Password
+            TxtCardId.IsEnabled = False
+            TxtName.IsEnabled = False
+            TxtPassword.IsEnabled = False
+            TxtConfirm.IsEnabled = False
         End If
     End Sub
 
@@ -96,10 +115,24 @@ Class FrmUser
                 C.IsChecked = False
             End If
         Next
+        BtnSave.Content = "NUEVO"
+        TxtCardId.IsEnabled = True
+        TxtName.IsEnabled = True
+        TxtPassword.IsEnabled = True
+        TxtConfirm.IsEnabled = True
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As RoutedEventArgs) Handles BtnSave.Click
-        SaveUser()
+        If BtnSave.Content = "REGISTRAR" Then
+
+            SaveUser()
+            ClearInputs()
+            BtnSave.Content = "NUEVO"
+        Else
+            ClearInputs()
+            BtnSave.Content = "REGISTRAR"
+        End If
+
     End Sub
 
     Private Sub EmployeeList_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles UserList.MouseDoubleClick
@@ -112,6 +145,7 @@ Class FrmUser
 
     Private Sub TxtCardId_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyUp
         If e.Key = Key.Enter And TxtCardId.Text.Length = 8 Then
+            SearchEmployee(TxtCardId.Text)
             ShowEmployeeUsersList(EmployeeDA.Search(TxtCardId.Text))
         Else
             ShowUsersList()
@@ -120,6 +154,11 @@ Class FrmUser
     End Sub
 
     Private Sub Page_Initialized(sender As Object, e As EventArgs)
+        ShowUsersList()
+    End Sub
+
+    Private Sub BtnClean_Click(sender As Object, e As RoutedEventArgs) Handles BtnClean.Click
+        ClearInputs()
         ShowUsersList()
     End Sub
 End Class

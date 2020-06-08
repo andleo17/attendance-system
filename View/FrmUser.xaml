@@ -14,8 +14,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="0" Name="Form" Margin="20,20,0,0" >
             <Grid.RowDefinitions>
@@ -35,7 +35,7 @@
             <Label Grid.Row="0" Grid.Column="1" Content="DNI:" Foreground="White" Padding="5,5,5,6.5" FontSize="16"/>
             <TextBox Grid.Row="0" Grid.Column="2" Name="TxtCardId" Margin="0,0,0,5" MaxLength="8" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16"/>
             <Label Grid.Row="1" Grid.Column="1" Content="Empleado:" Foreground="White" FontSize="16"/>
-            <TextBox Grid.Row="1" Grid.Column="2" Name="TxtEmployeeName" Margin="0,0,0,5" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16"/>
+            <TextBox Grid.Row="1" IsEnabled="False" Grid.Column="2" Name="TxtEmployeeName" Margin="0,0,0,5" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Style="{DynamicResource Rounded}" FontSize="16"/>
             <!--<Label Grid.Row="2" Grid.Column="0" Content="Código:" Foreground="White"/>
             <TextBox Grid.Row="2" Grid.Column="1" Name="TxtId" Margin="0,0,0,5"/>-->
             <Label Grid.Row="3" Grid.Column="1" Content="Nombre:" Foreground="White" FontSize="16"/>
@@ -56,7 +56,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             
-            <Button Grid.Row="0" Content="Registrar" Name="BtnSave" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold" Style="{DynamicResource Rounded}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10,2">
+            <Button Grid.Row="0" Content="NUEVO" Name="BtnSave" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold" Style="{DynamicResource Rounded}" BorderBrush="{x:Null}" VerticalAlignment="Center" Padding="10,2">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -65,7 +65,16 @@
                 </Button.Background>
             </Button>
             <!--<Button Grid.Row="1" Content="Modificar" Name="BtnUpdate" Background="#FF7289DA" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold"/>-->
-            <Button Grid.Row="2" Content="Eliminar" Name="BtnDelete" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold" Style="{DynamicResource Rounded}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,2">
+            <Button Grid.Row="1" Content="LIMPIAR" Name="BtnClean" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Padding="10,2" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA35117" Offset="0.49"/>
+                        <GradientStop Color="#FFD5691E" Offset="0.518"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Button Grid.Row="2" Content="ELIMINAR" Name="BtnDelete" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Padding="10,2" BorderBrush="{x:Null}">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFA35117" Offset="0.49"/>
@@ -75,13 +84,13 @@
             </Button>
 
         </Grid>
-        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Name="UserList" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="#FFC3C3C3" Margin="20,19.8,20,19.6">
+        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Name="UserList" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" BorderBrush="#FF292B2F" BorderThickness="10" GridLinesVisibility="None" FontSize="14" AlternatingRowBackground="#FF6E6868" RowBackground="#FF343434">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}"/>
-                <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="Contraseña" Width="1*" Binding="{Binding Path=Password}"/>
-                <DataGridTextColumn Header="DNI" Width="1*" Binding="{Binding Path=EmployeeCardId}"/>
-                <DataGridTextColumn Header="Vigencia" Width="1*" Binding="{Binding Path=State}"/>
+                <DataGridTextColumn Header="Código" Width="1*" Binding="{Binding Path=Id}" Foreground="White"/>
+                <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Path=Name}" Foreground="White"/>
+                <DataGridTextColumn Header="Contraseña" Width="1*" Binding="{Binding Path=Password}" Foreground="White"/>
+                <DataGridTextColumn Header="DNI" Width="1*" Binding="{Binding Path=EmployeeCardId}" Foreground="White"/>
+                <DataGridTextColumn Header="Vigencia" Width="1*" Binding="{Binding Path=State}" Foreground="White"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="GESTIONAR USUARIO"  Grid.ColumnSpan="2" Background="#D5691E" FontFamily="Segoe UI Semibold" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>

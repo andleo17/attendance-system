@@ -156,7 +156,14 @@ Class FrmJustification
 	End Sub
 
 	Private Sub BtnSave_Click(sender As Object, e As RoutedEventArgs) Handles BtnSave.Click
-		JustificationSave()
+		If BtnSave.Content = "REGISTRAR" Then
+			JustificationSave()
+			ClearInputs()
+			BtnSave.Content = "NUEVO"
+		Else
+			ClearInputs()
+			BtnSave.Content = "REGISTRAR"
+		End If
 	End Sub
 
 	Private Sub JustificationList_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles JustificationList.MouseDoubleClick

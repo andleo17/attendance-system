@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Threading
-
+Imports Stimulsoft
+Imports Stimulsoft.Report
 Public Class FrmMain
     Private _User As Data.User
     Private WithEvents Timer As DispatcherTimer
@@ -123,5 +124,55 @@ Public Class FrmMain
 
     Private Sub MnuRegistrarAsistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuRegistrarAsistencias.Click
         ShowFrame(New FrmAttendaceList)
+    End Sub
+
+    Private Sub MnuTardanzas_Click(sender As Object, e As RoutedEventArgs) Handles MnuTardanzas.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\delay_report.mrt")
+        Report.Show()
+    End Sub
+
+    Private Sub MnuConsolidadoAsistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuConsolidadoAsistencias.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\consolidate_attendance_report.mrt")
+        Report.Show()
+
+    End Sub
+
+    Private Sub MnuLicencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuLicencias.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\licence_report.mrt")
+        Report.Show()
+    End Sub
+
+    Private Sub MnuLicenciasTipo_Click(sender As Object, e As RoutedEventArgs) Handles MnuLicenciasTipo.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\licence_report_group.mrt")
+        Report.Show()
+    End Sub
+
+    Private Sub MnuInasistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuInasistencias.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\non_attendance_report.mrt")
+        Report.Show()
+    End Sub
+
+    Private Sub MnuEstadisticasTardanzas_Click(sender As Object, e As RoutedEventArgs) Handles MnuEstadisticasTardanzas.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\pie_chart_ad_report.mrt")
+        Report.Show()
+    End Sub
+
+    Private Sub MnuEstadisticasInasistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuEstadisticasInasistencias.Click
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\pie_chart_af_report.mrt")
+        Report.Show()
     End Sub
 End Class

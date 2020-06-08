@@ -30,13 +30,13 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
                 <MenuItem Header="Inicio" Height="32" Click="MenuItem_Click_4" ></MenuItem>
-                <MenuItem Header="Mantenimiento" Height="32" Click="MenuItem_Click_2" Foreground="#FF8E9297" HorizontalContentAlignment="Stretch">
+                <MenuItem Header="Mantenimiento" Height="32"  Foreground="#FF8E9297" HorizontalContentAlignment="Stretch">
                     <MenuItem Header="Parámetros" Background="#FFFFBF93" Foreground="White"  BorderBrush="{x:Null}" MinWidth="32"/>
                     <MenuItem Header="Tipo de licencia" Name="MnuTipoLicencia" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" MinWidth="32"/>
                     <Separator Background="{x:Null}" Foreground="{x:Null}" BorderBrush="White"/>
                     <MenuItem Name="MnuLogout" Header="Cerrar sesión" Background="#FFFFBF93" BorderBrush="{x:Null}" MinWidth="32"/>
                 </MenuItem>
-                <MenuItem Header="Empleado" Height="32" Click="MenuItem_Click" Foreground="#FF8E9297">
+                <MenuItem Header="Empleado" Height="32"  Foreground="#FF8E9297">
                     <MenuItem Name="MnuEmployee" Header="Gestionar" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" />
                     <MenuItem Header="Contratos" Name="MnuContratos" Background="#FFFFBF93" Foreground="White" BorderBrush="{x:Null}" />
                     <Separator/>
@@ -60,6 +60,7 @@
                 <MenuItem Header="Reportes" Height="32" Foreground="#FF8E9297">
                     <MenuItem Header="Tardanzas" Name="MnuTardanzas" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Asistencias" Name="MnuConsolidadoAsistencias" Background="#FFFFBF93" Foreground="White" />
+                    <MenuItem Header="Inasistencias empleado" Name="MnuAsistenciaEmp" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Licencias" Name="MnuLicencias" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Licencias por tipo" Name="MnuLicenciasTipo" Background="#FFFFBF93" Foreground="White" />
                     <MenuItem Header="Inasistencias" Name="MnuInasistencias" Background="#FFFFBF93" Foreground="White" />

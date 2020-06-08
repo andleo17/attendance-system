@@ -1,4 +1,5 @@
-﻿Imports Data
+﻿Imports System.IO
+Imports Data
 Imports Server
 
 Class AttendaceControl
@@ -11,8 +12,28 @@ Class AttendaceControl
 		Return D.ToString("T")
 	End Function
 
+	Private Function ShowPhoto(Employee As Employee) As BitmapImage
+		Dim Path = AppDomain.CurrentDomain.BaseDirectory
+		Dim Folder = Path & "/temp/"
+		Dim FullPath = Folder & Employee.PhotoName
+
+		If Not Directory.Exists(Folder) Then
+			Directory.CreateDirectory(Folder)
+		End If
+
+		If Not File.Exists(FullPath) Then
+			File.WriteAllBytes(FullPath, Employee.Photo)
+		End If
+
+		Dim ResourceUri = New Uri(FullPath, UriKind.Absolute)
+		Return New BitmapImage(ResourceUri)
+	End Function
+
 	Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
 		SD = DataContext
+		If SD.Schedule.Employee.Photo IsNot Nothing Then
+			ImgEmployee.Background = New ImageBrush(ShowPhoto(SD.Schedule.Employee))
+		End If
 		TxtInHour.Content = Format(SD.InHour)
 		TxtOutHour.Content = Format(SD.OutHour)
 		Try
@@ -45,7 +66,7 @@ Class AttendaceControl
 		' Comparar si llegó tarde
 		Dim Ahorita = Now.TimeOfDay
 		Dim Tolerance = TimeSpan.FromMinutes(10)
-		If SD.OutHour > Ahorita Or AttendanceToday Is Nothing Then
+		If SD.OutHour < Ahorita Or AttendanceToday Is Nothing Then
 			If Ahorita >= SD.InHour.Subtract(Tolerance) Then
 				TxtInHour.Content = Format(Ahorita)
 				If Ahorita <= SD.InHour.Add(Tolerance) Then

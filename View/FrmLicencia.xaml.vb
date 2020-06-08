@@ -240,7 +240,7 @@ Class FrmLicencia
 		End If
     End Sub
 
-    Private Sub btnOpenFile_Click(sender As Object, e As RoutedEventArgs)
-        'txtEditor.Text = FileOpen(btnOpenFile.FindName)
-    End Sub
+	'Private Sub btnOpenFile_Click(sender As Object, e As RoutedEventArgs)
+	'    'txtEditor.Text = FileOpen(btnOpenFile.FindName)
+	'End Sub
 End Class

@@ -12,14 +12,15 @@ Class FrmJustification
 					Dim Emp = New Employee
 					Emp.CardId = A.EmployeeCardId
 					Emp = EmployeeDA.Search(Emp)
-					MessageBox.Show("Empleado: " & Emp.Name & " " & Emp.Lastname)
+					TxtEmpleado.Text = Emp.Name & " " & Emp.Lastname
+					'MessageBox.Show("Empleado: " & Emp.Name & " " & Emp.Lastname)
 					TxtAttendanceId.Text = A.Id
 				Next
 			Else
 				MessageBox.Show("No se puede registrar justificación para la tardanza indicada")
 			End If
 		Catch ex As Exception
-			MessageBox.Show(ex.ToString)
+			MessageBox.Show("Ingrese a fecha")
 		End Try
 	End Sub
 
@@ -80,6 +81,7 @@ Class FrmJustification
 			ChkState.IsChecked = SelectedJustification.State
 			TxtMotive.Text = SelectedJustification.Motive
 			TxtFecha.Text = SelectedJustification.Date
+			TxtEmpleado.Text = SelectedJustification.Attendance.Employee.Name & " " & SelectedJustification.Attendance.Employee.Lastname
 			JustificationList.SelectedValue = Nothing
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
@@ -95,7 +97,9 @@ Class FrmJustification
 		ChkState.IsChecked = True
 		TxtId.Text = Nothing
 		TxtMotive.Text = Nothing
+		TxtEmpleado.Text = Nothing
 		TxtId.IsEnabled = True
+		ShowJustificationList()
 	End Sub
 
 	Private Sub DeleteJustification()
@@ -126,9 +130,11 @@ Class FrmJustification
 				SelectedJustification = Justification
 				ShowJustification()
 				TxtId.IsEnabled = False
+			Else
+				MessageBox.Show("No se encontraron resultados")
 			End If
 		Catch ex As Exception
-			Throw ex
+			MessageBox.Show(ex.ToString)
 		End Try
 	End Sub
 
@@ -153,6 +159,7 @@ Class FrmJustification
 		TxtFecha.Text = Date.Now.Date
 		TxtFecha.IsEnabled = False
 		ChkState.IsChecked = True
+		TxtEmpleado.IsEnabled = False
 	End Sub
 
 	Private Sub BtnSave_Click(sender As Object, e As RoutedEventArgs) Handles BtnSave.Click
@@ -160,6 +167,7 @@ Class FrmJustification
 	End Sub
 
 	Private Sub JustificationList_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles JustificationList.MouseDoubleClick
+		TxtId.IsEnabled = False
 		ShowJustification()
 	End Sub
 
@@ -181,5 +189,15 @@ Class FrmJustification
 
 	Private Sub btnUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnUpdate.Click
 		UpdateJustification()
+	End Sub
+
+	Private Sub TxtCardId_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtCardId.KeyDown
+		If e.Key.Equals(Key.Enter) Then
+			If TxtCardId.Text.Length = 8 Then
+				SearchAttendance()
+			Else
+				MessageBox.Show("Ingrese DNI")
+			End If
+		End If
 	End Sub
 End Class

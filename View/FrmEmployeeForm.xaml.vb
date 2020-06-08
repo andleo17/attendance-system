@@ -1,4 +1,6 @@
-﻿Imports Data
+﻿Imports System.IO
+Imports Data
+Imports Microsoft.Win32
 Imports Server
 
 Class FrmEmployeeForm
@@ -6,7 +8,7 @@ Class FrmEmployeeForm
 	Public Property Mode As Integer
 	Private Property Contract As Contract
 	Private Property Schedule As Schedule
-
+	Dim OpenFileDialog As OpenFileDialog
 	Private Sub Back()
 		NavigationService.GetNavigationService(Me).GoBack()
 	End Sub
@@ -44,6 +46,23 @@ Class FrmEmployeeForm
 		Next
 	End Sub
 
+	Private Function ShowPhoto(Employee As Employee) As BitmapImage
+		Dim Path = AppDomain.CurrentDomain.BaseDirectory
+		Dim Folder = Path & "/temp/"
+		Dim FullPath = Folder & Employee.PhotoName
+
+		If Not Directory.Exists(Folder) Then
+			Directory.CreateDirectory(Folder)
+		End If
+
+		If Not File.Exists(FullPath) Then
+			File.WriteAllBytes(FullPath, Employee.Photo)
+		End If
+
+		Dim ResourceUri = New Uri(FullPath, UriKind.Absolute)
+		Return New BitmapImage(ResourceUri)
+	End Function
+
 	Private Sub DisableFields()
 		TxtCardId.IsEnabled = False
 		If Mode.Equals(2) Then
@@ -80,6 +99,14 @@ Class FrmEmployeeForm
 		Employee.Phone = TxtPhone.Text
 		Employee.Email = TxtEmail.Text
 		Employee.BirthDate = DpkBirthDate.SelectedDate
+		If OpenFileDialog.FileName <> "" Then
+			Dim Stream = OpenFileDialog.OpenFile
+			Using MS = New MemoryStream
+				Stream.CopyTo(MS)
+				Employee.Photo = MS.ToArray
+				Employee.PhotoName = Employee.CardId & OpenFileDialog.SafeFileName
+			End Using
+		End If
 		Return Employee
 	End Function
 
@@ -94,6 +121,9 @@ Class FrmEmployeeForm
 		CboGenre.SelectedValue = SelectedEmployee.Genre
 		ChkState.IsChecked = SelectedEmployee.State
 		DpkBirthDate.SelectedDate = SelectedEmployee.BirthDate
+		If SelectedEmployee.Photo IsNot Nothing Then
+			ImgPhoto.Source = ShowPhoto(SelectedEmployee)
+		End If
 	End Sub
 
 	Private Function SetContractData(Contract As Contract) As Contract
@@ -235,10 +265,14 @@ Class FrmEmployeeForm
 	End Sub
 
 	Private Sub UpdateEmployee()
-		SelectedEmployee = SetEmployeeData(SelectedEmployee)
-		EmployeeDA.Update(SelectedEmployee)
-		MessageBox.Show("Datos actualizados correctamente")
-		Back()
+		Try
+			SelectedEmployee = SetEmployeeData(SelectedEmployee)
+			EmployeeDA.Update(SelectedEmployee)
+			MessageBox.Show("Datos actualizados correctamente")
+			Back()
+		Catch ex As Exception
+			MessageBox.Show("Error al actualizar")
+		End Try
 	End Sub
 
 	Private Sub Button_Click(sender As Object, e As RoutedEventArgs) Handles Button.Click
@@ -312,5 +346,21 @@ Class FrmEmployeeForm
 
 	Private Sub BtnDeleteScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnDeleteScheduleDetail.Click
 		DeleteScheduleDetail()
+	End Sub
+
+	Private Sub ImgPhoto_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ImgPhoto.MouseLeftButtonDown
+		If Mode <> 2 Then
+			OpenFileDialog = New OpenFileDialog With {
+				.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+				.Filter = "Imágenes|*.jpg;*.gif;*.png;",
+				.FilterIndex = 1,
+				.RestoreDirectory = True
+			}
+
+			If (OpenFileDialog.ShowDialog() = True) Then
+				Dim Uri = New Uri(OpenFileDialog.FileName)
+				ImgPhoto.Source = New BitmapImage(Uri)
+			End If
+		End If
 	End Sub
 End Class

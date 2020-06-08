@@ -5,7 +5,7 @@
     <Databases isList="true" count="1">
       <Attendance_USAT Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>Attendance_USAT</Alias>
-        <ConnectionStringEncrypted>9BDZ60Zfk51iSaXcYwApO9FaaStOGHtZ4Vgl8eoY4UbVeGUpzVtD7W9N/dxNKGJ70VTNC0ZZy5XsRrWY5IRgT9VszS1NVdPN4lzZ2E1x6y/leM/jxgXDlUUTbZhpdOc/31TbiGIYkglrRgH4wwRhKt5w2etPXHvtalrR8WHE6zvxcPsrRkxLUWAZ2Q==</ConnectionStringEncrypted>
+        <ConnectionStringEncrypted>9NDZCU5Kq8hiE+3E6VygTsQw+yNHUfO8bAa9zE9w4WfdevXr3WzC8WwehIBJBKKP3MCRbd1nech0XO2ccwmkd4J0z+lQXfO8yxONzMMUIhfCdPvjxUGriG9sYdjpiC9e48ix48ZxQ81vafXM7wllXoV4tcvGFkvdaX157GiEYo/FbtnCzUoime1J4VhNXGA/hiD7iEZ6w9lpRLns6WyxP9Vsz2nXA6tNa0a5mHxMsWfR2vk=</ConnectionStringEncrypted>
         <Key>9fd73349e0ea45c89f99cf86eef44778</Key>
         <Name>Attendance_USAT</Name>
       </Attendance_USAT>
@@ -485,6 +485,7 @@
               <Border>Top, Bottom;[150:106:70];1;None;False;4;Black;True</Border>
               <Brush>Transparent</Brush>
               <Checked>{License.State}</Checked>
+              <CheckStyleForFalse>Cross</CheckStyleForFalse>
               <ClientRectangle>16,0,2.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <ContourColor>Black</ContourColor>
@@ -571,10 +572,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/6/2020 6:03:01 PM</ReportChanged>
+  <ReportChanged>6/8/2020 5:05:38 PM</ReportChanged>
   <ReportCreated>6/5/2020 11:13:35 PM</ReportCreated>
-  <ReportFile>C:\Users\ASUS\Desktop\USAT\CICLOS\7.° CICLO\SISTEMAS DISTRIBUIDOS DEL CASTILLO CASTRO, CONSUELO IVONNE\UNIDAD I\attendance-system\View\reports\licence_report_group.mrt</ReportFile>
-  <ReportGuid>1235bd75711c48ba929b738841da5da6</ReportGuid>
+  <ReportFile>C:\Users\USUARIO\Documents\GitHub\attendance-system\View\reports\licence_report_group.mrt</ReportFile>
+  <ReportGuid>872cbca007d74c06a56d493856e87aff</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2020.2.3.0</ReportVersion>

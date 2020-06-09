@@ -336,15 +336,27 @@ Class FrmHorario
 	End Sub
 
 	Private Sub BtnAddDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnAddDetail.Click
-		AddScheduleDetail()
+		If DgdSchedule.SelectedCells.Count > 0 Then
+			AddScheduleDetail()
+		Else
+			MessageBox.Show("Por favor seleccione celdas.")
+		End If
 	End Sub
 
 	Private Sub BtnModifyDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnModifyDetail.Click
-		ModifyScheduleDetail()
+		If DgdSchedule.SelectedCells.Count > 0 Then
+			ModifyScheduleDetail()
+		Else
+			MessageBox.Show("Por favor seleccione celdas.")
+		End If
 	End Sub
 
 	Private Sub BtnDeleteDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnDeleteDetail.Click
-		DeleteScheduleDetail()
+		If DgdSchedule.SelectedCells.Count > 0 Then
+			DeleteScheduleDetail()
+		Else
+			MessageBox.Show("Por favor seleccione celdas.")
+		End If
 	End Sub
 
 	Private Sub ListaHorario_MouseDoubleClick(sender As Object, e As MouseButtonEventArgs) Handles ListaHorario.MouseDoubleClick

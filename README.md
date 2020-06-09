@@ -6,3 +6,9 @@ Para ingresar al sistema:
   - **Contraseña**: `admin`
 
 *Si no funciona, recompilar la solución.*
+
+## Integrantes:
+
+ - Baldárrago Gastulo, Andrés
+ - Cieza Bances, Paola
+ - Luján Piscoya, Jesús

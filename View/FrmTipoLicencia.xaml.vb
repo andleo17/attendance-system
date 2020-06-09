@@ -94,6 +94,7 @@ Class FrmTipoLicencia
         txtDescripcion.Text = Nothing
         txtDias.Text = Nothing
         btnSearch.IsEnabled = True
+        btnSave.IsEnabled = True
     End Sub
 
     Private Sub SearchLicenseType(LicenseType As LicenseType)
@@ -105,6 +106,7 @@ Class FrmTipoLicencia
                 SelectedLicenseType = LicenseType
                 ShowLicenseType()
                 txtCodigo.IsEnabled = False
+                btnSave.IsEnabled = False
             End If
         Catch ex As Exception
             Throw ex

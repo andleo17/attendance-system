@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <Border Name="ImgEmployee" Grid.Row="0" Grid.Column="0" CornerRadius="100" Width="100" Height="100" Margin="20,0">
             <Border.Background>
-                <ImageBrush ImageSource="blank-user-img.jpg"/>
+                <ImageBrush ImageSource="blank-user-img.jpg" Stretch="UniformToFill"/>
             </Border.Background>
         </Border>
         <Grid Grid.Row="0" Grid.Column="1">

@@ -99,13 +99,15 @@ Class FrmEmployeeForm
 		Employee.Phone = TxtPhone.Text
 		Employee.Email = TxtEmail.Text
 		Employee.BirthDate = DpkBirthDate.SelectedDate
-		If OpenFileDialog.FileName <> "" Then
-			Dim Stream = OpenFileDialog.OpenFile
-			Using MS = New MemoryStream
-				Stream.CopyTo(MS)
-				Employee.Photo = MS.ToArray
-				Employee.PhotoName = Employee.CardId & OpenFileDialog.SafeFileName
-			End Using
+		If OpenFileDialog IsNot Nothing Then
+			If OpenFileDialog.FileName <> "" Then
+				Dim Stream = OpenFileDialog.OpenFile
+				Using MS = New MemoryStream
+					Stream.CopyTo(MS)
+					Employee.Photo = MS.ToArray
+					Employee.PhotoName = Employee.CardId & OpenFileDialog.SafeFileName
+				End Using
+			End If
 		End If
 		Return Employee
 	End Function

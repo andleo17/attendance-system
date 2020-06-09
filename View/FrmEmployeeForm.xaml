@@ -42,7 +42,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Content="DNI:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,55,0,0"/>
-                <TextBox Grid.Column="1" Name="TxtCardId" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Margin="0,40,30,0" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Background="{x:Null}" Foreground="White"/>
+                <TextBox MaxLength="8" Grid.Column="1" Name="TxtCardId" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Margin="0,40,30,0" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Background="{x:Null}" Foreground="White"/>
                 <Label Grid.Row="1" Content="Nombres:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
                 <TextBox Grid.Row="1" Name="TxtName" Style="{DynamicResource Rounded}" Grid.Column="1" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" Margin="0,0,30,0" VerticalAlignment="Center" BorderThickness="5,1,1,5"/>
                 <Label Grid.Row="2" Content="Apellidos:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
@@ -106,7 +106,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Image Name="ImgPhoto" Source="blank-user-img.jpg" Grid.Row="0" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                    <Image Name="ImgPhoto" Source="blank-user-img.jpg" Grid.Row="0" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Stretch="UniformToFill"/>
                     <CheckBox Grid.Row="1" Content="Vigente" Name="ChkState" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="2" Style="{DynamicResource Rounded}" Margin="0,0,0,10"/>
                 </Grid>
                 <Grid Grid.Row="1">

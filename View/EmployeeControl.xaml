@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <Border Name="ImgEmployee" Grid.Row="0" Grid.Column="0" CornerRadius="100" Width="100" Height="100" Margin="20,0">
             <Border.Background>
-                <ImageBrush ImageSource="blank-user-img.jpg"/>
+                <ImageBrush ImageSource="blank-user-img.jpg" Stretch="UniformToFill"/>
             </Border.Background>
         </Border>
         <Grid Grid.Row="0" Grid.Column="1">
@@ -50,7 +50,7 @@
             <Label Grid.Row="3" Grid.Column="0" Content="Email:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
             <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=Email}" VerticalContentAlignment="Center" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" VerticalAlignment="Center" Margin="0,0,200,10" BorderBrush="#FFD5691E"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Estado:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=State}" VerticalContentAlignment="Center" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" VerticalAlignment="Center" Margin="0,0,200,10" BorderBrush="#FFD5691E"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=State}" VerticalContentAlignment="Center" Foreground="White" FontSize="14" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" VerticalAlignment="Center" Margin="0,0,200,10" BorderBrush="#FFD5691E" Name="TxtState"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Estado:" FontFamily="Segoe UI Semibold" VerticalContentAlignment="Center" Foreground="{x:Null}" FontSize="14"/>
 
         </Grid>

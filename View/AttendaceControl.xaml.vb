@@ -31,6 +31,7 @@ Class AttendaceControl
 
 	Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
 		SD = DataContext
+		Dim Tolerance = TimeSpan.FromMinutes(10)
 		If SD.Schedule.Employee.Photo IsNot Nothing Then
 			ImgEmployee.Background = New ImageBrush(ShowPhoto(SD.Schedule.Employee))
 		End If
@@ -50,11 +51,11 @@ Class AttendaceControl
 			TxtInHour.Foreground = New SolidColorBrush(Colors.Gray)
 			TxtOutHour.Foreground = New SolidColorBrush(Colors.Gray)
 		Else
-			If AttendanceToday.InHour > SD.InHour Then
+			If AttendanceToday.InHour > SD.InHour.Add(Tolerance) Then
 				TxtInHour.Foreground = New SolidColorBrush(Colors.Crimson)
 			End If
 			If AttendanceToday.OutHour IsNot Nothing Then
-				If AttendanceToday.OutHour < SD.OutHour Then
+				If AttendanceToday.OutHour < SD.OutHour.Subtract(Tolerance) Then
 					TxtOutHour.Foreground = New SolidColorBrush(Colors.Crimson)
 				End If
 			End If
@@ -78,6 +79,7 @@ Class AttendaceControl
 							A.EmployeeCardId = TxtDni.Content
 							A.Date = Date.Now.Date
 							AttendanceDA.Save(A)
+							AttendanceToday = A
 							Flag = True
 						Catch ex As Exception
 						End Try
@@ -89,6 +91,7 @@ Class AttendaceControl
 							A.EmployeeCardId = TxtDni.Content
 							A.Date = Date.Now.Date
 							AttendanceDA.Save(A)
+							AttendanceToday = A
 							Flag = True
 						Catch ex As Exception
 						End Try
@@ -101,18 +104,20 @@ Class AttendaceControl
 	Private Sub BtnModify_Click(sender As Object, e As RoutedEventArgs) Handles BtnModify.Click
 		'Actualizar asistencia
 		If Flag Then
-			Dim Ahorita = Now.TimeOfDay
-			Dim Tolerance = TimeSpan.FromMinutes(10)
-			TxtOutHour.Foreground = New SolidColorBrush(Colors.White)
-			If Ahorita >= SD.OutHour.Add(Tolerance) Then
-				TxtOutHour.FontFamily = New FontFamily("Segoe UI Semibold")
-			ElseIf Ahorita <= SD.OutHour.Subtract(Tolerance) Then
-				TxtOutHour.Foreground = New SolidColorBrush(Colors.Crimson)
+			If AttendanceToday.OutHour Is Nothing Then
+				Dim Ahorita = Now.TimeOfDay
+				Dim Tolerance = TimeSpan.FromMinutes(10)
+				TxtOutHour.Foreground = New SolidColorBrush(Colors.White)
+				If Ahorita >= SD.OutHour.Add(Tolerance) Then
+					TxtOutHour.FontFamily = New FontFamily("Segoe UI Semibold")
+				ElseIf Ahorita <= SD.OutHour.Subtract(Tolerance) Then
+					TxtOutHour.Foreground = New SolidColorBrush(Colors.Crimson)
+				End If
+				TxtOutHour.Content = Format(Ahorita)
+				AttendanceToday.OutHour = Ahorita
+				AttendanceDA.Update(AttendanceToday)
+				Flag = False
 			End If
-			TxtOutHour.Content = Format(Ahorita)
-			AttendanceToday.OutHour = Ahorita
-			AttendanceDA.Update(AttendanceToday)
-			Flag = False
 		End If
 
 	End Sub

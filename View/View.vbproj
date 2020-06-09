@@ -193,9 +193,6 @@
     <Compile Include="FrmAttendaceList.xaml.vb">
       <DependentUpon>FrmAttendaceList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsultaAsistenciaMes.xaml.vb">
-      <DependentUpon>FrmConsultaAsistenciaMes.xaml</DependentUpon>
-    </Compile>
     <Compile Include="FrmContrato.xaml.vb">
       <DependentUpon>FrmContrato.xaml</DependentUpon>
     </Compile>
@@ -208,10 +205,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FrmAttendaceList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FrmConsultaAsistenciaMes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,10 +280,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FrmPago.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="FrmPermisos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -334,9 +323,6 @@
   <ItemGroup>
     <Compile Include="FrmMain.xaml.vb">
       <DependentUpon>FrmMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPago.xaml.vb">
-      <DependentUpon>FrmPago.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmPermisos.xaml.vb">
       <DependentUpon>FrmPermisos.xaml</DependentUpon>

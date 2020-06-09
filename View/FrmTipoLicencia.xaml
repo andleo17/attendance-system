@@ -103,9 +103,9 @@
         </Grid>
         <DataGrid Grid.Row="3" Grid.Column="0" Name="ListaTipoLicencia" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}" Margin="20,19.8,20,19.6" BorderBrush="#FF292B2F" FontSize="14" BorderThickness="10" GridLinesVisibility="None" RowBackground="#FF343434" AlternatingRowBackground="#FF6E6868">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Binding="{Binding Path=Id}" Width="1*" />
-                <DataGridTextColumn Header="Descripción"  Binding="{Binding Path=Description}" Width="1*" />
-                <DataGridTextColumn Header="Días" Binding="{Binding Path=MaximumDays}"  Width="1*" />
+                <DataGridTextColumn Foreground="White" Header="Código" Binding="{Binding Path=Id}" Width="1*" />
+                <DataGridTextColumn Foreground="White" Header="Descripción"  Binding="{Binding Path=Description}" Width="1*" />
+                <DataGridTextColumn Foreground="White" Header="Días" Binding="{Binding Path=MaximumDays}"  Width="1*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

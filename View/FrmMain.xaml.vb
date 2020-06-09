@@ -49,21 +49,29 @@ Public Class FrmMain
         _User = FrmLogin.User
         If _User IsNot Nothing Then
             ShowUserData()
+            Show()
         Else
             Windows.Application.Current.Shutdown()
         End If
     End Sub
 
     Private Sub ShowUserData()
+        If _User.Employee.Photo IsNot Nothing Then
+            ImgEmployee.Background = New ImageBrush(ShowPhoto(_User.Employee)) With {
+                .Stretch = Stretch.UniformToFill
+            }
+        End If
         LblEmployee.Content = _User.Employee.Name + " " + _User.Employee.Lastname
     End Sub
 
     Private Sub ClearUserData()
+        FrmContent.Content = Nothing
         LblEmployee.Content = Nothing
     End Sub
 
     Private Sub Logout()
         ClearUserData()
+        Hide()
         ShowLoginForm()
     End Sub
 
@@ -114,10 +122,6 @@ Public Class FrmMain
     Private Sub Window_Initialized(sender As Object, e As EventArgs)
         InitClock()
         ShowLoginForm()
-    End Sub
-
-    Private Sub FrmConsultaAsistenciaMes_Click(sender As Object, e As RoutedEventArgs) Handles FrmConsultaAsistenciaMes.Click
-        ShowFrame(New FrmConsultaAsistenciaMes)
     End Sub
 
     Private Sub MenuItem_Click_3(sender As Object, e As RoutedEventArgs)
@@ -181,17 +185,13 @@ Public Class FrmMain
     '       Report.Show()
     '   End Sub
     Private Sub MnuEstadisticasInasistencias_Click(sender As Object, e As RoutedEventArgs) Handles MnuEstadisticasInasistencias.Click
-		Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
-		Dim Report = New StiReport()
-		Report.Load(ruta(0) & "reports\pie_chart_af_report.mrt")
-		Report.Show()
-	End Sub
+        Dim ruta() = Split(My.Computer.FileSystem.CurrentDirectory, "bin\", 2)
+        Dim Report = New StiReport()
+        Report.Load(ruta(0) & "reports\pie_chart_af_report.mrt")
+        Report.Show()
+    End Sub
 
-	Private Sub MnuPagos_Click(sender As Object, e As RoutedEventArgs) Handles MnuPagos.Click
-		ShowFrame(New FrmPago)
-	End Sub
-
-	Private Sub MenuItem_Click_4(sender As Object, e As RoutedEventArgs)
+    Private Sub MenuItem_Click_4(sender As Object, e As RoutedEventArgs)
 		'ShowFrame(New FrmMain)
 	End Sub
 

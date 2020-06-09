@@ -55,7 +55,10 @@ Public Class EmployeeControl
 
 	Private Sub UserControl_Loaded(sender As Object, e As EventArgs)
 		If DataContext.Photo IsNot Nothing Then
-			ImgEmployee.Background = New ImageBrush(ShowPhoto(DataContext))
+			ImgEmployee.Background = New ImageBrush(ShowPhoto(DataContext)) With {
+				.Stretch = Stretch.UniformToFill
+			}
 		End If
+		TxtState.Content = If(DataContext.State, "Vigente", "No vigente")
 	End Sub
 End Class

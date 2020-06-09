@@ -33,7 +33,9 @@ Class AttendaceControl
 		SD = DataContext
 		Dim Tolerance = TimeSpan.FromMinutes(10)
 		If SD.Schedule.Employee.Photo IsNot Nothing Then
-			ImgEmployee.Background = New ImageBrush(ShowPhoto(SD.Schedule.Employee))
+			ImgEmployee.Background = New ImageBrush(ShowPhoto(SD.Schedule.Employee)) With {
+				.Stretch = Stretch.UniformToFill
+			}
 		End If
 		TxtInHour.Content = Format(SD.InHour)
 		TxtOutHour.Content = Format(SD.OutHour)

@@ -262,7 +262,7 @@ Class FrmEmployeeForm
 			MessageBox.Show("Empleado agregado correctamente")
 			Back()
 		Catch ex As Exception
-			MessageBox.Show(ex.Message)
+			MessageBox.Show("Error al registrar")
 		End Try
 	End Sub
 
@@ -317,7 +317,11 @@ Class FrmEmployeeForm
 	End Sub
 
 	Private Sub BtnAddScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnAddScheduleDetail.Click
-		AddScheduleDetail()
+		If DgdSchedule.SelectedCells.Count > 0 Then
+			AddScheduleDetail()
+		Else
+			MessageBox.Show("Por favor seleccione celdas.")
+		End If
 	End Sub
 
 	Private Sub Page_Initialized(sender As Object, e As EventArgs)
@@ -343,11 +347,19 @@ Class FrmEmployeeForm
 	End Sub
 
 	Private Sub BtnModifyScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnModifyScheduleDetail.Click
-		ModifyScheduleDetail()
+		If DgdSchedule.SelectedCells.Count > 0 Then
+			ModifyScheduleDetail()
+		Else
+			MessageBox.Show("Por favor seleccione celdas.")
+		End If
 	End Sub
 
 	Private Sub BtnDeleteScheduleDetail_Click(sender As Object, e As RoutedEventArgs) Handles BtnDeleteScheduleDetail.Click
-		DeleteScheduleDetail()
+		If DgdSchedule.SelectedCells.Count > 0 Then
+			DeleteScheduleDetail()
+		Else
+			MessageBox.Show("Por favor seleccione celdas.")
+		End If
 	End Sub
 
 	Private Sub ImgPhoto_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ImgPhoto.MouseLeftButtonDown

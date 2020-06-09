@@ -44,13 +44,13 @@
                 <Label Content="DNI:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,55,0,0"/>
                 <TextBox MaxLength="8" Grid.Column="1" Name="TxtCardId" Style="{DynamicResource Rounded}" VerticalAlignment="Center" Margin="0,40,30,0" BorderBrush="#FFD5691E" BorderThickness="5,1,1,5" Background="{x:Null}" Foreground="White"/>
                 <Label Grid.Row="1" Content="Nombres:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                <TextBox Grid.Row="1" Name="TxtName" Style="{DynamicResource Rounded}" Grid.Column="1" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" Margin="0,0,30,0" VerticalAlignment="Center" BorderThickness="5,1,1,5"/>
+                <TextBox MaxLength="30" Grid.Row="1" Name="TxtName" Style="{DynamicResource Rounded}" Grid.Column="1" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" Margin="0,0,30,0" VerticalAlignment="Center" BorderThickness="5,1,1,5"/>
                 <Label Grid.Row="2" Content="Apellidos:" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                <TextBox Grid.Row="2" Name="TxtLastname" Style="{DynamicResource Rounded}" Grid.Column="1" BorderThickness="5,1,1,5" Foreground="White" BorderBrush="#FFD5691E" SelectionBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Center" Margin="0,0,30,0"/>
+                <TextBox MaxLength="60" Grid.Row="2" Name="TxtLastname" Style="{DynamicResource Rounded}" Grid.Column="1" BorderThickness="5,1,1,5" Foreground="White" BorderBrush="#FFD5691E" SelectionBrush="{x:Null}" Background="{x:Null}" VerticalAlignment="Center" Margin="0,0,30,0"/>
                 <Label Grid.Column="0" Grid.Row="3" Content="Correo:" Foreground="White" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                <TextBox Grid.Column="1" Grid.Row="3" Name="TxtEmail" Style="{DynamicResource Rounded}" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5"/>
+                <TextBox MaxLength="50" Grid.Column="1" Grid.Row="3" Name="TxtEmail" Style="{DynamicResource Rounded}" Background="{x:Null}" Foreground="White" BorderBrush="#FFD5691E" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5"/>
                 <Label Grid.Row="4" Grid.Column="0" Content="Teléfono:" Foreground="White" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Name="TxtPhone" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" Background="{x:Null}" BorderBrush="#FFD5691E" VerticalAlignment="Center" Margin="0,0,30,0" Foreground="White"/>
+                <TextBox MaxLength="13" Grid.Row="4" Grid.Column="1" Name="TxtPhone" Style="{DynamicResource Rounded}" BorderThickness="5,1,1,5" Background="{x:Null}" BorderBrush="#FFD5691E" VerticalAlignment="Center" Margin="0,0,30,0" Foreground="White"/>
                 <Label Grid.Row="5" Content="ddsfs" Grid.ColumnSpan="2" Foreground="{x:Null}"/>
                 <Button Grid.Row="6" Content="Ver detalles" Name="BtnContractDetails" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,30,0" FontSize="16" Style="{DynamicResource Rounded}" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <Button.Background>
@@ -107,7 +107,7 @@
                     </Grid.RowDefinitions>
 
                     <Image Name="ImgPhoto" Source="blank-user-img.jpg" Grid.Row="0" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Stretch="UniformToFill" Cursor="Hand"/>
-                    <CheckBox Grid.Row="1" Content="Vigente" Name="ChkState" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="2" Style="{DynamicResource Rounded}" Margin="0,0,0,10"/>
+                    <CheckBox Grid.Row="1" Content="Vigente" Name="ChkState" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="#FFD5691E" BorderThickness="2" Style="{DynamicResource Rounded}" Margin="0,0,0,10" IsEnabled="False"/>
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -142,9 +142,9 @@
                         <ComboBoxItem Tag="O" Content="Otros"/>
                     </ComboBox>
                     <Label Grid.Row="2" Content="Dirección:" Foreground="White" Margin="20,0,0,0" HorizontalAlignment="Left"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Name="TxtAddress" Style="{DynamicResource Rounded}" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5"/>
-                    <Label Grid.Row="3" Content="Contrato" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0" HorizontalContentAlignment="Center"/>
-                    <CheckBox Grid.Row="3" Grid.Column="1" Content="Vigencia" Name="chkContract" Foreground="White" VerticalContentAlignment="Center"/>
+                    <TextBox MaxLength="50" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Name="TxtAddress" Style="{DynamicResource Rounded}" Background="{x:Null}" BorderBrush="#FFD5691E" Foreground="White" VerticalAlignment="Center" Margin="0,0,30,0" BorderThickness="5,1,1,5"/>
+                    <Label Grid.Row="3" Content="Contrato" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0" HorizontalContentAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold"/>
+                    <CheckBox Grid.Row="3" Grid.Column="1" Content="Vigencia" Name="chkContract" Foreground="White" VerticalContentAlignment="Center" IsEnabled="False"/>
                     <Label Grid.Row="4" Content="Fecha inicial" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0"/>
                     <DatePicker Grid.Row="4" Grid.Column="1" Name="DpkContractInitialDate" BorderBrush="{x:Null}" Margin="0,0,30,0">
                         <DatePicker.Background>
@@ -163,8 +163,8 @@
                             </LinearGradientBrush>
                         </DatePicker.Background>
                     </DatePicker>
-                    <Label Grid.Row="6" Content="Horario" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0" HorizontalContentAlignment="Center"/>
-                    <CheckBox  Grid.Row="6" Grid.Column="1" Content="Vigencia" Name="ChkSchedule" Foreground="White" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="6" Content="Horario" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0" HorizontalContentAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold"/>
+                    <CheckBox  Grid.Row="6" Grid.Column="1" Content="Vigencia" Name="ChkSchedule" Foreground="White" VerticalContentAlignment="Center" IsEnabled="False"/>
                     <Label Grid.Row="7" Content="Fecha inicial" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0"/>
                     <DatePicker Grid.Row="7" Grid.Column="1" Name="DpkScheduleInitialDate" BorderBrush="{x:Null}" Margin="0,0,30,0">
                         <DatePicker.Background>
